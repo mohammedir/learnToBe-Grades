@@ -1,0 +1,7834 @@
+{
+"grades": [
+"بستان",
+"تمهيدي",
+"الصف الأول",
+"الصف الثاني",
+"الصف الثالث",
+"الصف الرابع",
+"الصف الخامس",
+"الصف السادس",
+"الصف السابع",
+"الصف الثامن",
+"الصف التاسع",
+"الصف العاشر",
+"الحادي عشر أدبي",
+"الحادي عشر علمي",
+"توجيهي أدبي",
+"توجيهي علمي"
+],
+"students": [
+{
+"grade": "بستان",
+"name": "إبراهيم أسامة إبراهيم بردع",
+"gender": "male",
+"national_id": "444243091",
+"birth_date": "2022-12-17",
+"phone": "0595815983",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "إبراهيم ثائر عبدالناصر الصفدي",
+"gender": "male",
+"national_id": "444063382",
+"birth_date": "2022-09-07",
+"phone": "0567006015",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "ابي عبدالحليم مدوخ",
+"gender": "male",
+"national_id": "444225767",
+"birth_date": "2022-10-28",
+"phone": "0592567205",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "امير احمد طلعت عطالله",
+"gender": "male",
+"national_id": null,
+"birth_date": "2022-03-01",
+"phone": "0592159657",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "امير باهر علاء حرز",
+"gender": "male",
+"national_id": "445683212",
+"birth_date": "2022-06-08",
+"phone": "0598395712",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "أنور علاء أنور اهل",
+"gender": "male",
+"national_id": "445496086",
+"birth_date": "2022-07-10",
+"phone": "0595383090",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "زين احمد مدحت الزرد",
+"gender": "male",
+"national_id": "444224158",
+"birth_date": "2022-05-13",
+"phone": "0568499974",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "صالح يحيي محمد البرش",
+"gender": "male",
+"national_id": "444301865",
+"birth_date": "2022-08-23",
+"phone": "0592601494",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "عمر محمد رغدان المغربي",
+"gender": "male",
+"national_id": "458503018",
+"birth_date": "2021-12-05",
+"phone": "0592391795",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "عميد معتصم عدنان قدورة",
+"gender": "male",
+"national_id": "445739485",
+"birth_date": "2022-07-29",
+"phone": "0594015086",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "مجد محمد توفيق عجور",
+"gender": "male",
+"national_id": "445731938",
+"birth_date": "2022-04-29",
+"phone": "0599680995",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "محمد أنور زكريا الصوير",
+"gender": "male",
+"national_id": "444271357",
+"birth_date": "2022-08-26",
+"phone": "0592715970",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "مؤمن محمود عبد الكريم الزرد",
+"gender": "male",
+"national_id": "445906167",
+"birth_date": "2023-08-15",
+"phone": null,
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "مهند بلال مصلح صبيح",
+"gender": "male",
+"national_id": "444888085",
+"birth_date": "2022-03-03",
+"phone": "0595551023",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "نادر محمد جميل قويدر",
+"gender": "male",
+"national_id": "445724354",
+"birth_date": "2022-03-28",
+"phone": "0595772790",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "ياسر احمد ياسر مودد",
+"gender": "male",
+"national_id": "444248389",
+"birth_date": "2023-02-19",
+"phone": "0595981057",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "يعقوب يوسف نبهان العيلة",
+"gender": "male",
+"national_id": "444281026",
+"birth_date": "2023-01-30",
+"phone": "0567758800",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "يونس عمر احمد الكحلوت",
+"gender": "male",
+"national_id": "444391817",
+"birth_date": "2022-10-03",
+"phone": "0568989103",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "اميرة هشام رمضان صبيح",
+"gender": "female",
+"national_id": "444226658",
+"birth_date": "2022-06-30",
+"phone": "0599891111",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "اروي الزرد",
+"gender": "female",
+"national_id": null,
+"birth_date": null,
+"phone": null,
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "تولين محمد يوسف الزهارنة",
+"gender": "female",
+"national_id": "470400060",
+"birth_date": "2023-11-30",
+"phone": "0599979391",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "جواهر محمد إبراهيم بردع",
+"gender": "female",
+"national_id": "444243109",
+"birth_date": "2022-12-12",
+"phone": "0599168687",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "حلا حسن جهاد مدوخ",
+"gender": "female",
+"national_id": "444088199",
+"birth_date": "2022-10-06",
+"phone": "0566303133",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "دعاء احمد نايف عطالله",
+"gender": "female",
+"national_id": "444221105",
+"birth_date": "2022-02-19",
+"phone": "0592555954",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "رغد معتز ناصر الجمال",
+"gender": "female",
+"national_id": "444302541",
+"birth_date": "2022-08-10",
+"phone": "0593292558",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "رودي عمر محمد عطالله",
+"gender": "female",
+"national_id": "444502223",
+"birth_date": "2022-03-13",
+"phone": "0592391214",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "ريفان محمود بسام ياسين",
+"gender": "female",
+"national_id": "444116057",
+"birth_date": "2022-11-09",
+"phone": "0595259591",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "ريم وليد كمال العجله",
+"gender": "female",
+"national_id": "444085799",
+"birth_date": "2022-11-10",
+"phone": "0567989299",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "ريما رامي حسونة نافع",
+"gender": "female",
+"national_id": "444290886",
+"birth_date": "2022-11-07",
+"phone": "0595558806",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "سارة محمد عاهد طه",
+"gender": "female",
+"national_id": "444039523",
+"birth_date": "2022-09-10",
+"phone": "0597357809",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "سما مصعب سعيد عليان",
+"gender": "female",
+"national_id": "444393201",
+"birth_date": "2022-08-16",
+"phone": "0595553097",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "غزل محمود مصطفي النوري",
+"gender": "female",
+"national_id": "444882591",
+"birth_date": null,
+"phone": "0592507360",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "لوجين ماهر حسونة نافع",
+"gender": "female",
+"national_id": "445735178",
+"birth_date": "2022-06-12",
+"phone": "0599282604",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "ليان خميس حسن عجور",
+"gender": "female",
+"national_id": "444307771",
+"birth_date": "2022-08-28",
+"phone": "0599334552",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "ليلي عبدالحكيم محمود عطالله",
+"gender": "female",
+"national_id": "444368799",
+"birth_date": "2023-01-03",
+"phone": "0595025532",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "لين اياد طلال عطالله",
+"gender": "female",
+"national_id": "445723331",
+"birth_date": "2022-03-17",
+"phone": "0599140772",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "ماسة محمد مصلح صبيح",
+"gender": "female",
+"national_id": "445838683",
+"birth_date": "2022-12-29",
+"phone": "0592690660",
+"phone2": null
+},
+{
+"grade": "بستان",
+"name": "نايا امجد جمال كحيل",
+"gender": "female",
+"national_id": "445491889",
+"birth_date": "2022-06-24",
+"phone": "0597733377",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "ادم مراد باسم كلوب",
+"gender": "male",
+"national_id": "445841752",
+"birth_date": "2021-11-01",
+"phone": "0597786523",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "امير نادر جهاد مدوخ",
+"gender": "male",
+"national_id": "445511454",
+"birth_date": "2021-08-27",
+"phone": "0597126885",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "تيم حسام خميس عطية",
+"gender": "male",
+"national_id": "445830060",
+"birth_date": "2021-10-01",
+"phone": "0595430001",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "عدي الجرجاوي",
+"gender": "male",
+"national_id": "444977490",
+"birth_date": "2021-04-03",
+"phone": "0598082380",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "عبدالفتاح أحمد مدوخ",
+"gender": "male",
+"national_id": "444999957",
+"birth_date": "2021-05-22",
+"phone": "0598866620",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "علي نمر ديب ابو ربيع",
+"gender": "male",
+"national_id": "445186331",
+"birth_date": "2021-10-02",
+"phone": "0597229497",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "لميس شادي رمضان حميد",
+"gender": "male",
+"national_id": "445622681",
+"birth_date": "2022-01-09",
+"phone": "0598195589",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "محمد صادق فلاح الدغل",
+"gender": "male",
+"national_id": "445200611",
+"birth_date": "2021-03-08",
+"phone": "0592823009",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "محمد عبيدة إسحاق مودد",
+"gender": "male",
+"national_id": "445451685",
+"birth_date": "2022-01-14",
+"phone": "0592498188",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "محمد ياسر محمد البرش",
+"gender": "male",
+"national_id": "445147838",
+"birth_date": "2021-10-21",
+"phone": "0599141979",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "محمد يامن محمد مطر",
+"gender": "male",
+"national_id": "445556558",
+"birth_date": "2021-05-28",
+"phone": "0599515270",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "يامن محمد إبراهيم بردع",
+"gender": "male",
+"national_id": "445771959",
+"birth_date": "2021-08-19",
+"phone": "0599168687",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "اريج ايمن أسامة الجرجاوي",
+"gender": "female",
+"national_id": "445283104",
+"birth_date": "2021-09-15",
+"phone": "0599404065",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "أسماء إبراهيم إسماعيل مطر",
+"gender": "female",
+"national_id": "445189517",
+"birth_date": "2021-07-28",
+"phone": "0597762736",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "اماليا محمد مصطفي أبو حسنين",
+"gender": "female",
+"national_id": "445833288",
+"birth_date": "2021-11-02",
+"phone": "0599978879",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "اناهيل محمد احسان البايض",
+"gender": "female",
+"national_id": "445872310",
+"birth_date": "2022-01-05",
+"phone": "0597300550",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "ايمان محمد مدحت الزرد",
+"gender": "female",
+"national_id": "444920565",
+"birth_date": "2021-10-22",
+"phone": "0598581547",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "بتول يوسف عمر القصاص",
+"gender": "female",
+"national_id": "445657406",
+"birth_date": "2021-09-11",
+"phone": "0592217593",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "تسنيم بلال محمد البرش",
+"gender": "female",
+"national_id": "444977045",
+"birth_date": "2021-02-22",
+"phone": "0599027755",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "حوريه احمد حاتم المنسي",
+"gender": "female",
+"national_id": "446099328",
+"birth_date": "2021-09-05",
+"phone": "0592166071",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "رقية محمد سعيد عليان",
+"gender": "female",
+"national_id": "445028608",
+"birth_date": "2021-12-14",
+"phone": "0599755032",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "رهف خميس محمد قويدر",
+"gender": "female",
+"national_id": "445514250",
+"birth_date": "2021-08-29",
+"phone": "0567090937",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "رهف محمد سعدي العشي",
+"gender": "female",
+"national_id": "445842438",
+"birth_date": "2021-11-17",
+"phone": "0599563232",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "ريم انس محمد شويدح",
+"gender": "female",
+"national_id": "445840911",
+"birth_date": "2021-11-02",
+"phone": "0599056578",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "كنزي مصطفي سعيد عليان",
+"gender": "female",
+"national_id": "445206386",
+"birth_date": "2021-01-02",
+"phone": "0592633555",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "كريم علاء عبدالله حمام",
+"gender": "female",
+"national_id": "444903850",
+"birth_date": "2021-03-11",
+"phone": "0592669158",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "ماسة أسامة عبد الهادي صيام",
+"gender": "female",
+"national_id": "445776024",
+"birth_date": "2021-08-21",
+"phone": "0592811453",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "مسك محمد مدحت الزرد",
+"gender": "female",
+"national_id": "444920532",
+"birth_date": "2021-10-22",
+"phone": "0598581547",
+"phone2": null
+},
+{
+"grade": "تمهيدي",
+"name": "وصال ثائر محمد سعيد سليمان شعبان حمام",
+"gender": "female",
+"national_id": "445481856",
+"birth_date": "2021-08-30",
+"phone": "0599952565",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "احسان محمد احسان البايض",
+"gender": "male",
+"national_id": "443232517",
+"birth_date": null,
+"phone": "0597300550",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "ادم محمد منير البطش",
+"gender": "male",
+"national_id": "444898522",
+"birth_date": "2020-11-16",
+"phone": "0599190429",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "أسامة إبراهيم رباح أبو عرب",
+"gender": "male",
+"national_id": "442899654",
+"birth_date": "2020-04-15",
+"phone": "0595701733",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "اسلام عبدالكريم عوض العجلة",
+"gender": "male",
+"national_id": "443035753",
+"birth_date": "2020-03-02",
+"phone": "0592301866",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "امير محمد سليم الفران",
+"gender": "male",
+"national_id": "444894695",
+"birth_date": "2020-10-09",
+"phone": "0597127770",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "براء محمد فايز أبو جهل",
+"gender": "male",
+"national_id": "445117443",
+"birth_date": "2021-02-18",
+"phone": "0567755446",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "جاد محمد رمضان الدده",
+"gender": "male",
+"national_id": "444896617",
+"birth_date": "2020-12-11",
+"phone": "0595168554",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "جمال جميل جمال لسويركي",
+"gender": "male",
+"national_id": "443031828",
+"birth_date": "2020-02-25",
+"phone": "0599792331",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "جمال رضوان زهير القصاص",
+"gender": "male",
+"national_id": "443246665",
+"birth_date": "2020-09-06",
+"phone": "0599560874",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "جهاد عبدالله جهاد عبدالباري",
+"gender": "male",
+"national_id": "442886933",
+"birth_date": "2020-07-09",
+"phone": "0594694506",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "جوري إبراهيم زياد الخضري",
+"gender": "male",
+"national_id": "443243985",
+"birth_date": "2020-01-28",
+"phone": "0592301866",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "حمزة محمود مروان حبيب",
+"gender": "male",
+"national_id": "442855250",
+"birth_date": "2020-09-18",
+"phone": "0598338375",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "رضوان زهير رضوان القصاص",
+"gender": "male",
+"national_id": "445208622",
+"birth_date": "2021-01-29",
+"phone": "0598179756",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "عبدالرحمن مهند حسونة نافع",
+"gender": "male",
+"national_id": "443037932",
+"birth_date": "2020-04-22",
+"phone": "0592695496",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "عبداللطيف صادق عبداللطيف العيلة",
+"gender": "male",
+"national_id": "442892584",
+"birth_date": "2020-04-21",
+"phone": "0599013330",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "عمر احمد فؤاد محمد ساق الله",
+"gender": "male",
+"national_id": "443070800",
+"birth_date": "2020-05-11",
+"phone": "0592241332",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "كريم محمود رزق الحطاب",
+"gender": "male",
+"national_id": "443012323",
+"birth_date": "2020-07-30",
+"phone": "0599489708",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "مجد محمد ماجد العمصي",
+"gender": "male",
+"national_id": "442222907",
+"birth_date": "2020-02-12",
+"phone": "0597546478",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "محمد احمد عماد البشليقي",
+"gender": "male",
+"national_id": "445063407",
+"birth_date": "2021-01-10",
+"phone": "0597181703",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "محمد سامح جهاد الحداد",
+"gender": "male",
+"national_id": "443087739",
+"birth_date": "2020-05-06",
+"phone": "0592560072",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "محمد عرفات عليان مريش",
+"gender": "male",
+"national_id": "443233036",
+"birth_date": "2020-08-19",
+"phone": "0598385499",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "محمد نعيم محمد شومر",
+"gender": "male",
+"national_id": "443158357",
+"birth_date": "2020-10-17",
+"phone": "0594559237",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "ندي رفعت شعبان البشليقي",
+"gender": "male",
+"national_id": "444805097",
+"birth_date": "2020-12-23",
+"phone": "0599610206",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "نيشان عبدالحليم مدوخ",
+"gender": "male",
+"national_id": "444970909",
+"birth_date": "2020-12-01",
+"phone": "0592567205",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "يوسف اسامه محمد الجرجاوي",
+"gender": "male",
+"national_id": "444956510",
+"birth_date": "2020-10-16",
+"phone": "0599804200",
+"phone2": "0599133310"
+},
+{
+"grade": "الصف الأول",
+"name": "يوسف أنور زكريا الصوير",
+"gender": "male",
+"national_id": "442851531",
+"birth_date": "2020-09-12",
+"phone": "0592715970",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "الما منتصر طه صبيح",
+"gender": "female",
+"national_id": "444899397",
+"birth_date": "2020-12-10",
+"phone": "0597713059",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "تالين محمد نعيم هاني النعسان",
+"gender": "female",
+"national_id": "443072350",
+"birth_date": "2020-05-24",
+"phone": "0598390051",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "تيا محمد رمضان عطالله",
+"gender": "female",
+"national_id": "445201304",
+"birth_date": "2020-12-28",
+"phone": "0595230799",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "جوان احمد خماش",
+"gender": "female",
+"national_id": "443032230",
+"birth_date": "2020-09-12",
+"phone": "0594441918",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "جوليا إسماعيل عبد الناصر الكحلوت",
+"gender": "female",
+"national_id": "444898092",
+"birth_date": "2020-11-27",
+"phone": "0567040141",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "حنان احمد شعبان الشرفا",
+"gender": "female",
+"national_id": "442227203",
+"birth_date": "2019-10-14",
+"phone": "0592722054",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "دانيا محمد محمود السقا",
+"gender": "female",
+"national_id": "444896872",
+"birth_date": "2020-12-16",
+"phone": "0598998513",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "رزان محمد حيدر أبو بكر",
+"gender": "female",
+"national_id": "444849087",
+"birth_date": "2020-11-20",
+"phone": "0597840504",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "رنا محمود رمضان فلاح",
+"gender": "female",
+"national_id": "443081567",
+"birth_date": "2020-04-10",
+"phone": "0595270721",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "رهف أنور سعيد الحويطي",
+"gender": "female",
+"national_id": "442862413",
+"birth_date": "2020-09-22",
+"phone": "0592603618",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "سارة زكريا زهير القصاص",
+"gender": "female",
+"national_id": "445201106",
+"birth_date": "2021-01-09",
+"phone": "0595166092",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "سارة محمد مروان شنيورة",
+"gender": "female",
+"national_id": "443088463",
+"birth_date": "2020-05-04",
+"phone": "0592439753",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "صابرين عمران محمود الجرجاوي",
+"gender": "female",
+"national_id": "442894671",
+"birth_date": "2020-04-14",
+"phone": "0597183411",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "فيروز محمد سعدي القصاص",
+"gender": "female",
+"national_id": "442860458",
+"birth_date": "2020-11-15",
+"phone": "0597064885",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "ليان اياد طلال عطالله",
+"gender": "female",
+"national_id": "443034186",
+"birth_date": "2020-03-04",
+"phone": "0599140772",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "مريم منصور زهير القصاص",
+"gender": "female",
+"national_id": "442795118",
+"birth_date": "2020-11-22",
+"phone": "0598425925",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "منار جهاد مجدي اهل",
+"gender": "female",
+"national_id": "452186844",
+"birth_date": "2021-01-28",
+"phone": "0593909795",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "ميمي ااحمد سامي كشكو",
+"gender": "female",
+"national_id": "444862759",
+"birth_date": "2021-01-24",
+"phone": null,
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "نسرين خالد انور عليان",
+"gender": "female",
+"national_id": "443156526",
+"birth_date": "2020-08-16",
+"phone": "0599916054",
+"phone2": null
+},
+{
+"grade": "الصف الأول",
+"name": "وتين أسامة إبراهيم بردع",
+"gender": "female",
+"national_id": "443237094",
+"birth_date": "2020-06-23",
+"phone": "0595815983",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "إبراهيم محمد إبراهيم حرز",
+"gender": "male",
+"national_id": "438444515",
+"birth_date": "2019-06-11",
+"phone": "0597581580",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "احمد حسام محمد عرفات",
+"gender": "male",
+"national_id": "441066875",
+"birth_date": "2019-06-26",
+"phone": "0597375187",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "احمد حسن مجدي اهل",
+"gender": "male",
+"national_id": "452186836",
+"birth_date": "2019-07-09",
+"phone": "0593909795",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "بديع محمد بديع مشتهى",
+"gender": "male",
+"national_id": "441184785",
+"birth_date": "2019-05-29",
+"phone": "0597822357",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "تامر اياد شعبان جراده",
+"gender": "male",
+"national_id": "442306767",
+"birth_date": "2019-09-12",
+"phone": "0567475666",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "جود خضر سعيد قنن",
+"gender": "male",
+"national_id": "442272662",
+"birth_date": "2019-10-11",
+"phone": "0592598874",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "زين حسام خميس عطية",
+"gender": "male",
+"national_id": "442368700",
+"birth_date": "2019-09-27",
+"phone": "0595430001",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "سراج شادي رمضان حميد",
+"gender": "male",
+"national_id": "441133535",
+"birth_date": "2018-12-15",
+"phone": "0597196927",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "علاء باهر علاء حرز",
+"gender": "male",
+"national_id": "442341905",
+"birth_date": "2019-11-07",
+"phone": "0595071556",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "محمد حسني عبدالكريم أبو زور",
+"gender": "male",
+"national_id": "442330163",
+"birth_date": "2019-09-25",
+"phone": "0597845286",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "محمد عمر محمد عطالله",
+"gender": "male",
+"national_id": "442263448",
+"birth_date": "2019-09-22",
+"phone": "0592391214",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "محمود ايمن محمد نصر",
+"gender": "male",
+"national_id": "438442048",
+"birth_date": "2019-06-18",
+"phone": "0599355667",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "يوسف احمد فؤاد اسليم",
+"gender": "male",
+"national_id": "435214671",
+"birth_date": "2019-06-13",
+"phone": "0599063004",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "اريج معزوز فتحي شنيورة",
+"gender": "female",
+"national_id": "441192408",
+"birth_date": "2019-01-31",
+"phone": "0599056878",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "الما احمد طلعت عطالله",
+"gender": "female",
+"national_id": "440402501",
+"birth_date": "2019-12-19",
+"phone": "0592159657",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "الما عبدالحميد عبد الحليم مقبل",
+"gender": "female",
+"national_id": "441325206",
+"birth_date": "2019-05-15",
+"phone": "0595608220",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "الما محمد فؤاد اشيبر",
+"gender": "female",
+"national_id": "441324381",
+"birth_date": "2019-02-27",
+"phone": "0599156724",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "ايمان يوسف عمر القصاص",
+"gender": "female",
+"national_id": "442777157",
+"birth_date": "2020-01-12",
+"phone": "0592217593",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "اية يامن محمد مطر",
+"gender": "female",
+"national_id": "441172004",
+"birth_date": "2019-05-27",
+"phone": "0599515270",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "باسمة محمد رغدان المغربي",
+"gender": "female",
+"national_id": "458502986",
+"birth_date": "2019-03-28",
+"phone": "0592391795",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "براء محمد احمد الكحلوت",
+"gender": "female",
+"national_id": "442275541",
+"birth_date": "2019-11-09",
+"phone": "0599257425",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "بسنت محمد توفيق الغزالي",
+"gender": "female",
+"national_id": "441326469",
+"birth_date": "2019-03-08",
+"phone": "0597991076",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "تالين يوسف احمد الشوبكي",
+"gender": "female",
+"national_id": "441328507",
+"birth_date": "2019-03-20",
+"phone": "0592490316",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "جوليا إبراهيم خليل الوادية",
+"gender": "female",
+"national_id": "441327020",
+"birth_date": "2019-04-23",
+"phone": "0592533381",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "حياة شادي نظير عكيلة",
+"gender": "female",
+"national_id": "441036449",
+"birth_date": "2019-01-20",
+"phone": "0567108810",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "دينا معتز نايف فيصل",
+"gender": "female",
+"national_id": "435993555",
+"birth_date": "2019-07-26",
+"phone": "0592667767",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "رزان محمد إسماعيل الزرد",
+"gender": "female",
+"national_id": "441329067",
+"birth_date": null,
+"phone": "0599483906",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "روز مهند حسونة نافع",
+"gender": "female",
+"national_id": "441336690",
+"birth_date": "2019-03-16",
+"phone": "0592695496",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "ريان أنور زكريا الصوير",
+"gender": "female",
+"national_id": "441041373",
+"birth_date": "2019-01-10",
+"phone": "0592715970",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "ريما جبر خليل جحا",
+"gender": "female",
+"national_id": "441073954",
+"birth_date": "2019-04-02",
+"phone": "0597864066",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "سوار هشام سليم برغوت",
+"gender": "female",
+"national_id": "442264065",
+"birth_date": "2019-09-23",
+"phone": "0592323129",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "شام مؤمن حسن دويدار",
+"gender": "female",
+"national_id": "442226908",
+"birth_date": "2019-12-27",
+"phone": "0592729774",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "شهد سيف المؤمن عطية الثلاثيني",
+"gender": "female",
+"national_id": "443091087",
+"birth_date": "2019-12-18",
+"phone": "0599561661",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "شهد عبدالرحمن عدنان الدحدوح",
+"gender": "female",
+"national_id": "442366621",
+"birth_date": "2019-09-18",
+"phone": "0598697912",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "فرح احمد خليل عليان",
+"gender": "female",
+"national_id": "442308961",
+"birth_date": "2019-09-07",
+"phone": "0592109149",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "ليان عبدالحكيم فيصل حرز",
+"gender": "female",
+"national_id": "442220620",
+"birth_date": "2019-09-19",
+"phone": "0597880352",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "ليان محمد حسين الكياال",
+"gender": "female",
+"national_id": "443096938",
+"birth_date": "2020-01-08",
+"phone": "0592606594",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "لين احمد عواد شرير",
+"gender": "female",
+"national_id": "441317112",
+"birth_date": "2019-04-02",
+"phone": "0599572753",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "ماجده شادي رمضان حميد",
+"gender": "female",
+"national_id": "439113606",
+"birth_date": "2018-02-09",
+"phone": "0597196927",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "ماريس خالد مطر صبيح",
+"gender": "female",
+"national_id": "438498305",
+"birth_date": "2019-06-09",
+"phone": "0598778159",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "ماسة محمد سليم راشد",
+"gender": "female",
+"national_id": "441327384",
+"birth_date": "2019-05-06",
+"phone": "0595526658",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "مريم عبدالله جهاد عبدالباري",
+"gender": "female",
+"national_id": "438442329",
+"birth_date": "2019-06-16",
+"phone": "0594694506",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "مسك محمد إبراهيم قاسم",
+"gender": "female",
+"national_id": "436055693",
+"birth_date": "2019-08-10",
+"phone": "0599726207",
+"phone2": null
+},
+{
+"grade": "الصف الثاني",
+"name": "منال بلال عبداللطيف مقبل",
+"gender": "female",
+"national_id": "441170800",
+"birth_date": "2019-08-07",
+"phone": "0592986922",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "احمد محمد احمد الكحلوت",
+"gender": "male",
+"national_id": "438493645",
+"birth_date": "2018-01-14",
+"phone": "0599257425",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "دياب محمد محمود أبو ناصر",
+"gender": "male",
+"national_id": "440827897",
+"birth_date": "2018-08-21",
+"phone": "0595658794",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "زين إبراهيم احمد الكحلوت",
+"gender": "male",
+"national_id": "452054646",
+"birth_date": "2017-10-30",
+"phone": "0566990001",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "سعيد أنور سعيد الحويطي",
+"gender": "male",
+"national_id": "441060654",
+"birth_date": "2018-11-18",
+"phone": "0592603618",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "عبدالرحمن محسن زهير حسان",
+"gender": "male",
+"national_id": "440828333",
+"birth_date": "2018-08-30",
+"phone": "0599889765",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "عبدالله محمد حمزة حنوش",
+"gender": "male",
+"national_id": "440476505",
+"birth_date": "2018-02-14",
+"phone": "0597924917",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "عبدالناصر ثائر الصفدي",
+"gender": "male",
+"national_id": "440637114",
+"birth_date": "2018-07-09",
+"phone": "0567006015",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "عليان عرفات عليان مريش",
+"gender": "male",
+"national_id": "440612091",
+"birth_date": "2018-06-06",
+"phone": "0598385499",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "عمر احمد سيد حمام",
+"gender": "male",
+"national_id": "441030426",
+"birth_date": "2018-12-21",
+"phone": "0597095038",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "محمد اياد طلال عطالله",
+"gender": "male",
+"national_id": "440614584",
+"birth_date": "2018-06-17",
+"phone": "0599140772",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "محمود سلامه محمد المنشاوي",
+"gender": "male",
+"national_id": "440821130",
+"birth_date": "2018-10-05",
+"phone": "0598286962",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "محمود مصطفي الاعرج",
+"gender": "male",
+"national_id": "440809358",
+"birth_date": "2018-11-04",
+"phone": "0597789761",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "موسي ماهر حسونة نافع",
+"gender": "male",
+"national_id": "440672350",
+"birth_date": "2018-08-02",
+"phone": "0595713317",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "نايف احمد نايف عطالله",
+"gender": "male",
+"national_id": "436815989",
+"birth_date": "2018-11-09",
+"phone": "0592555954",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "وسيم أنور صالح أبو عمشة",
+"gender": "male",
+"national_id": "440798221",
+"birth_date": "2018-09-15",
+"phone": "0599401979",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "يزن حازم مازن عقلين",
+"gender": "male",
+"national_id": "441061801",
+"birth_date": "2018-11-12",
+"phone": "0599016276",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "يوسف رامي حسونة نافع",
+"gender": "male",
+"national_id": "440890432",
+"birth_date": "2018-11-14",
+"phone": "0595558806",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "يوسف نضال رشدي خلف",
+"gender": "male",
+"national_id": "440830818",
+"birth_date": "2018-08-27",
+"phone": "0597308117",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "اسيل ياسر سليم أبو كميل",
+"gender": "female",
+"national_id": "440493690",
+"birth_date": "2018-08-04",
+"phone": "0597713274",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "ايلان ابرهيم شحيبر",
+"gender": "female",
+"national_id": "440818466",
+"birth_date": "2018-11-05",
+"phone": "0599805231",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "ايلين حسني عبدالكريم أبو زور",
+"gender": "female",
+"national_id": null,
+"birth_date": "2018-02-07",
+"phone": "0597845286",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "تيا رامي اشتيوي",
+"gender": "female",
+"national_id": null,
+"birth_date": null,
+"phone": "0597887242",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "جوان هاني سليم راشد",
+"gender": "female",
+"national_id": "440613529",
+"birth_date": "2018-06-17",
+"phone": "0592244249",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "رزان احمد خماش",
+"gender": "female",
+"national_id": "441054632",
+"birth_date": "2017-11-20",
+"phone": "0594441918",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "رفيف نبيل سميح أبو ندي",
+"gender": "female",
+"national_id": "440769487",
+"birth_date": null,
+"phone": null,
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "رؤيا عمران محمود الجرجاوي",
+"gender": "female",
+"national_id": "440883171",
+"birth_date": null,
+"phone": "0597183411",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "ريمه سيف المؤمن عطية الثلاثيني",
+"gender": "female",
+"national_id": "440789402",
+"birth_date": "2018-09-02",
+"phone": "0599561661",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "سحر محمد ماجد العمصي",
+"gender": "female",
+"national_id": "438422800",
+"birth_date": "2018-03-07",
+"phone": "0597546478",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "سندس محمود رزق الحطاب",
+"gender": "female",
+"national_id": "440460293",
+"birth_date": "2018-08-10",
+"phone": "0599489708",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "سيدرا منتصر طه صبيح",
+"gender": "female",
+"national_id": "440829463",
+"birth_date": "2018-09-18",
+"phone": "0597713059",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "كرمه محمد رمضان عطالله",
+"gender": "female",
+"national_id": "440828432",
+"birth_date": "2018-09-04",
+"phone": "0595230799",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "ماسة ايمن سليم المتربيعي",
+"gender": "female",
+"national_id": "440671543",
+"birth_date": "2018-08-14",
+"phone": "0597622179",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "مدلين محمود جواد الريفي",
+"gender": "female",
+"national_id": "440890978",
+"birth_date": "2018-11-30",
+"phone": "0594320687",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "ميار محمد رياض علوان",
+"gender": "female",
+"national_id": "440822294",
+"birth_date": "2018-09-26",
+"phone": "0592141932",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "ملك احمد علي اسليم",
+"gender": "female",
+"national_id": "438497232",
+"birth_date": "2018-03-17",
+"phone": "0592717229",
+"phone2": null
+},
+{
+"grade": "الصف الثالث",
+"name": "يقين أسامة إبراهيم بردع",
+"gender": "female",
+"national_id": "440666501",
+"birth_date": "2018-06-29",
+"phone": "0595815983",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "احمد محمد محمد النعسان",
+"gender": "male",
+"national_id": "438294555",
+"birth_date": "2017-04-25",
+"phone": "0598391025",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "انس محمد صالح السكني",
+"gender": "male",
+"national_id": "438288094",
+"birth_date": "2017-07-21",
+"phone": "0592882992",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "أنور هيثم حيدر أبو بكر",
+"gender": "male",
+"national_id": "439094475",
+"birth_date": "2018-01-29",
+"phone": "0568075070",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "بديع احمد بديع مشتهي",
+"gender": "male",
+"national_id": "438374282",
+"birth_date": "2017-07-04",
+"phone": "0595123622",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "بديع طاهر بديع مشتهي",
+"gender": "male",
+"national_id": "438142903",
+"birth_date": "2017-03-28",
+"phone": "0567246075",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "جود اشرف نايف عطالله",
+"gender": "male",
+"national_id": "438184012",
+"birth_date": "2017-10-08",
+"phone": "0599713134",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "طارق محمد بسام النعسان",
+"gender": "male",
+"national_id": "439148685",
+"birth_date": "2017-12-16",
+"phone": "0599310189",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "طلعت احمد طلعت عطالله",
+"gender": "male",
+"national_id": "417897899",
+"birth_date": "2017-10-26",
+"phone": "0592159657",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "عبد الرحمن محمد خميس قاسم",
+"gender": "male",
+"national_id": "438257313",
+"birth_date": "2017-07-25",
+"phone": "0599454846",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "عبدالكريم رامي علي الحتو",
+"gender": "male",
+"national_id": "439079948",
+"birth_date": "2017-12-17",
+"phone": "0599873974",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "عماد احمد عماد البشيلقي",
+"gender": "male",
+"national_id": "438369159",
+"birth_date": "2017-05-31",
+"phone": "0597181703",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "كرم محمد بديع مشتهى",
+"gender": "male",
+"national_id": "438265241",
+"birth_date": "2017-04-26",
+"phone": "0597822357",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "مالك محمد جمال الحلبي",
+"gender": "male",
+"national_id": "437194459",
+"birth_date": "2018-01-25",
+"phone": "0599580724",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "محمد اكرم صالح مطر",
+"gender": "male",
+"national_id": "438289308",
+"birth_date": "2017-04-29",
+"phone": "0599534582",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "محمد رمزي محمد العرقان",
+"gender": "male",
+"national_id": "438451718",
+"birth_date": "2017-07-12",
+"phone": "0599247960",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "محمد فادي فايز عطية",
+"gender": "male",
+"national_id": "438949752",
+"birth_date": "2017-08-30",
+"phone": "0597520700",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "محمد سالم مازن عكيلة",
+"gender": "male",
+"national_id": "438315897",
+"birth_date": "2017-06-20",
+"phone": "0599905858",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "معين محمد معين الجرجاوي",
+"gender": "male",
+"national_id": "439084591",
+"birth_date": "2017-12-04",
+"phone": "0592900884",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "نبهان يوسف نبهان العيلة",
+"gender": "male",
+"national_id": "438955627",
+"birth_date": "2017-12-01",
+"phone": null,
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "هاني محمد نعيم هاني النعسان",
+"gender": "male",
+"national_id": "438521734",
+"birth_date": "2017-08-19",
+"phone": "0598390051",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "يامن خميس حسام خميس عطية",
+"gender": "male",
+"national_id": "438373821",
+"birth_date": "2017-07-07",
+"phone": "0595430001",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "يوسف احمد سميح شلحه",
+"gender": "male",
+"national_id": "438255325",
+"birth_date": "2017-09-02",
+"phone": "0597740713",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "يوسف مصعب سهيل البواب",
+"gender": "male",
+"national_id": "438938391",
+"birth_date": "2017-10-13",
+"phone": "0599543317",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "اسيل رامز مدحت الهربيطي",
+"gender": "female",
+"national_id": "438506479",
+"birth_date": "2017-08-29",
+"phone": "0597737313",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "الين محمد فؤاد اشبير",
+"gender": "female",
+"national_id": "439048505",
+"birth_date": "2018-01-13",
+"phone": "0599156724",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "الين محمد رياض الريفي",
+"gender": "female",
+"national_id": "439172750",
+"birth_date": "2017-12-19",
+"phone": "0594204535",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "امنة ياسر محمد البرش",
+"gender": "female",
+"national_id": "438233140",
+"birth_date": "2017-03-01",
+"phone": "0599141979",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "جني عادل اديب سكر",
+"gender": "female",
+"national_id": "438291940",
+"birth_date": "2017-05-16",
+"phone": "0599560902",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "جودي مالك الشوبكي",
+"gender": "female",
+"national_id": null,
+"birth_date": "2017-08-22",
+"phone": "0593229748",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "دانية هشام عبدالله العصار",
+"gender": "female",
+"national_id": "438289886",
+"birth_date": "2017-04-07",
+"phone": "0592600509",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "ديالا بهاء سليم راشد",
+"gender": "female",
+"national_id": "438348922",
+"birth_date": "2017-06-20",
+"phone": "0599536369",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "رونزا محمد فايز أبو جهل",
+"gender": "female",
+"national_id": "438326498",
+"birth_date": "2017-05-21",
+"phone": "0567755446",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "ساره وائل سليم راشد",
+"gender": "female",
+"national_id": "438939662",
+"birth_date": "2017-10-17",
+"phone": "0598270518",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "شهد يامن محمد مطر",
+"gender": "female",
+"national_id": "438278962",
+"birth_date": "2017-03-30",
+"phone": null,
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "عبير مهند عاطف المدهون",
+"gender": "female",
+"national_id": "438522062",
+"birth_date": "2017-08-17",
+"phone": "0595981236",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "علا باهر علاء حرز",
+"gender": "female",
+"national_id": "439158817",
+"birth_date": "2017-11-19",
+"phone": "0598395712",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "كندة محمد رمضان عطالله",
+"gender": "female",
+"national_id": "438224040",
+"birth_date": "2017-04-07",
+"phone": "0595230799",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "ليان احمد خماش",
+"gender": "female",
+"national_id": "436061444",
+"birth_date": "2017-09-12",
+"phone": "0594441918",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "ماريا نبيل سميح أبو ندي",
+"gender": "female",
+"national_id": "438232258",
+"birth_date": "2017-02-26",
+"phone": "0567101025",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "ماسه محمد مدحت الزرد",
+"gender": "female",
+"national_id": "438182164",
+"birth_date": "2017-09-28",
+"phone": "0598581547",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "مريم محمود فتحي الميناوي",
+"gender": "female",
+"national_id": "438264426",
+"birth_date": "2017-08-09",
+"phone": "0599213200",
+"phone2": null
+},
+{
+"grade": "الصف الرابع",
+"name": "ميرا إبراهيم خليل الوادية",
+"gender": "female",
+"national_id": "438946642",
+"birth_date": "2017-08-23",
+"phone": "0592533381",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "احمد محمد طلعت فايز الصوفي",
+"gender": "male",
+"national_id": "429999394",
+"birth_date": "2016-08-05",
+"phone": "0599319693",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "امين سعيد محمد الخزندار",
+"gender": "male",
+"national_id": "437394836",
+"birth_date": "2016-12-08",
+"phone": "0598459180",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "سهيل مصعب سهيل البواب",
+"gender": "male",
+"national_id": "437374986",
+"birth_date": "2016-04-28",
+"phone": "0599543317",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "عامر نضال عيسي رحمي",
+"gender": "male",
+"national_id": "437247703",
+"birth_date": "2016-11-26",
+"phone": "0597822493",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "عبدالرحمن محمد سليم الفران",
+"gender": "male",
+"national_id": "438140410",
+"birth_date": "2017-01-07",
+"phone": "0597127770",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "عبدالله احمد بديع مشتهي",
+"gender": "male",
+"national_id": "437345457",
+"birth_date": "2016-03-22",
+"phone": "0595123622",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "قصي سلامه محمد المنشاوي",
+"gender": "male",
+"national_id": "437287477",
+"birth_date": "2016-09-11",
+"phone": "0598286962",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "كريم الحسن موسي الزعبوط",
+"gender": "male",
+"national_id": "437326481",
+"birth_date": "2016-10-01",
+"phone": "0569330483",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "كريم أنور حمدي الفرام",
+"gender": "male",
+"national_id": "437023351",
+"birth_date": "2016-05-14",
+"phone": "0599094046",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "محمد ايمن الجرجاوي",
+"gender": "male",
+"national_id": "437180011",
+"birth_date": "2016-07-28",
+"phone": "0599404065",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "محمد حكام سعد كساب",
+"gender": "male",
+"national_id": "437430333",
+"birth_date": "2016-08-22",
+"phone": "0599620716",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "محمد حيدر هيثم حيدر أبو بكر",
+"gender": "male",
+"national_id": "437254469",
+"birth_date": "2016-11-22",
+"phone": "0568075070",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "محمد يونس عطالله",
+"gender": "male",
+"national_id": null,
+"birth_date": "2016-04-25",
+"phone": "0567611333",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "محمود محمد محمد العبد البرش",
+"gender": "male",
+"national_id": "436975940",
+"birth_date": "2016-09-20",
+"phone": "0592776639",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "محمود محمد محمود أبو ناصر",
+"gender": "male",
+"national_id": "437344302",
+"birth_date": "2016-09-15",
+"phone": "0595658794",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "مدحت احمد مدحت الزرد",
+"gender": "male",
+"national_id": "437252950",
+"birth_date": "2016-11-24",
+"phone": "0599791434",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "مصعب احمد سيد حمام",
+"gender": "male",
+"national_id": "437025216",
+"birth_date": "2016-05-20",
+"phone": "0597095038",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "معاذ اياد طلال عطالله",
+"gender": "male",
+"national_id": "437396260",
+"birth_date": "2016-12-01",
+"phone": "0599140772",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "نظير شادي نظير عكيلة",
+"gender": "male",
+"national_id": "437303647",
+"birth_date": "2016-10-03",
+"phone": "0567108810",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "نور الدين نمر مازن عكيلة",
+"gender": "male",
+"national_id": "437192370",
+"birth_date": "2016-07-19",
+"phone": "0592281028",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "اميرة عبدالحكيم فيصل حرز",
+"gender": "female",
+"national_id": "438158180",
+"birth_date": "2017-01-04",
+"phone": "0597880352",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "ايلين ثائر عبدالناصر الصفدي",
+"gender": "female",
+"national_id": "437284318",
+"birth_date": "2016-08-25",
+"phone": "0567006010",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "ايمان بلال محمد البرش",
+"gender": "female",
+"national_id": "436916373",
+"birth_date": "2016-02-26",
+"phone": "0599027755",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "تالين ماهر حسونة نافع",
+"gender": "female",
+"national_id": "437093735",
+"birth_date": "2016-08-05",
+"phone": "0595713317",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "شيماء احمد نافذ هنية",
+"gender": "female",
+"national_id": "437303167",
+"birth_date": "2026-10-05",
+"phone": "0592820066",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "دانية رافت رفيق البربري",
+"gender": "female",
+"national_id": "437254162",
+"birth_date": "2016-12-05",
+"phone": "0595113011",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "رشا ياسر عادل أبو غليون",
+"gender": "female",
+"national_id": "437103989",
+"birth_date": "2026-07-08",
+"phone": "0598298339",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "رهف محمد فيصل حرز",
+"gender": "female",
+"national_id": "438142242",
+"birth_date": "2017-01-17",
+"phone": "0599050891",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "زينه خميس حسن عجور",
+"gender": "female",
+"national_id": "436814412",
+"birth_date": "2016-11-21",
+"phone": "0599881117",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "زينة طارق بديع مشتهى",
+"gender": "female",
+"national_id": "437092851",
+"birth_date": "2016-08-17",
+"phone": "0599330612",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "زينة محمد منير البطش",
+"gender": "female",
+"national_id": "437127079",
+"birth_date": "2016-06-18",
+"phone": "0599190429",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "زينة عبدالحكيم محمود عطالله",
+"gender": "female",
+"national_id": "437377427",
+"birth_date": "2016-09-22",
+"phone": "0595025532",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "شام عبدالرحمن عدنان الدحدوح",
+"gender": "female",
+"national_id": "437297013",
+"birth_date": null,
+"phone": "0598697912",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "فايزة مصطفي المشهراوي",
+"gender": "female",
+"national_id": "437387707",
+"birth_date": "2016-10-06",
+"phone": "0592178667",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "فرح ماهر جهاد الحداد",
+"gender": "female",
+"national_id": "437274194",
+"birth_date": "2016-10-17",
+"phone": "0598796943",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "لانا محمد رياض علوان",
+"gender": "female",
+"national_id": "436893879",
+"birth_date": "2016-01-07",
+"phone": "0592141932",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "مريم ماهر عايش أبو العين",
+"gender": "female",
+"national_id": "438131260",
+"birth_date": "2016-12-07",
+"phone": "0599354341",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "ميرا محمد مازن كرديه",
+"gender": "female",
+"national_id": "438127268",
+"birth_date": "2016-11-27",
+"phone": "0598837830",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "ميس محمد خضر مسعود",
+"gender": "female",
+"national_id": "436881643",
+"birth_date": "2016-02-08",
+"phone": "0595603633",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "نسمة محمد احمد الكحلوت",
+"gender": "female",
+"national_id": "437026982",
+"birth_date": "2016-05-22",
+"phone": "0599257425",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "نور محمد عبدالكريم الزيتونية",
+"gender": "female",
+"national_id": "436000624",
+"birth_date": "2016-02-18",
+"phone": "0599099563",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "هويدا احمد بهجت بدير",
+"gender": "female",
+"national_id": "437183643",
+"birth_date": "2016-07-28",
+"phone": "0599403057",
+"phone2": null
+},
+{
+"grade": "الصف الخامس",
+"name": "يارا محمد رياض علوان",
+"gender": "female",
+"national_id": "436893887",
+"birth_date": "2016-01-07",
+"phone": "0592141932",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "امير رامي اشتيوي",
+"gender": "male",
+"national_id": null,
+"birth_date": null,
+"phone": "0597887242",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "براء أسامة صالح الشرفا",
+"gender": "male",
+"national_id": "436846026",
+"birth_date": "2016-01-03",
+"phone": "0592260068",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "تامر يوسف احمد الشوبكي",
+"gender": "male",
+"national_id": "436163828",
+"birth_date": "2015-11-12",
+"phone": null,
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "جود حازم نعيم عطالله",
+"gender": "male",
+"national_id": "435918693",
+"birth_date": "2015-05-10",
+"phone": "0592732479",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "سعيد عبدالكريم محمود النادي",
+"gender": "male",
+"national_id": "435774674",
+"birth_date": "2015-06-22",
+"phone": "0568715303",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "عبد الله مالك الشوبكي",
+"gender": "male",
+"national_id": "435916507",
+"birth_date": "2015-04-22",
+"phone": "0593229748",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "عبدالله احمد رياض الشريف",
+"gender": "male",
+"national_id": "435048467",
+"birth_date": "2014-11-07",
+"phone": "0594296509",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "عبدالله نضال رشدي خلف",
+"gender": "male",
+"national_id": "436897359",
+"birth_date": "2016-01-20",
+"phone": "0597308117",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "علي حسن يوسف الرملاوي",
+"gender": "male",
+"national_id": "435126164",
+"birth_date": "2015-02-08",
+"phone": null,
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "علي سالم مازن عكيلة",
+"gender": "male",
+"national_id": "435156823",
+"birth_date": "2015-02-11",
+"phone": "0599905858",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "علي محمد محمد العبد البرش",
+"gender": "male",
+"national_id": "435997630",
+"birth_date": "2015-07-08",
+"phone": "0592776639",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "علي يحيي سليمان النميلات",
+"gender": "male",
+"national_id": "435781018",
+"birth_date": "2015-05-18",
+"phone": "0592859399",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "عمرو محمد سليم الفران",
+"gender": "male",
+"national_id": "435166098",
+"birth_date": "2015-02-08",
+"phone": "0597127770",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "فراس احمد علي اسليم",
+"gender": "male",
+"national_id": "435963046",
+"birth_date": "2015-08-03",
+"phone": "0592717229",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "كريم محمد طلال كسكين",
+"gender": "male",
+"national_id": "435131891",
+"birth_date": "2015-10-28",
+"phone": "0597092959",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "محمد احمد محمد جعفر عبدالسلام",
+"gender": "male",
+"national_id": "436857304",
+"birth_date": null,
+"phone": "0599300123",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "محمد ايمن فايز مدوخ",
+"gender": "male",
+"national_id": "436078273",
+"birth_date": "2015-07-31",
+"phone": "0592677178",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "محمد ايهاب جندية",
+"gender": "male",
+"national_id": "425921993",
+"birth_date": null,
+"phone": null,
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "محمد ريان رياض أبو بكر",
+"gender": "male",
+"national_id": "436848485",
+"birth_date": "2016-01-31",
+"phone": "0597840504",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "محمد محمد بديع اليازجي",
+"gender": "male",
+"national_id": "435939749",
+"birth_date": "2015-06-14",
+"phone": "0594080493",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "محمد محمود احمد الحداد",
+"gender": "male",
+"national_id": "435952544",
+"birth_date": "2015-07-17",
+"phone": "0597131546",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "محمد وسيم زكي عكيلة",
+"gender": "male",
+"national_id": "435868799",
+"birth_date": "2015-05-16",
+"phone": "0599307124",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "محمد زهير مصطفى ابو بكر",
+"gender": "male",
+"national_id": "436018907",
+"birth_date": "2015-08-26",
+"phone": "0599458749",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "محمود سائد رمضان عطالله",
+"gender": "male",
+"national_id": "435947270",
+"birth_date": "2015-06-24",
+"phone": "0598962057",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "مؤمن وائل عارف المظلوم",
+"gender": "male",
+"national_id": "436894984",
+"birth_date": "2015-12-01",
+"phone": "0599806889",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "ياسر عرفات عليان مريش",
+"gender": "male",
+"national_id": "435202270",
+"birth_date": "2015-07-26",
+"phone": "0598385499",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "يوسف احمد فايز مدوخ",
+"gender": "male",
+"national_id": "435958707",
+"birth_date": "2015-07-27",
+"phone": "0592201562",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "بانه رامي وهيب عطالله",
+"gender": "female",
+"national_id": "436162911",
+"birth_date": "2015-12-13",
+"phone": "0599321242",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "تالا احمد طلعت عطالله",
+"gender": "female",
+"national_id": "435946264",
+"birth_date": "2015-06-25",
+"phone": "0592159657",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "تسنيم حمدان حمدي بلبل",
+"gender": "female",
+"national_id": "435962089",
+"birth_date": "2015-08-03",
+"phone": "0597161361",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "جميلة إبراهيم رباح أبو عرب",
+"gender": "female",
+"national_id": "435961511",
+"birth_date": "2015-08-02",
+"phone": "0595701733",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "جني نور الدين حسنين",
+"gender": "female",
+"national_id": "436160014",
+"birth_date": "2015-08-17",
+"phone": "0562340003",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "جود درويش الثلاثيني",
+"gender": "female",
+"national_id": "436899355",
+"birth_date": "2015-12-21",
+"phone": "0593124124",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "جودي رامي علي الحتو",
+"gender": "female",
+"national_id": "435169768",
+"birth_date": "2015-03-02",
+"phone": "0599873974",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "جوري داود جواد الريفي",
+"gender": "female",
+"national_id": "435094842",
+"birth_date": "2015-01-28",
+"phone": "0594204535",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "دانا حسن مجدي اهل",
+"gender": "female",
+"national_id": "452263296",
+"birth_date": "2015-06-17",
+"phone": "0593909795",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "دانا عادل نبيل الزرد",
+"gender": "female",
+"national_id": "436020325",
+"birth_date": "2015-08-25",
+"phone": "0567733337",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "ديانا فوز فوزي شحيبر",
+"gender": "female",
+"national_id": "435883798",
+"birth_date": "2015-09-10",
+"phone": "0597786548",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "دينا يعقوب جميل الريفي",
+"gender": "female",
+"national_id": "436823132",
+"birth_date": "2015-10-28",
+"phone": "0599884620",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "ريتال زاهر عبداللطيف الملاحي",
+"gender": "female",
+"national_id": "436888168",
+"birth_date": "2015-12-20",
+"phone": "0599633211",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "زينة رامي حسونة نافع",
+"gender": "female",
+"national_id": "436160238",
+"birth_date": "2015-08-24",
+"phone": "0595558806",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "سارة طارق ناهض السبع",
+"gender": "female",
+"national_id": "436023220",
+"birth_date": "2015-09-02",
+"phone": "0599903940",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "سلين إبراهيم شحيبر",
+"gender": "female",
+"national_id": "436995591",
+"birth_date": "2015-12-03",
+"phone": "0599805231",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "سما ياسر جميل السوركي",
+"gender": "female",
+"national_id": "435051248",
+"birth_date": "2015-09-06",
+"phone": "0599282758",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "سيدرا محمد فايز أبو جهل",
+"gender": "female",
+"national_id": "435202668",
+"birth_date": "2015-07-31",
+"phone": "0567755446",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "صبا شاهر جهاد الحداد",
+"gender": "female",
+"national_id": "436164420",
+"birth_date": "2015-11-22",
+"phone": "0598109116",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "غزل محمد مصلح صبيح",
+"gender": "female",
+"national_id": "435890157",
+"birth_date": "2015-03-11",
+"phone": "0592690660",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "لميس احمد محمود السقا",
+"gender": "female",
+"national_id": "435945928",
+"birth_date": "2015-06-22",
+"phone": "0599770703",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "ليان محمد إسماعيل الزرد",
+"gender": "female",
+"national_id": "435093703",
+"birth_date": "2015-03-06",
+"phone": "0599483906",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "ملك حمزة ماجد عليان",
+"gender": "female",
+"national_id": "435942743",
+"birth_date": "2015-06-17",
+"phone": "0569951099",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "مناسة خالد مطر صبيح",
+"gender": "female",
+"national_id": "435888292",
+"birth_date": "2014-05-16",
+"phone": "0598778159",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "منة الله معتصم محمد الخطيب",
+"gender": "female",
+"national_id": "433573284",
+"birth_date": "2014-01-21",
+"phone": "0599634021",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "ميار مؤمن حسن دويدار",
+"gender": "female",
+"national_id": "436160923",
+"birth_date": "2015-09-05",
+"phone": "0592729774",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "ميدان جبر خليل جحا",
+"gender": "female",
+"national_id": "435093117",
+"birth_date": "2015-05-09",
+"phone": "0597864066",
+"phone2": null
+},
+{
+"grade": "الصف السادس",
+"name": "نغم هشام إبراهيم الزيتونية",
+"gender": "female",
+"national_id": "436842462",
+"birth_date": "2016-01-08",
+"phone": "0599698748",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "ادم رامي سعدي المصري",
+"gender": "male",
+"national_id": "434645610",
+"birth_date": "2014-06-29",
+"phone": "0599920272",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "اسامه اسامه ربحي عياد",
+"gender": "male",
+"national_id": "435042676",
+"birth_date": "2014-11-28",
+"phone": "0597201359",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "اكرم احمد فتحي لولو",
+"gender": "male",
+"national_id": "433546355",
+"birth_date": "2014-04-06",
+"phone": "0599580557",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "البراء حازم ربحي عياد",
+"gender": "male",
+"national_id": "433779428",
+"birth_date": null,
+"phone": "0595612800",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "امير محمد فؤاد عليان",
+"gender": "male",
+"national_id": "434649166",
+"birth_date": "2014-07-07",
+"phone": "0598684958",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "انس علاء الدين منير النقلة",
+"gender": "male",
+"national_id": "435314059",
+"birth_date": "2014-12-12",
+"phone": "0594444912",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "انس فواز محمد النبيه",
+"gender": "male",
+"national_id": "435029517",
+"birth_date": "2014-09-25",
+"phone": "0598247575",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "أسامة أحمد القصاص",
+"gender": "male",
+"national_id": "434294450",
+"birth_date": "2014-02-26",
+"phone": null,
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "انور محمد عبد الفتاح مدوخ",
+"gender": "male",
+"national_id": "434333357",
+"birth_date": null,
+"phone": null,
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "براء شاهر جهاد الحداد",
+"gender": "male",
+"national_id": "434720280",
+"birth_date": "2014-08-05",
+"phone": "0598109116",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "ساجد محمد طلعت فايز الصوفي",
+"gender": "male",
+"national_id": "433991999",
+"birth_date": "2014-06-01",
+"phone": "0599319693",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "سليم محمد ديب شحيبر",
+"gender": "male",
+"national_id": "440037216",
+"birth_date": "2014-09-06",
+"phone": "0598285691",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "عبدالله احمد ناجي حلس",
+"gender": "male",
+"national_id": "434302949",
+"birth_date": "2014-03-06",
+"phone": "0592401590",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "علاء موسي محمد طلاع الرفاتي",
+"gender": "male",
+"national_id": "434302766",
+"birth_date": "2014-03-02",
+"phone": "0599783885",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "عمر محمد حمزة حنوش",
+"gender": "male",
+"national_id": "435096573",
+"birth_date": "2014-12-09",
+"phone": "0597924917",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "عمر محمد سالم اللولو",
+"gender": "male",
+"national_id": "429222151",
+"birth_date": "2014-07-30",
+"phone": "0598824410",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "قصي احمد فهمي ضاهر",
+"gender": "male",
+"national_id": "434801429",
+"birth_date": "2014-09-03",
+"phone": "0599576943",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "كريم خليل حسين عطالله",
+"gender": "male",
+"national_id": "434726659",
+"birth_date": "2014-08-14",
+"phone": "0599092275",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "محمد حمدي نصر أبو ناصر",
+"gender": "male",
+"national_id": "434722575",
+"birth_date": "2014-07-07",
+"phone": "0599931754",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "محمد خليل حسين عطالله",
+"gender": "male",
+"national_id": "434726642",
+"birth_date": "2014-08-14",
+"phone": "0599092275",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "محمد سعيد محمد الخزندار",
+"gender": "male",
+"national_id": "434763355",
+"birth_date": "2014-09-10",
+"phone": "0598459180",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "محمد عدنان حسن حمودة",
+"gender": "male",
+"national_id": "435299508",
+"birth_date": "2014-10-25",
+"phone": "0594241082",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "محمد محسن زهير حسان",
+"gender": "male",
+"national_id": "434311148",
+"birth_date": "2014-03-14",
+"phone": "0599889765",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "مهدي اشرف نايف عطالله",
+"gender": "male",
+"national_id": "435059449",
+"birth_date": "2014-12-21",
+"phone": "0599713134",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "نسيم حسين زكي العريني",
+"gender": "male",
+"national_id": "440008340",
+"birth_date": "2014-05-19",
+"phone": "0597738507",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "نصر سامي نصر أبو ناصر",
+"gender": "male",
+"national_id": "434809158",
+"birth_date": "2014-07-30",
+"phone": "0599148186",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "وسيم محمد بسام النعسان",
+"gender": "male",
+"national_id": "434729034",
+"birth_date": "2014-08-23",
+"phone": "0599493284",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "وهيب محمد رمضان الدده",
+"gender": "male",
+"national_id": "434308284",
+"birth_date": "2014-03-07",
+"phone": "0595168554",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "يامن محمد محمود السقا",
+"gender": "male",
+"national_id": "434645123",
+"birth_date": "2014-08-26",
+"phone": "0598998513",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "يامن معتز فيصل",
+"gender": "male",
+"national_id": "432052017",
+"birth_date": "2014-08-07",
+"phone": "0592667767",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "يوسف سعدي يوسف الحطاب",
+"gender": "male",
+"national_id": "434762738",
+"birth_date": "2014-08-03",
+"phone": "0598666403",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "بهية ايمن أسامة الجرجاوي",
+"gender": "female",
+"national_id": "434727111",
+"birth_date": "2014-08-04",
+"phone": "0599404065",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "تالين نضال عيسي رحمي",
+"gender": "female",
+"national_id": "434444758",
+"birth_date": "2014-09-20",
+"phone": "0597822493",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "جني طلال محمد البنا",
+"gender": "female",
+"national_id": "433509346",
+"birth_date": "2014-02-14",
+"phone": "0599161182",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "جوري محمد صبحي حلس",
+"gender": "female",
+"national_id": "434220711",
+"birth_date": "2014-05-01",
+"phone": "0599059391",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "دانية نضال رشدي خلف",
+"gender": "female",
+"national_id": "440005866",
+"birth_date": "2014-05-14",
+"phone": "0597308117",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "رغد أنور سعيد الحويطي",
+"gender": "female",
+"national_id": "435071824",
+"birth_date": "2014-11-12",
+"phone": "0592603618",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "ريتال محمد صالح السكني",
+"gender": "female",
+"national_id": "435107792",
+"birth_date": "2014-12-07",
+"phone": "0592882992",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "زينة محمد سامي جودة",
+"gender": "female",
+"national_id": "432622488",
+"birth_date": "2014-04-03",
+"phone": "0597852178",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "سجي شادي نظير عكيلة",
+"gender": "female",
+"national_id": "435059373",
+"birth_date": "2014-12-22",
+"phone": "0567108810",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "سما حسن مسعود مدوخ",
+"gender": "female",
+"national_id": "435052436",
+"birth_date": "2014-11-21",
+"phone": "0599913437",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "سما محمد معين الجرجاوي",
+"gender": "female",
+"national_id": "434647582",
+"birth_date": null,
+"phone": "0592900884",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "سما خالد عدنان العشي",
+"gender": "female",
+"national_id": "434311312",
+"birth_date": "2014-03-13",
+"phone": "0599757175",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "عبير محمد فؤاد مدوخ",
+"gender": "female",
+"national_id": "435151725",
+"birth_date": "2015-01-21",
+"phone": "0599706187",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "فرح سعدالله فرج طه",
+"gender": "female",
+"national_id": "434783957",
+"birth_date": "2014-08-23",
+"phone": "0599833111",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "لانا ياسر عادل أبو غليون",
+"gender": "female",
+"national_id": "435046479",
+"birth_date": "2014-11-17",
+"phone": "0598298339",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "لمي احمد زكي البربري",
+"gender": "female",
+"national_id": "434725040",
+"birth_date": "2014-08-17",
+"phone": "0599062889",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "ليان احمد فؤاد محمد ساق الله",
+"gender": "female",
+"national_id": "435152533",
+"birth_date": "2015-01-25",
+"phone": "0592241332",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "ليان اياد شبعان جراده",
+"gender": "female",
+"national_id": "434731923",
+"birth_date": "2014-09-09",
+"phone": "0567475666",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "ليان جهاد عزام عزام",
+"gender": "female",
+"national_id": "434806139",
+"birth_date": null,
+"phone": "0599549752",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "مريم حامد احمد الكحلوت",
+"gender": "female",
+"national_id": "452215072",
+"birth_date": "2014-07-16",
+"phone": "0568992554",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "ملك صفوت رمضان حلس",
+"gender": "female",
+"national_id": "433532215",
+"birth_date": "2014-02-02",
+"phone": "0566722014",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "ميار فادي فؤاد عليان",
+"gender": "female",
+"national_id": "434299871",
+"birth_date": "2014-06-10",
+"phone": "0592616135",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "ميرنا غسان مدوخ",
+"gender": "female",
+"national_id": "434795555",
+"birth_date": "2014-11-30",
+"phone": "0599902970",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "ميس طاهر بديع مشتهي",
+"gender": "female",
+"national_id": "434729869",
+"birth_date": "2014-07-25",
+"phone": "0567246075",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "هالة احمد حاتم المنسي",
+"gender": "female",
+"national_id": "435057948",
+"birth_date": "2014-11-02",
+"phone": "0592166071",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "أميرة محمد جبر كحيل",
+"gender": "female",
+"national_id": "442258661",
+"birth_date": "2014-06-27",
+"phone": "0599822189",
+"phone2": null
+},
+{
+"grade": "الصف السابع",
+"name": "هيا اشرف شعبان النعسان",
+"gender": "female",
+"national_id": "440006070",
+"birth_date": "2014-05-10",
+"phone": "0592299037",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "احمد سائد رمضان عطالله",
+"gender": "male",
+"national_id": "433511037",
+"birth_date": "2013-10-12",
+"phone": "0598962057",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "اميير محمد سالم اللولو",
+"gender": "male",
+"national_id": "433365343",
+"birth_date": "2013-03-05",
+"phone": "0598824410",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "انس رمزي محمدرالعرقان",
+"gender": "male",
+"national_id": "433969458",
+"birth_date": "2013-10-28",
+"phone": null,
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "انس مازن درويش حرارة",
+"gender": "male",
+"national_id": "434363727",
+"birth_date": "2013-04-22",
+"phone": "0598114764",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "بشار رامي وهيب عطالله",
+"gender": "male",
+"national_id": "434101325",
+"birth_date": "2013-07-01",
+"phone": "0599321242",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "بهجت احمد بهجت بدير",
+"gender": "male",
+"national_id": "433816485",
+"birth_date": "2013-09-12",
+"phone": "0599403057",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "حمزة رافت سعدي عطالله",
+"gender": "male",
+"national_id": "434096228",
+"birth_date": "2013-06-30",
+"phone": "0599330328",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "خالد مصطفي جمال البايض",
+"gender": "male",
+"national_id": "433817012",
+"birth_date": "2013-09-14",
+"phone": "0597192543",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "صالح حسام صالح حسان",
+"gender": "male",
+"national_id": "433945250",
+"birth_date": "2013-08-19",
+"phone": "0598796993",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "عاصم عصام محمد بهار",
+"gender": "male",
+"national_id": "433545449",
+"birth_date": "2014-01-16",
+"phone": "0597905560",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "عبدالرحمن احمد علي اسليم",
+"gender": "male",
+"national_id": "433999059",
+"birth_date": "2013-12-12",
+"phone": "0592717229",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "عصام محمد فيصل حرز",
+"gender": "male",
+"national_id": "433523925",
+"birth_date": "2014-02-04",
+"phone": "0599050891",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "عائد محمد سعدى القصاص",
+"gender": "male",
+"national_id": "433815131",
+"birth_date": "2013-09-10",
+"phone": "0599706940",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "عمر نور الدين حسنين",
+"gender": "male",
+"national_id": "433946704",
+"birth_date": null,
+"phone": "0562340003",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "عيسي مقبل عيسي حمدونة",
+"gender": "male",
+"national_id": "434364592",
+"birth_date": "2013-05-26",
+"phone": "0595899663",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "عيسي نضال عيسي رحمي",
+"gender": "male",
+"national_id": "432299113",
+"birth_date": "2013-05-07",
+"phone": "0597822493",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "فوزي فوز فوزي شحيبر",
+"gender": "male",
+"national_id": "433929072",
+"birth_date": "2013-08-16",
+"phone": "0597786548",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "كريم منذر نايف فيصل",
+"gender": "male",
+"national_id": "433933900",
+"birth_date": "2013-08-05",
+"phone": "0599182021",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "كريم هيثم جهاد خلف",
+"gender": "male",
+"national_id": "434364535",
+"birth_date": "2013-05-26",
+"phone": "0599487617",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "مالك جهاد سعدي الغفري",
+"gender": "male",
+"national_id": "434094835",
+"birth_date": "2013-06-29",
+"phone": "0597717206",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "مجد ايمن معين الجرجاوي",
+"gender": "male",
+"national_id": "433988839",
+"birth_date": "2013-08-29",
+"phone": "0597721638",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "مجدي فادي نظير عكيلة",
+"gender": "male",
+"national_id": "433995750",
+"birth_date": "2013-11-02",
+"phone": "0592363296",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "محمد ايمن محمد نصر",
+"gender": "male",
+"national_id": "434126108",
+"birth_date": "2013-03-13",
+"phone": "0599355667",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "محمد حسام فتحي البطش",
+"gender": "male",
+"national_id": "433992674",
+"birth_date": "2013-10-03",
+"phone": "0599491278",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "محمد خالد محمد المدهون",
+"gender": "male",
+"national_id": "433158425",
+"birth_date": null,
+"phone": "0599564402",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "محمد سلامه محمد المنشاوي",
+"gender": "male",
+"national_id": "433938834",
+"birth_date": "2013-08-15",
+"phone": "0598286962",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "محمد فادي فؤاد عليان",
+"gender": "male",
+"national_id": "434451258",
+"birth_date": "2013-03-05",
+"phone": "0592616135",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "محمد مصطفي درويش الاعرج",
+"gender": "male",
+"national_id": "433509668",
+"birth_date": "2013-01-31",
+"phone": "0597756307",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "محمد مؤمن مسعود السحباني",
+"gender": "male",
+"national_id": "433552833",
+"birth_date": "2014-01-15",
+"phone": "0599058869",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "محمد هاشم محمد أبو العنين",
+"gender": "male",
+"national_id": "433974755",
+"birth_date": "2013-10-10",
+"phone": "0592943304",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "ناهض طارق ناهض السبع",
+"gender": "male",
+"national_id": "434375150",
+"birth_date": "2013-04-14",
+"phone": "0599903940",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "يامن احمد صبري أبو سويرح",
+"gender": "male",
+"national_id": "434360186",
+"birth_date": "2013-02-11",
+"phone": "0599172021",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "يامن محمد كمال حجازي",
+"gender": "male",
+"national_id": "426921409",
+"birth_date": null,
+"phone": null,
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "يحيي مصطفي المشهراوي",
+"gender": "male",
+"national_id": "433507761",
+"birth_date": "2013-12-12",
+"phone": "0592178667",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "المي منير محمد الشندي",
+"gender": "female",
+"national_id": "433968229",
+"birth_date": null,
+"phone": "0592223898",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "تالا صهيب يوسف كريم",
+"gender": "female",
+"national_id": "433367422",
+"birth_date": "2013-03-11",
+"phone": "0592521788",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "جني سامح محمود المدهون",
+"gender": "female",
+"national_id": "433214616",
+"birth_date": "2013-01-23",
+"phone": "0592057416",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "جوري سامح جهاد الحداد",
+"gender": "female",
+"national_id": "433820297",
+"birth_date": "2013-09-16",
+"phone": "0592560072",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "ديالا سامح محمود المدهون",
+"gender": "female",
+"national_id": "431315589",
+"birth_date": "2011-04-09",
+"phone": "0592057416",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "زينة احمد فايز مدوخ",
+"gender": "female",
+"national_id": "433823614",
+"birth_date": "2013-09-23",
+"phone": "0592201562",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "سناء محمد ماهر الحتو",
+"gender": "female",
+"national_id": "434332979",
+"birth_date": "2012-12-11",
+"phone": "0598588222",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "سهام رائد صالح عطالله",
+"gender": "female",
+"national_id": "433939048",
+"birth_date": "2013-08-16",
+"phone": "0595555308",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "شروق صالح اشتيوي الغفري",
+"gender": "female",
+"national_id": "434363032",
+"birth_date": "2013-04-11",
+"phone": "0597926621",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "صباح عرفات عليان مريش",
+"gender": "female",
+"national_id": "433946209",
+"birth_date": "2013-09-04",
+"phone": "0598385499",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "فرح مجدي غسان جعرور",
+"gender": "female",
+"national_id": "433525441",
+"birth_date": "2014-01-10",
+"phone": "0569330483",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "لانا نهاد إسحاق قويدر",
+"gender": "female",
+"national_id": "434369682",
+"birth_date": "2013-05-29",
+"phone": "0599603643",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "لما عبدالحكيم فيصل حرز",
+"gender": "female",
+"national_id": "434321170",
+"birth_date": "2014-04-13",
+"phone": "0597880352",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "ليديا رياض الغزالي",
+"gender": "female",
+"national_id": "431790153",
+"birth_date": "2013-10-08",
+"phone": "0599905924",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "نور الهدي احمد فؤاد اسليم",
+"gender": "female",
+"national_id": "433554714",
+"birth_date": "2014-01-18",
+"phone": "0599063004",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "هبة الله عاشور علي اسليم",
+"gender": "female",
+"national_id": "433933538",
+"birth_date": "2013-07-23",
+"phone": "0595066941",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "هداية رياض شعبان الريفي",
+"gender": "female",
+"national_id": "432061927",
+"birth_date": "2012-06-16",
+"phone": "0598428777",
+"phone2": null
+},
+{
+"grade": "الصف الثامن",
+"name": "يارا محمد سلمان حلس",
+"gender": "female",
+"national_id": "434089801",
+"birth_date": "2013-06-12",
+"phone": "0599485024",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "إبراهيم بسام جمال رجب",
+"gender": "male",
+"national_id": "433458411",
+"birth_date": "2012-10-29",
+"phone": "0599810255",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "احمد سمير حمدي عايش",
+"gender": "male",
+"national_id": "433184009",
+"birth_date": "2012-08-24",
+"phone": "0599619270",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "امير يوسف احمد الشوبكي",
+"gender": "male",
+"national_id": "432288231",
+"birth_date": "2012-04-19",
+"phone": null,
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "اياد موسي ميناوي مطر",
+"gender": "male",
+"national_id": "433178993",
+"birth_date": "2012-08-14",
+"phone": "0599347996",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "بلال رافت سعدي عطالله",
+"gender": "male",
+"national_id": "432289999",
+"birth_date": "2012-04-05",
+"phone": "0599330328",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "تامر احمد مدوخ",
+"gender": "male",
+"national_id": "433174133",
+"birth_date": "2012-09-12",
+"phone": "0598866620",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "توفيق رياض توفيق الغزالي",
+"gender": "male",
+"national_id": "433171675",
+"birth_date": "2012-08-04",
+"phone": null,
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "درويش مصطفى درويش الأعرج",
+"gender": "male",
+"national_id": "432051811",
+"birth_date": "2012-05-15",
+"phone": null,
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "رامي سامح جهاد الحداد",
+"gender": "male",
+"national_id": "432047546",
+"birth_date": "2012-06-03",
+"phone": "0592560072",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "زيد محسن زهير حسان",
+"gender": "male",
+"national_id": "432195105",
+"birth_date": "2012-03-24",
+"phone": "0599860221",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "سلامة محمد إسماعيل الزرد",
+"gender": "male",
+"national_id": "432074383",
+"birth_date": "2012-07-17",
+"phone": "0599483906",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "سليم محمد سليم الفران",
+"gender": "male",
+"national_id": "433210242",
+"birth_date": "2012-12-27",
+"phone": "0597127770",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "سمير نزار سمير مطر",
+"gender": "male",
+"national_id": "433173317",
+"birth_date": "2012-08-19",
+"phone": null,
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "شريف سمير احمد زقوت",
+"gender": "male",
+"national_id": "433350410",
+"birth_date": "2012-11-28",
+"phone": "0599866686",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "عبدالرحمن محمد طلعت فايز الصوفي",
+"gender": "male",
+"national_id": "429997778",
+"birth_date": "2012-09-15",
+"phone": "0599319693",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "عبدالرحمن محمود علي الزعيم",
+"gender": "male",
+"national_id": "433459906",
+"birth_date": "2018-11-27",
+"phone": "0599484877",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "عبدالله محمد عبدالله حسين علي",
+"gender": "male",
+"national_id": "433232832",
+"birth_date": "2012-10-17",
+"phone": "0599331597",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "علي محمد جواد اليازجي",
+"gender": "male",
+"national_id": "433206877",
+"birth_date": "2013-01-02",
+"phone": "0597204947",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "عمر سعدي يوسف الحطاب",
+"gender": "male",
+"national_id": "433240330",
+"birth_date": "2012-09-22",
+"phone": "0598666403",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "فايز إبراهيم شحيبر",
+"gender": "male",
+"national_id": "433226990",
+"birth_date": "2012-11-07",
+"phone": "0599805231",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "فيصل محمد فيصل حرز",
+"gender": "male",
+"national_id": "433235371",
+"birth_date": "2012-10-02",
+"phone": "0599050891",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "كرم الله نبيل سميح أبو ندي",
+"gender": "male",
+"national_id": "433368016",
+"birth_date": null,
+"phone": "0567101025",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "كريم سعدالله فرج طه",
+"gender": "male",
+"national_id": "433363884",
+"birth_date": "2012-12-10",
+"phone": "0599833111",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "محمد سائد رمضان عطالله",
+"gender": "male",
+"national_id": "429893902",
+"birth_date": "2012-03-13",
+"phone": "0598962057",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "محمد طاهر بديع مشتهي",
+"gender": "male",
+"national_id": "433217981",
+"birth_date": "2013-01-07",
+"phone": "0567246075",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "محمد علاءالدين منير النقلة",
+"gender": "male",
+"national_id": "433156700",
+"birth_date": "2012-08-09",
+"phone": "0594444912",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "محمد علي حسن بدير",
+"gender": "male",
+"national_id": "429892912",
+"birth_date": "2012-03-12",
+"phone": "0599563055",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "محمد ماجد محمد نصر",
+"gender": "male",
+"national_id": "433358462",
+"birth_date": "2012-12-04",
+"phone": "0599193313",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "محمد نائل محمد مطر",
+"gender": "male",
+"national_id": "433240538",
+"birth_date": "2012-09-23",
+"phone": "0567440008",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "محمود احمد محمد جعفر عبدالسلام",
+"gender": "male",
+"national_id": "433226453",
+"birth_date": "2012-11-05",
+"phone": "0599300123",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "محمود عبدالحكيم محمود عطالله",
+"gender": "male",
+"national_id": "432321271",
+"birth_date": "2012-02-15",
+"phone": "0595025532",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "محمود نمر مازن عكيلة",
+"gender": "male",
+"national_id": "433454733",
+"birth_date": "2012-10-18",
+"phone": "0592281028",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "محمود يونس محمود عطالله",
+"gender": "male",
+"national_id": "433194503",
+"birth_date": "2012-09-10",
+"phone": "0567611333",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "يامن درويش عطية الثلاثيني",
+"gender": "male",
+"national_id": "432051308",
+"birth_date": "2012-05-15",
+"phone": "0593124124",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "يزن محمد كمال حرب",
+"gender": "male",
+"national_id": "432062776",
+"birth_date": "2012-07-18",
+"phone": "0599777582",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "يوسف خالد فاروق عكيلة",
+"gender": "male",
+"national_id": "433456639",
+"birth_date": "2012-11-13",
+"phone": "0599010009",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "يوسف ماجد علي الدريملي",
+"gender": "male",
+"national_id": "433177995",
+"birth_date": "2013-01-21",
+"phone": "0592774491",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "يوسف محمد عبدالرؤوف الرفاتي",
+"gender": "male",
+"national_id": "432288496",
+"birth_date": "2012-05-05",
+"phone": "0599412370",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "يوسف وائل يوسف بدير",
+"gender": "male",
+"national_id": "432066058",
+"birth_date": "2012-07-22",
+"phone": "0567863649",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "أسماء مجدي نادي أبو سيدو",
+"gender": "female",
+"national_id": "433238193",
+"birth_date": "2012-10-09",
+"phone": "0599687435",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "الما سعيد محمد الخزندار",
+"gender": "female",
+"national_id": "432030542",
+"birth_date": "2012-07-04",
+"phone": "0598459180",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "الما عبدالحكيم فيصل حرز",
+"gender": "female",
+"national_id": "433458890",
+"birth_date": "2012-10-22",
+"phone": "0597880352",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "براءة ماهر علي الحداد",
+"gender": "female",
+"national_id": "433191459",
+"birth_date": "2012-09-04",
+"phone": "0595344445",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "بسمة إيهاب احمد حسنين",
+"gender": "female",
+"national_id": "432055200",
+"birth_date": "2012-04-25",
+"phone": "0599300785",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "تغريد عاهد عادل عجور",
+"gender": "female",
+"national_id": "432286987",
+"birth_date": "2012-03-07",
+"phone": "0595101084",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "جني بسام عبدالفتاح مدوخ",
+"gender": "female",
+"national_id": "429899990",
+"birth_date": "2012-02-27",
+"phone": "0597899990",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "جني محمد عوده الغفري",
+"gender": "female",
+"national_id": "433174174",
+"birth_date": "2012-09-11",
+"phone": "0592535313",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "جني محمد مازن كرديه",
+"gender": "female",
+"national_id": "433385630",
+"birth_date": "2012-12-31",
+"phone": "0598837830",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "حلا اياد رزق الحطاب",
+"gender": "female",
+"national_id": "433248879",
+"birth_date": "2012-09-18",
+"phone": "0592399924",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "دانا حامد سليم المدهون",
+"gender": "female",
+"national_id": "433234408",
+"birth_date": "2012-10-19",
+"phone": "0595136040",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "دانا زهير مصطفي أبو بكر",
+"gender": "female",
+"national_id": "433386950",
+"birth_date": "2013-01-03",
+"phone": "0599458749",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "دانية محمود احمد الحداد",
+"gender": "female",
+"national_id": "432239408",
+"birth_date": "2012-08-05",
+"phone": "0597131546",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "راما حاتم رمضان حلس",
+"gender": "female",
+"national_id": "432198448",
+"birth_date": "2012-03-29",
+"phone": "0597890400",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "رهف احمد مدحت الزرد",
+"gender": "female",
+"national_id": "433451184",
+"birth_date": "2012-10-09",
+"phone": "0599791434",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "رهف خميس سعيد شهوان",
+"gender": "female",
+"national_id": "433285822",
+"birth_date": "2012-11-12",
+"phone": "0567230399",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "رهف عمر صابر عطالله",
+"gender": "female",
+"national_id": "434330692",
+"birth_date": "2013-01-25",
+"phone": "0599687876",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "رؤية حسام زياد أبو ربيع",
+"gender": "female",
+"national_id": "432032506",
+"birth_date": "2012-07-04",
+"phone": "0592971832",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "زينب طلال لطفي صبيح",
+"gender": "female",
+"national_id": "456207810",
+"birth_date": "2012-02-01",
+"phone": "0599913472",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "زينة عصام عطالله",
+"gender": "female",
+"national_id": "432285534",
+"birth_date": "2012-02-05",
+"phone": "0599235671",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "زينة ماهر عايش أبو العين",
+"gender": "female",
+"national_id": "432037190",
+"birth_date": "2012-06-27",
+"phone": "0599354341",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "زينه محمد فوزي مطر",
+"gender": "female",
+"national_id": "432232155",
+"birth_date": "2012-05-18",
+"phone": "0599737345",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "سعاد محمد صالح السكني",
+"gender": "female",
+"national_id": "432042513",
+"birth_date": "2012-06-13",
+"phone": "0592882992",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "سمر نادر صالح الغفري",
+"gender": "female",
+"national_id": "432042984",
+"birth_date": "2012-06-18",
+"phone": "0598601595",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "سيدرا عاشور علي اسليم",
+"gender": "female",
+"national_id": "429898950",
+"birth_date": "2012-02-28",
+"phone": "0595066941",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "صفاء رامي حسونة نافع",
+"gender": "female",
+"national_id": "433459112",
+"birth_date": "2012-10-31",
+"phone": "0595558806",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "عبلة عبدالله تفيق الغزالي",
+"gender": "female",
+"national_id": "432057172",
+"birth_date": "2012-05-13",
+"phone": "0595624350",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "فرح الشيخ",
+"gender": "female",
+"national_id": "433238813",
+"birth_date": "2012-10-09",
+"phone": null,
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "فريال شادي نظير عكيلة",
+"gender": "female",
+"national_id": "433215332",
+"birth_date": "2012-12-09",
+"phone": "0567108810",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "فلة فايز محمود النعسان",
+"gender": "female",
+"national_id": "432238764",
+"birth_date": "2012-06-20",
+"phone": "0592665227",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "لانا احمد زكي البربري",
+"gender": "female",
+"national_id": "432218220",
+"birth_date": "2012-07-12",
+"phone": "0599062889",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "لما محمد محمود السقا",
+"gender": "female",
+"national_id": "432287803",
+"birth_date": "2012-09-10",
+"phone": "0598998513",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "لمي احمد سميح شلحه",
+"gender": "female",
+"national_id": "432140176",
+"birth_date": "2012-04-06",
+"phone": "0597740713",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "لميس محمد زهير الريفي",
+"gender": "female",
+"national_id": "432210623",
+"birth_date": "2012-08-16",
+"phone": "0599380546",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "لوجين عبدالكريم محمود المدهون",
+"gender": "female",
+"national_id": "433214624",
+"birth_date": "2013-01-26",
+"phone": "0599131211",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "ليان عبدالله محمد أبو العطا",
+"gender": "female",
+"national_id": "433167483",
+"birth_date": "2012-07-26",
+"phone": "0599945351",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "ليان ياسر محمد مودد",
+"gender": "female",
+"national_id": "433393527",
+"birth_date": "2012-12-24",
+"phone": "0592498188",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "لين محمد حمزة حنوش",
+"gender": "female",
+"national_id": "430073502",
+"birth_date": "2012-02-17",
+"phone": "0597924917",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "لين هاشم محمد أبو العنين",
+"gender": "female",
+"national_id": "433157302",
+"birth_date": "2012-08-02",
+"phone": "0592943304",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "منة ايمن يعقوب الحرتاني",
+"gender": "female",
+"national_id": "433364775",
+"birth_date": "2012-12-09",
+"phone": "0599635011",
+"phone2": null
+},
+{
+"grade": "الصف التاسع",
+"name": "يارا باسل عمر مصبح",
+"gender": "female",
+"national_id": "432043446",
+"birth_date": "2012-06-18",
+"phone": "0599577052",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "اكرم رزق هشام السوافيري",
+"gender": "male",
+"national_id": "430051060",
+"birth_date": "2011-07-08",
+"phone": "0594271286",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "امير ياسر محمد عبدالله مدوخ",
+"gender": "male",
+"national_id": "430089276",
+"birth_date": "2011-05-16",
+"phone": "0597313855",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "انس محمود صبحي كحيل",
+"gender": "male",
+"national_id": "431572007",
+"birth_date": "2011-08-09",
+"phone": "0592010570",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "انس يوسف احمد الشوبكي",
+"gender": "male",
+"national_id": "431564863",
+"birth_date": "2011-05-26",
+"phone": "0592490316",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "أمير محمد حمدي الكحلوت",
+"gender": "male",
+"national_id": "430236208",
+"birth_date": "2011-08-19",
+"phone": "0598877916",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "ايهم احمد سميح شلحه",
+"gender": "male",
+"national_id": "430780254",
+"birth_date": "2011-02-16",
+"phone": "0597740713",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "بدر الدين عبد علي صمامه",
+"gender": "male",
+"national_id": "432245165",
+"birth_date": "2012-01-25",
+"phone": "0592024674",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "رزق شريف هشام السوافيري",
+"gender": "male",
+"national_id": "430232306",
+"birth_date": "2011-09-09",
+"phone": "0595495417",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "سراج شادي سكر",
+"gender": "male",
+"national_id": "430231357",
+"birth_date": "2011-08-13",
+"phone": "0599721010",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "سعيد انور سعيد نوفل",
+"gender": "male",
+"national_id": "431571413",
+"birth_date": "2011-07-31",
+"phone": "0592242767",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "شعبان اشرف شعبان النعسان",
+"gender": "male",
+"national_id": "432256345",
+"birth_date": "2012-01-02",
+"phone": "0592299037",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "صالح محمد صالح كلاب",
+"gender": "male",
+"national_id": "430436071",
+"birth_date": "2011-08-10",
+"phone": "0599144966",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "عامر محمد عامر أبو حليمة",
+"gender": "male",
+"national_id": "431530047",
+"birth_date": "2011-08-18",
+"phone": "0566100025",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "عبدالرحمن مالك عبدالشافي الشوبكي",
+"gender": "male",
+"national_id": "431569524",
+"birth_date": "2011-03-05",
+"phone": "0593229748",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "عبدالفتاح اياد عبدالفتاح أبو جهل",
+"gender": "male",
+"national_id": "430082479",
+"birth_date": "2011-07-20",
+"phone": "0595715361",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "عبدالكريم رامي عبدالكريم علوان",
+"gender": "male",
+"national_id": "431021328",
+"birth_date": "2011-04-25",
+"phone": "0598830002",
+"phone2": "0595018704"
+},
+{
+"grade": "الصف العاشر",
+"name": "عبد الله منذر يوسف دلول",
+"gender": "male",
+"national_id": "432463859",
+"birth_date": "2011-10-06",
+"phone": "0599344834",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "عطية درويش الثلايني",
+"gender": "male",
+"national_id": "431777358",
+"birth_date": "2011-02-14",
+"phone": "0593124124",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "علي اكرم صالح مطر",
+"gender": "male",
+"national_id": "431566017",
+"birth_date": "2011-02-24",
+"phone": "0599534582",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "عمر محمد هشام العمصي",
+"gender": "male",
+"national_id": "432340065",
+"birth_date": "2011-12-30",
+"phone": "0599310366",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "فؤاد احمد المتربيعي",
+"gender": "male",
+"national_id": "432483238",
+"birth_date": "2011-10-20",
+"phone": "0599887833",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "فيصل عادل اديب سكر",
+"gender": "male",
+"national_id": "430083600",
+"birth_date": "2011-08-16",
+"phone": "0599560902",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "قصي احمد محمود السقا",
+"gender": "male",
+"national_id": "432264620",
+"birth_date": "2011-12-21",
+"phone": "0599770783",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "لؤي زهير علي أبو القمبز",
+"gender": "male",
+"national_id": "431569037",
+"birth_date": "2011-02-25",
+"phone": "0594142634",
+"phone2": "0567170281"
+},
+{
+"grade": "الصف العاشر",
+"name": "لؤي يوسف زهير بدوي",
+"gender": "male",
+"national_id": "431650613",
+"birth_date": null,
+"phone": "0599302831",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "مالك احمد حاتم المنسي",
+"gender": "male",
+"national_id": "430232546",
+"birth_date": "2011-09-05",
+"phone": "0592166071",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "محمد خالد محمد عطالله",
+"gender": "male",
+"national_id": "430048371",
+"birth_date": "2011-06-21",
+"phone": "0597690746",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "محمد رامي حسونة نافع",
+"gender": "male",
+"national_id": "431572387",
+"birth_date": "2011-08-04",
+"phone": "0595558806",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "مدحت رامي مدحت الهربيطي",
+"gender": "male",
+"national_id": "432456622",
+"birth_date": "2011-09-26",
+"phone": "0599795495",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "معتصم جابر احمد العجلة",
+"gender": "male",
+"national_id": "431274968",
+"birth_date": "2010-12-02",
+"phone": "0599086542",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "موسي محمد موسي شنيورة",
+"gender": "male",
+"national_id": "432458529",
+"birth_date": "2011-09-29",
+"phone": "0592930850",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "هاني محمد زياد الحفني",
+"gender": "male",
+"national_id": "431705797",
+"birth_date": "2011-03-23",
+"phone": "0595941480",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "يامن حاتم الشوا",
+"gender": "male",
+"national_id": "431535079",
+"birth_date": null,
+"phone": "0599331438",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "يامن رامي سعدي المصري",
+"gender": "male",
+"national_id": "432252385",
+"birth_date": "2011-11-21",
+"phone": "0599920272",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "يزن سامي نايف عطالله",
+"gender": "male",
+"national_id": "430147504",
+"birth_date": "2011-09-10",
+"phone": "0599861034",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "يوسف مصطفي المشهراوي",
+"gender": "male",
+"national_id": "432475358",
+"birth_date": "2011-11-23",
+"phone": "0592178667",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "اريج عاشور علي اسليم",
+"gender": "female",
+"national_id": "429762891",
+"birth_date": "2010-05-18",
+"phone": "0595066941",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "اسمهان سلامه محمد المنشاوي",
+"gender": "female",
+"national_id": "430234708",
+"birth_date": "2011-08-26",
+"phone": "0598286962",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "اسيل موسي سعدي عطالله",
+"gender": "female",
+"national_id": "432484897",
+"birth_date": "2011-10-19",
+"phone": "0599264561",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "انتصار محمد جواد حجاج",
+"gender": "female",
+"national_id": "410551394",
+"birth_date": "2010-06-28",
+"phone": "0595254887",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "ايمان إسماعيل فتحي عطالله",
+"gender": "female",
+"national_id": "430082099",
+"birth_date": "2011-07-14",
+"phone": "0595177700",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "تالا خميس حسن عجور",
+"gender": "female",
+"national_id": "432472199",
+"birth_date": "2011-11-23",
+"phone": "0599881117",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "تالا احمد مدوخ",
+"gender": "female",
+"national_id": "430116343",
+"birth_date": "2011-06-03",
+"phone": null,
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "تسنيم محمد جميل أبو ناصر",
+"gender": "female",
+"national_id": "432468197",
+"birth_date": "2011-10-26",
+"phone": "0599773567",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "حنان محمد فوزي أبو ناصر",
+"gender": "female",
+"national_id": "432452803",
+"birth_date": "2011-10-03",
+"phone": "0566999998",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "ديما فارس عصام حسان",
+"gender": "female",
+"national_id": "431576255",
+"birth_date": "2011-10-17",
+"phone": "0597703411",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "دينا فوز فوزي شحيبر",
+"gender": "female",
+"national_id": "430231795",
+"birth_date": "2011-08-25",
+"phone": "0597786548",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "راما زهير مصطفي أبو بكر",
+"gender": "female",
+"national_id": "431535368",
+"birth_date": "2011-04-05",
+"phone": "0592462276",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "رزان فادي نظير عكيلة",
+"gender": "female",
+"national_id": "432458701",
+"birth_date": "2011-09-27",
+"phone": "0592363296",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "رغد محمد معين الجرجاوي",
+"gender": "female",
+"national_id": "432450427",
+"birth_date": "2011-10-08",
+"phone": "0592900884",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "رغد محمود محمد السمري",
+"gender": "female",
+"national_id": "430234740",
+"birth_date": "2011-08-25",
+"phone": "0592597878",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "رنيم محمد رفيق العرعير",
+"gender": "female",
+"national_id": "431771997",
+"birth_date": "2011-02-16",
+"phone": "0598777183",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "رنيم ناجي عزام",
+"gender": "female",
+"national_id": "432260776",
+"birth_date": "2012-01-15",
+"phone": "0598266831",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "رهف شادي سكر",
+"gender": "female",
+"national_id": "430231340",
+"birth_date": "2011-08-13",
+"phone": "0599721010",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "رهف محمد سعيد سليمان شعبان حمام",
+"gender": "female",
+"national_id": "432486967",
+"birth_date": "2011-10-24",
+"phone": "0595388206",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "ريتاج محمد سلمان ساره",
+"gender": "female",
+"national_id": "430086363",
+"birth_date": "2011-05-25",
+"phone": "0599146218",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "ريماس زهير جهاد كريم",
+"gender": "female",
+"national_id": "431321959",
+"birth_date": "2011-03-13",
+"phone": "0599091835",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "ريماس علاء عبدالحميد الزرد",
+"gender": "female",
+"national_id": "430081026",
+"birth_date": "2011-06-20",
+"phone": "0597180997",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "زينة اكرم صالح مطر",
+"gender": "female",
+"national_id": "431566009",
+"birth_date": "2011-02-24",
+"phone": "0599534582",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "سجي محمد محمد النعسان",
+"gender": "female",
+"national_id": "430118141",
+"birth_date": "2011-05-29",
+"phone": "0598391025",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "شام محمد مدوخ",
+"gender": "female",
+"national_id": "432276004",
+"birth_date": null,
+"phone": "0599247297",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "شرين محمد درغام الأسود",
+"gender": "female",
+"national_id": "430115048",
+"birth_date": "2011-06-07",
+"phone": "0599622711",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "غزل رامز محمد الجرجاوي",
+"gender": "female",
+"national_id": "432460145",
+"birth_date": "2011-09-30",
+"phone": "0598268989",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "غزل علاء يوسف الشرفا",
+"gender": "female",
+"national_id": "431701366",
+"birth_date": "2011-03-12",
+"phone": "0599726550",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "فرح وائل عارف المظلوم",
+"gender": "female",
+"national_id": "430110676",
+"birth_date": "2011-06-19",
+"phone": "0599806889",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "لتين سامر سالم الحويطي",
+"gender": "female",
+"national_id": "432479236",
+"birth_date": "2011-11-21",
+"phone": "0599755484",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "ليان ايمن معين الجرجاوي",
+"gender": "female",
+"national_id": "430147884",
+"birth_date": "2011-09-11",
+"phone": "0597721638",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "ليان عصام محمد بهار",
+"gender": "female",
+"national_id": "431314566",
+"birth_date": "2011-03-17",
+"phone": "0597905560",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "مرح حمادة احمد العجلة",
+"gender": "female",
+"national_id": "430085118",
+"birth_date": "2011-04-26",
+"phone": "0598672055",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "مريم احمد رياض ضبان",
+"gender": "female",
+"national_id": "431652080",
+"birth_date": "2011-05-09",
+"phone": "0592619158",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "ملك غسان مدوخ",
+"gender": "female",
+"national_id": "432447639",
+"birth_date": "2011-09-29",
+"phone": "0599902970",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "ميسر عماد عمر السلك",
+"gender": "female",
+"national_id": "431314871",
+"birth_date": "2011-04-04",
+"phone": "0599353294",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "نغم ناصر زهير القصاص",
+"gender": "female",
+"national_id": "431514827",
+"birth_date": "2011-05-07",
+"phone": "0599858495",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "نور محمد مازن كرديه",
+"gender": "female",
+"national_id": "432254340",
+"birth_date": "2011-11-29",
+"phone": "0598837830",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "وردة صائب عياد السحباني",
+"gender": "female",
+"national_id": "431510825",
+"birth_date": "2011-04-16",
+"phone": "0592725812",
+"phone2": null
+},
+{
+"grade": "الصف العاشر",
+"name": "ياسمين فادي حمام",
+"gender": "female",
+"national_id": "431320092",
+"birth_date": "2011-04-14",
+"phone": "0594416107",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "احمد فلسطين احمد العيلة",
+"gender": "male",
+"national_id": "431279884",
+"birth_date": "2010-11-22",
+"phone": "0599635983",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "احمد ناصر فضل ابو عاصي",
+"gender": "male",
+"national_id": "429961196",
+"birth_date": "2010-11-04",
+"phone": "0599142153",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "حذيفة محمد عبدالله الشن",
+"gender": "male",
+"national_id": "429475361",
+"birth_date": "2010-11-09",
+"phone": "0592093035",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "خطاب رفعت محمود عباس",
+"gender": "male",
+"national_id": "429502313",
+"birth_date": "2010-02-18",
+"phone": "0592463876",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "زكي محمود زكي عكيلة",
+"gender": "male",
+"national_id": "429653272",
+"birth_date": "2010-03-17",
+"phone": "0594034268",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "سعيد احمد أيوب البطش",
+"gender": "male",
+"national_id": "429838972",
+"birth_date": "2010-07-21",
+"phone": "0597708844",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "صلاح محمد نبيل الخطيب",
+"gender": "male",
+"national_id": "429033228",
+"birth_date": "2010-07-16",
+"phone": "0599435711",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "عبدالرحمن احمد عدنان أبو الكاس",
+"gender": "male",
+"national_id": "429826704",
+"birth_date": "2010-10-23",
+"phone": "0599482651",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "عبدالرحمن زكريا مصطفي الغندور",
+"gender": "male",
+"national_id": "429436512",
+"birth_date": "2010-02-03",
+"phone": "0599604088",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "عبد الرحمن محمد يونس قويدر",
+"gender": "male",
+"national_id": "430251132",
+"birth_date": "2010-11-21",
+"phone": "0598790113",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "عبدالرحمن نهاد محمود العرقان",
+"gender": "male",
+"national_id": "429826753",
+"birth_date": "2010-10-29",
+"phone": "0599303717",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "عبدالكريم سلامة ناهض خضير",
+"gender": "male",
+"national_id": "429825599",
+"birth_date": "2010-08-21",
+"phone": "0598491007",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "عدي عبدالله جمال بلبل",
+"gender": "male",
+"national_id": "429723182",
+"birth_date": "2010-08-26",
+"phone": "0595170423",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "علاء بسام فاكر عزيز",
+"gender": "male",
+"national_id": "429726342",
+"birth_date": "2010-06-22",
+"phone": "0599051280",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "فراس فؤاد دياب الحطاب",
+"gender": "male",
+"national_id": "429654437",
+"birth_date": "2010-03-21",
+"phone": "0594840707",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "كنان سليمان خليل داود",
+"gender": "male",
+"national_id": "429711039",
+"birth_date": "2010-05-25",
+"phone": "0598466399",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "كنان يحيي محمد كساب",
+"gender": "male",
+"national_id": "431274471",
+"birth_date": "2010-12-04",
+"phone": "0599124131",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "محمد جمال سعيد بصل",
+"gender": "male",
+"national_id": "429718257",
+"birth_date": "2010-04-22",
+"phone": "0599880126",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "محمد حسام محمد سلامة",
+"gender": "male",
+"national_id": "429791460",
+"birth_date": "2010-08-18",
+"phone": "0595217616",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "محمد عبدالرحمن محمود المزعنن",
+"gender": "male",
+"national_id": "431278159",
+"birth_date": "2010-12-24",
+"phone": "0592413890",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "مصطفي محمد احمد الفيومي",
+"gender": "male",
+"national_id": "429781966",
+"birth_date": "2010-06-02",
+"phone": "0599606009",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "معاذ رفيق ديب الفيومي",
+"gender": "male",
+"national_id": "429502966",
+"birth_date": "2010-04-10",
+"phone": "0594029310",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "معتز احمد شعبان حراره",
+"gender": "male",
+"national_id": "429792856",
+"birth_date": "2010-09-06",
+"phone": null,
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "معمر محمد طارق مدوخ",
+"gender": "male",
+"national_id": "429606957",
+"birth_date": "2010-04-09",
+"phone": "0592555404",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "معين ادهم معين الصفدي",
+"gender": "male",
+"national_id": "429798440",
+"birth_date": "2010-09-18",
+"phone": "0599539399",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "نائل نائل هاشم قويدر",
+"gender": "male",
+"national_id": "429691447",
+"birth_date": "2010-06-07",
+"phone": "0595250051",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "رياض أحمد رياض الشريف",
+"gender": "male",
+"national_id": "431302439",
+"birth_date": "2011-01-15",
+"phone": "0594296509",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "رمضان حاتم رمضان حلس",
+"gender": "male",
+"national_id": "429925217",
+"birth_date": "2010-09-03",
+"phone": "0597890400",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "يامن صلاح عثمان صلاح",
+"gender": "male",
+"national_id": "429424971",
+"birth_date": "2010-02-20",
+"phone": "0592466936",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "اسيل رمضان حميد",
+"gender": "female",
+"national_id": "429838089",
+"birth_date": "2010-07-20",
+"phone": "0597213351",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "افنان محمد أسامة الجرجاوي",
+"gender": "female",
+"national_id": "429720733",
+"birth_date": "2010-11-15",
+"phone": "0597585702",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "جوهره سلامة محمد المنشاوي",
+"gender": "female",
+"national_id": "429796881",
+"birth_date": "2010-09-26",
+"phone": "0598286962",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "خلود خالد خميس حبيب",
+"gender": "female",
+"national_id": "429787617",
+"birth_date": "2010-06-30",
+"phone": "0567803933",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "رانية ناهض احمد الصواف",
+"gender": "female",
+"national_id": "429833510",
+"birth_date": "2010-07-04",
+"phone": "0592169861",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "ريتاج محمد سليم الداية",
+"gender": "female",
+"national_id": "425902699",
+"birth_date": "2011-01-20",
+"phone": "0598786770",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "ريتال احمد محمود السقا",
+"gender": "female",
+"national_id": "429613995",
+"birth_date": "2010-03-09",
+"phone": "0599770783",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "ريماس فوزي إبراهيم شحيبر",
+"gender": "female",
+"national_id": "429605918",
+"birth_date": "2010-07-12",
+"phone": "0599629370",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "رغد عبد الستار يوسف حسنين",
+"gender": "female",
+"national_id": "429798721",
+"birth_date": null,
+"phone": null,
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "ريماس محمد إبراهيم الشاويش",
+"gender": "female",
+"national_id": "429927296",
+"birth_date": "2010-08-31",
+"phone": "0599783631",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "زينه احمد عاطف المدهون",
+"gender": "female",
+"national_id": "429927411",
+"birth_date": "2010-08-30",
+"phone": "0599191318",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "ساره باسل عمر مصبح",
+"gender": "female",
+"national_id": "429697543",
+"birth_date": "2010-05-05",
+"phone": "0599577052",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "شهد وائل ثابت ابوجهل",
+"gender": "female",
+"national_id": "429876105",
+"birth_date": "2010-07-30",
+"phone": "0597183527",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "عبير احمد عاطف المدهون",
+"gender": "female",
+"national_id": "429927403",
+"birth_date": "2010-08-30",
+"phone": "0599191318",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "فرح ايمن فايز مدوخ",
+"gender": "female",
+"national_id": "430241984",
+"birth_date": "2010-10-18",
+"phone": "0567231716",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "فرح عواد موسي عباس",
+"gender": "female",
+"national_id": "431278035",
+"birth_date": "2010-12-20",
+"phone": "0568811143",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "لما نظير شاكر عكيلة",
+"gender": "female",
+"national_id": "429506819",
+"birth_date": "2010-03-03",
+"phone": "0599335070",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "لمار وائل عبدالنبي الجرجاوي",
+"gender": "female",
+"national_id": "429927981",
+"birth_date": "2010-09-01",
+"phone": "0595320400",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "نادين احمد شعبان الغفري",
+"gender": "female",
+"national_id": "429831183",
+"birth_date": "2010-07-01",
+"phone": "0592445066",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "هديل هاني الناجي",
+"gender": "female",
+"national_id": "429531239",
+"birth_date": "2010-01-28",
+"phone": "0599764221",
+"phone2": null
+},
+{
+"grade": "الحادي عشر أدبي",
+"name": "هلا محمد رسول جميل عقيل",
+"gender": "female",
+"national_id": "429506538",
+"birth_date": "2010-04-12",
+"phone": "0599243076",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "احمد حمدي اكرم السرحي",
+"gender": "male",
+"national_id": "429926678",
+"birth_date": "2010-08-31",
+"phone": "0599193169",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "احمد شادي اكرم خليل",
+"gender": "male",
+"national_id": "429883689",
+"birth_date": "2010-07-15",
+"phone": "0594248100",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "ادهم حمزه محمد الملاحي",
+"gender": "male",
+"national_id": "429201064",
+"birth_date": "2010-02-26",
+"phone": "0599612899",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "إسماعيل محمد إسماعيل الزرد",
+"gender": "male",
+"national_id": "429576622",
+"birth_date": "2010-02-12",
+"phone": "0599483906",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "امجد عبدالكريم زكريا النخالة",
+"gender": "male",
+"national_id": "429593015",
+"birth_date": "2010-02-14",
+"phone": "0595170517",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "ابراهيم عيد طالب الدهدار",
+"gender": "male",
+"national_id": "429912561",
+"birth_date": "2010-08-25",
+"phone": "0592564563",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "ايمن محمد امين الشوبكي",
+"gender": "male",
+"national_id": "429396120",
+"birth_date": "2010-02-01",
+"phone": "0592226062",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "براء حسام جمال رجب",
+"gender": "male",
+"national_id": "429584410",
+"birth_date": "2010-03-25",
+"phone": "0592399513",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "خالد ايمن رياض مكي",
+"gender": "male",
+"national_id": "429691793",
+"birth_date": "2010-06-14",
+"phone": "0599532989",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "خليل الرحمن إبراهيم محمد أبو زيد",
+"gender": "male",
+"national_id": "431252717",
+"birth_date": "2011-02-07",
+"phone": "0598070633",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "زكريا محمد احمد الناجي",
+"gender": "male",
+"national_id": "429797681",
+"birth_date": "2010-09-27",
+"phone": "0597920986",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "سيد عبد الرؤوف العريني",
+"gender": "male",
+"national_id": "431289537",
+"birth_date": "2010-12-11",
+"phone": "0597555499",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "سيف الدين عمرو حمدان المشهراوي",
+"gender": "male",
+"national_id": "429654247",
+"birth_date": "2010-03-19",
+"phone": "0598130741",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "صهيب حازم عبدالعال",
+"gender": "male",
+"national_id": "429506892",
+"birth_date": "2010-03-06",
+"phone": null,
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "عبدالرحمن عطية حسن حمدان",
+"gender": "male",
+"national_id": "429611189",
+"birth_date": "2010-02-25",
+"phone": "0594817396",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "عبدالرؤوف محمد عبد الرؤوف الرفاتي",
+"gender": "male",
+"national_id": "429681455",
+"birth_date": "2010-05-20",
+"phone": "0599412370",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "عمر احمد امين مطر",
+"gender": "male",
+"national_id": "429691561",
+"birth_date": "2010-06-11",
+"phone": "0598860897",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "عمر ماهر هاشم حسان",
+"gender": "male",
+"national_id": "431280874",
+"birth_date": "2010-11-24",
+"phone": "0594886126",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "فادي صلاح أحمد حرز",
+"gender": "male",
+"national_id": "429659774",
+"birth_date": "2010-04-03",
+"phone": "0592049297",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "فراس احمد فؤاد ضبان",
+"gender": "male",
+"national_id": "429606635",
+"birth_date": "2010-04-27",
+"phone": "0599978870",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "فراس عصام فؤاد عطالله",
+"gender": "male",
+"national_id": "429946726",
+"birth_date": "2010-09-22",
+"phone": "0599236571",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "فرج محمد فرج العمريطي",
+"gender": "male",
+"national_id": "429719982",
+"birth_date": "2010-04-23",
+"phone": "0567114847",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "كريم بسام مجدي المشهراوي",
+"gender": "male",
+"national_id": "429592488",
+"birth_date": "2010-02-16",
+"phone": "0567521988",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "كمال طارق كمال الملاحي",
+"gender": "male",
+"national_id": "431540434",
+"birth_date": "2011-04-05",
+"phone": "0569499905",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "ماهر أسامة خضر أبو عمرو",
+"gender": "male",
+"national_id": "431316454",
+"birth_date": "2011-03-29",
+"phone": "0592756100",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "مبتسم عبدالكريم صيام",
+"gender": "male",
+"national_id": "429878895",
+"birth_date": "2010-08-05",
+"phone": "0595252435",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "محمد احمد فؤاد سليم",
+"gender": "male",
+"national_id": "429576796",
+"birth_date": "2010-02-17",
+"phone": "0599063004",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "محمد احمد محمود أبو غوش",
+"gender": "male",
+"national_id": "429788888",
+"birth_date": "2010-09-04",
+"phone": "0599344497",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "محمد حسني حسن مقبل",
+"gender": "male",
+"national_id": "431271501",
+"birth_date": null,
+"phone": "0592555855",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "محمد عارف عبدالمحسن أبو سيف",
+"gender": "male",
+"national_id": "429541964",
+"birth_date": "2010-03-23",
+"phone": "0597616164",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "محمد عبدالله محمد يوسف الصفدي",
+"gender": "male",
+"national_id": "429960792",
+"birth_date": "2010-11-30",
+"phone": "0599630668",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "محمد علاء تيسير البواب االسك",
+"gender": "male",
+"national_id": "429821044",
+"birth_date": "2010-08-15",
+"phone": "0567071273",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "محمد ماجد كمال الاي",
+"gender": "male",
+"national_id": "429787682",
+"birth_date": "2010-06-28",
+"phone": "0595598966",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "محمد محمود رزق الحطاب",
+"gender": "male",
+"national_id": "429799042",
+"birth_date": "2010-09-28",
+"phone": "0599489708",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "محمد هاني الجملة",
+"gender": "male",
+"national_id": "429720170",
+"birth_date": null,
+"phone": "0599861468",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "محمود جهاد زكريا الصوير",
+"gender": "male",
+"national_id": "431295625",
+"birth_date": "2011-01-08",
+"phone": "0599214709",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "محمود محمد موسي شنيورة",
+"gender": "male",
+"national_id": "429694110",
+"birth_date": "2010-04-25",
+"phone": "0592930850",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "محمود نادر عز الفيراني",
+"gender": "male",
+"national_id": "429504665",
+"birth_date": "2010-02-24",
+"phone": "0597647788",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "وديع منير نظير السرحي",
+"gender": "male",
+"national_id": "429607112",
+"birth_date": "2010-05-05",
+"phone": "0598328014",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "وسيم علاء محمد القصاص",
+"gender": "male",
+"national_id": "429603194",
+"birth_date": "2010-06-07",
+"phone": "0595390390",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "يوسف اياد سلمان أيوب",
+"gender": "male",
+"national_id": "431301852",
+"birth_date": "2011-01-02",
+"phone": "0599435313",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "يوسف ناصر حلمي اشتيوي",
+"gender": "male",
+"national_id": "429783277",
+"birth_date": "2010-06-12",
+"phone": "0599743393",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "أحلام نشاة نصر قنيطة",
+"gender": "female",
+"national_id": "429708050",
+"birth_date": "2010-10-11",
+"phone": "0592401782",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "امنة ماجد عبود",
+"gender": "female",
+"national_id": "429577794",
+"birth_date": "2010-03-08",
+"phone": "0592683868",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "ايمان محي الدين القطاع",
+"gender": "female",
+"national_id": "430253385",
+"birth_date": "2010-11-07",
+"phone": "0597357809",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "بتول محمد جمال الحلبي",
+"gender": "female",
+"national_id": "429723828",
+"birth_date": "2010-07-12",
+"phone": "0567894492",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "تالا حسني حامد زيارة",
+"gender": "female",
+"national_id": "429868987",
+"birth_date": "2010-07-24",
+"phone": "0597792441",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "تالا رمزي زكي جعرور",
+"gender": "female",
+"national_id": "429830433",
+"birth_date": "2010-06-24",
+"phone": "0592547325",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "تالا علي ياسين الشيخ",
+"gender": "female",
+"national_id": "429834112",
+"birth_date": "2010-06-30",
+"phone": "0599701413",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "جنات عطية حسن حمدان",
+"gender": "female",
+"national_id": "429611197",
+"birth_date": "2010-02-25",
+"phone": "0594817396",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "جنان إبراهيم شحيبر",
+"gender": "female",
+"national_id": "429882301",
+"birth_date": "2010-07-03",
+"phone": "0599805231",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "جني رامز عبدالناصر الغلايني",
+"gender": "female",
+"national_id": "431279942",
+"birth_date": "2010-11-23",
+"phone": "0598807080",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "جني محمد خضر مسعود",
+"gender": "female",
+"national_id": "429727449",
+"birth_date": "2010-05-31",
+"phone": "0595603633",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "حلا رمضان رحمي",
+"gender": "female",
+"national_id": "429967771",
+"birth_date": "2010-09-30",
+"phone": "0567806122",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "حلا وائل فرج العمريطي",
+"gender": "female",
+"national_id": "429780273",
+"birth_date": "2010-06-06",
+"phone": "0599178321",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "حليمة محمد سمير أبو طاحون",
+"gender": "female",
+"national_id": "431776871",
+"birth_date": "2011-02-12",
+"phone": "0597197914",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "ديما نهاد إسحاق قويدر",
+"gender": "female",
+"national_id": "429592298",
+"birth_date": "2010-02-18",
+"phone": "0599603643",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "روعة ناجي عزام",
+"gender": "female",
+"national_id": "429584295",
+"birth_date": "2010-03-24",
+"phone": "0598266831",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "رويده محمد يوسف الحطاب",
+"gender": "female",
+"national_id": "429579246",
+"birth_date": "2010-04-05",
+"phone": "0598777122",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "ريماس فارس عبد الرؤوف ابو حجر",
+"gender": "female",
+"national_id": "429786353",
+"birth_date": "2010-06-18",
+"phone": "0595313109",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "ريماس معتز محمد الخطيب",
+"gender": "female",
+"national_id": "431254457",
+"birth_date": "2011-01-06",
+"phone": "0599470541",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "سائده نضال حسين النخالة",
+"gender": "female",
+"national_id": "429617350",
+"birth_date": "2010-03-21",
+"phone": "0599395746",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "سلمي وائل احمد كامل أبو كميل",
+"gender": "female",
+"national_id": "429885270",
+"birth_date": "2010-08-26",
+"phone": "0599300396",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "سما ماهر محمود أبو غوش",
+"gender": "female",
+"national_id": "429789993",
+"birth_date": "2010-10-16",
+"phone": "0598297778",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "سناء مهدي محمد الملاحي",
+"gender": "female",
+"national_id": "431267293",
+"birth_date": "2011-01-29",
+"phone": "0598830392",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "غزل عبدالله توفيق الغزالي",
+"gender": "female",
+"national_id": "430258236",
+"birth_date": "2010-11-06",
+"phone": "0597139197",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "غصون احمد مدوخ",
+"gender": "female",
+"national_id": "429592264",
+"birth_date": "2010-02-18",
+"phone": "0598866620",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "لمياء محمد الأسود",
+"gender": "female",
+"national_id": "429502214",
+"birth_date": "2010-02-19",
+"phone": "0599622711",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "لما ايهاب حسان جندية",
+"gender": "female",
+"national_id": "430252767",
+"birth_date": "2010-11-13",
+"phone": null,
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "لين هشام رباح الشرفا",
+"gender": "female",
+"national_id": "429710221",
+"birth_date": "2010-06-07",
+"phone": "0599147187",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "مرام سامي احمد عبود",
+"gender": "female",
+"national_id": "429838980",
+"birth_date": "2010-07-23",
+"phone": "0598343206",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "ملك حاتم صالح المظلوم",
+"gender": "female",
+"national_id": "429592207",
+"birth_date": "2010-02-17",
+"phone": "0599917535",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "ملك علاء الدين امين مراد",
+"gender": "female",
+"national_id": "429531320",
+"birth_date": "2010-02-03",
+"phone": "0597666231",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "منه رامز محمد الجرجاوي",
+"gender": "female",
+"national_id": "429790371",
+"birth_date": "2010-08-17",
+"phone": "0598268989",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "منة زكريا سالم النواتي",
+"gender": "female",
+"national_id": "429505233",
+"birth_date": "2010-02-12",
+"phone": "0595704070",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "هناء اشرف شعبان النعسان",
+"gender": "female",
+"national_id": "430257766",
+"birth_date": "2010-11-04",
+"phone": "0592299037",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "وفاء عبدالحكيم محمود عطالله",
+"gender": "female",
+"national_id": "429722853",
+"birth_date": "2010-10-10",
+"phone": "0595025532",
+"phone2": null
+},
+{
+"grade": "الحادي عشر علمي",
+"name": "ولاء سعيد ثابت الريفي",
+"gender": "female",
+"national_id": "431284918",
+"birth_date": "2010-12-18",
+"phone": "0567804010",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "احمد أنور شعبان عليان",
+"gender": "male",
+"national_id": "427412606",
+"birth_date": "2009-04-29",
+"phone": "0597888278",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "احمد حسين علي الجدبة",
+"gender": "male",
+"national_id": "429414253",
+"birth_date": "2009-12-11",
+"phone": "0599015157",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "احمد سامي احمد عبود",
+"gender": "male",
+"national_id": "429309331",
+"birth_date": "2009-09-24",
+"phone": "0592905007",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "بدر شادي نجيب فيصل",
+"gender": "male",
+"national_id": "429209414",
+"birth_date": "2009-08-15",
+"phone": "0567241536",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "بشير محمد بشير المشهراوي",
+"gender": "male",
+"national_id": "429010150",
+"birth_date": "2009-06-13",
+"phone": "0595849628",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "بهاء رمزي زكي جعرور",
+"gender": "male",
+"national_id": "426446068",
+"birth_date": "2009-02-19",
+"phone": "0592547325",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "جمال خالد جمال العكلوك",
+"gender": "male",
+"national_id": "429203920",
+"birth_date": "2009-09-17",
+"phone": "0598143531",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "جهاد سامح جهاد الحداد",
+"gender": "male",
+"national_id": "429018187",
+"birth_date": "2009-06-26",
+"phone": "0592560072",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "جهاد محمد جهاد أبو لبن",
+"gender": "male",
+"national_id": "429180128",
+"birth_date": "2009-08-25",
+"phone": "0599535490",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "حسام معين حسن الفران",
+"gender": "male",
+"national_id": "429154248",
+"birth_date": "2009-07-27",
+"phone": "0599758315",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "حسن مصطفي مصباح العمصي",
+"gender": "male",
+"national_id": "426421095",
+"birth_date": "2009-05-14",
+"phone": "0597073226",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "رشاد الجملة",
+"gender": "male",
+"national_id": "426478434",
+"birth_date": "2009-04-07",
+"phone": "0599861468",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "رامي حاتم الشوا",
+"gender": "male",
+"national_id": "429229859",
+"birth_date": "2009-09-26",
+"phone": "0599331438",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "عاصم محمد ثابت الريفي",
+"gender": "male",
+"national_id": "429007925",
+"birth_date": "2009-06-01",
+"phone": "0597850040",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "عبد الحميد حماد عبد الحميد الحرازين",
+"gender": "male",
+"national_id": "426415212",
+"birth_date": "2009-03-22",
+"phone": "0592172297",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "عبدالرحمن شادي بسام القيسي",
+"gender": "male",
+"national_id": "429343825",
+"birth_date": "2009-09-11",
+"phone": "0592140797",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "عبدالكريم ناصر شعبان جرادة",
+"gender": "male",
+"national_id": "429274319",
+"birth_date": "2009-11-13",
+"phone": "0593777974",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "عبدالله سلامة رمضان الزرد",
+"gender": "male",
+"national_id": "429002975",
+"birth_date": "2009-05-18",
+"phone": "0599412124",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "عدي عبدالكريم عليوة",
+"gender": "male",
+"national_id": "429334188",
+"birth_date": "2009-11-19",
+"phone": "0567634809",
+"phone2": "0592773527"
+},
+{
+"grade": "توجيهي أدبي",
+"name": "علاء فادي حسين الكيال",
+"gender": "male",
+"national_id": "429536758",
+"birth_date": "2010-01-20",
+"phone": "0567741007",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "فيصل يحيي مصباح مراد",
+"gender": "male",
+"national_id": "429479785",
+"birth_date": "2010-01-13",
+"phone": "0595404546",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "محمد جهاد مصطفي البنا",
+"gender": "male",
+"national_id": "429425952",
+"birth_date": "2010-01-11",
+"phone": "0599752529",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "محمد كريم جبر العجل",
+"gender": "male",
+"national_id": "429202591",
+"birth_date": "2009-10-16",
+"phone": "0567269976",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "محمد مروان كمال السويركي",
+"gender": "male",
+"national_id": "426300885",
+"birth_date": "2008-08-28",
+"phone": "0592580151",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "محمد نسيم اللوح",
+"gender": "male",
+"national_id": "426430583",
+"birth_date": "2009-03-12",
+"phone": "0567100092",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "محمد نعيم ثابت أبو جهل",
+"gender": "male",
+"national_id": "427597109",
+"birth_date": "2009-05-02",
+"phone": "0567345102",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "محمود ناصر اسبيته",
+"gender": "male",
+"national_id": "426420725",
+"birth_date": "2009-05-07",
+"phone": "0599953871",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "محمود ابراهيم رفيق العجل",
+"gender": "male",
+"national_id": "429425663",
+"birth_date": "2010-01-06",
+"phone": "0599133463",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "مسعود أيوب حسان هنا",
+"gender": "male",
+"national_id": "429425028",
+"birth_date": "2010-01-01",
+"phone": "0592950850",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "منصور مهند محمود اقطفيان",
+"gender": "male",
+"national_id": "427319918",
+"birth_date": "2009-02-01",
+"phone": "0599753935",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "مؤيد خميس ثابت الريفي",
+"gender": "male",
+"national_id": "429203268",
+"birth_date": "2009-09-11",
+"phone": "0599892095",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "نايف محمد نايف الشوا",
+"gender": "male",
+"national_id": "427320601",
+"birth_date": "2009-02-03",
+"phone": "0599865877",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "نزار حسن مسعود مدوخ",
+"gender": "male",
+"national_id": "429437049",
+"birth_date": "2010-01-06",
+"phone": "0599903471",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "وسيم وائل ابراهيم البايض",
+"gender": "male",
+"national_id": "426446852",
+"birth_date": "2009-02-19",
+"phone": "0599441125",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "يوسف حمزه صبحي ابو شنب",
+"gender": "male",
+"national_id": "429036759",
+"birth_date": "2009-06-24",
+"phone": "0599692269",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "يوسف شرف الدين محمد أبو عجوة",
+"gender": "male",
+"national_id": "426388427",
+"birth_date": "2008-12-11",
+"phone": "0599842804",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "انتصار جهاد جودت اللدعة",
+"gender": "female",
+"national_id": "429010077",
+"birth_date": "2009-06-12",
+"phone": "0592171934",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "انعام زهير جهاد كريم",
+"gender": "female",
+"national_id": "429380397",
+"birth_date": "2009-12-09",
+"phone": "0594327840",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "ايه خليل سعيد عوض",
+"gender": "female",
+"national_id": "429479108",
+"birth_date": "2010-01-15",
+"phone": "0594401988",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "اية مهدي الزعانين",
+"gender": "female",
+"national_id": "426370839",
+"birth_date": "2009-04-10",
+"phone": "0598382265",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "بتول محمود صبحي كحيل",
+"gender": "female",
+"national_id": "429205891",
+"birth_date": "2009-09-03",
+"phone": "0592010570",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "بيسان صبحي فيصل",
+"gender": "female",
+"national_id": "429038250",
+"birth_date": "2009-08-02",
+"phone": "0599710878",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "تالين حازم محمد صيام",
+"gender": "female",
+"national_id": "426422325",
+"birth_date": "2009-03-23",
+"phone": "0567491219",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "جنات باسل محمد زينو",
+"gender": "female",
+"national_id": "429349053",
+"birth_date": "2009-08-19",
+"phone": "0599698492",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "حوريا محمد عدوان",
+"gender": "female",
+"national_id": "427475157",
+"birth_date": "2009-04-28",
+"phone": "0592160355",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "حلا اشرف ممدوح القنفد",
+"gender": "female",
+"national_id": "4290148302",
+"birth_date": "2009-06-07",
+"phone": "0597734302",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "حلا علاء محمد حرز",
+"gender": "female",
+"national_id": "429347743",
+"birth_date": "2009-08-31",
+"phone": null,
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "ربى سلامه زكي الاى",
+"gender": "female",
+"national_id": "426429759",
+"birth_date": "2009-09-08",
+"phone": "0567629059",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "رزان هشام سالم عليان",
+"gender": "female",
+"national_id": "426440053",
+"birth_date": "2009-04-27",
+"phone": "0592415260",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "رغد معين مرضي قنبور",
+"gender": "female",
+"national_id": "429181464",
+"birth_date": "2009-08-16",
+"phone": "0592690903",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "رغد هلال سعدي أبو هلال",
+"gender": "female",
+"national_id": "429227267",
+"birth_date": "2009-09-23",
+"phone": "0592584217",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "ريماس عبدالقادر حيدر الغزالي",
+"gender": "female",
+"national_id": "429220072",
+"birth_date": "2009-10-01",
+"phone": "0599867151",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "رينال ماجد محمد نصر",
+"gender": "female",
+"national_id": "429421100",
+"birth_date": "2009-12-27",
+"phone": "0599193313",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "زينة فلسطين احمد العيلة",
+"gender": "female",
+"national_id": "427373741",
+"birth_date": "2009-01-18",
+"phone": "0599945511",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "سارة احمد حاتم المنسي",
+"gender": "female",
+"national_id": "429139322",
+"birth_date": "2009-06-19",
+"phone": "0592166071",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "سارة الشرباصي",
+"gender": "female",
+"national_id": "426444477",
+"birth_date": "2009-09-17",
+"phone": "0598187907",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "سحر وسام هشام داود",
+"gender": "female",
+"national_id": "429227895",
+"birth_date": "2009-09-18",
+"phone": "0599193275",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "سما محمد زهير الريفي",
+"gender": "female",
+"national_id": "429413735",
+"birth_date": "2009-12-09",
+"phone": "0599380546",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "سماح محي الدين عمر هنية",
+"gender": "female",
+"national_id": "429303621",
+"birth_date": "2009-10-19",
+"phone": "0592847301",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "شذا رائدالشيخ",
+"gender": "female",
+"national_id": "429014483",
+"birth_date": "2009-06-07",
+"phone": null,
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "شروق محمود عياد السحباني",
+"gender": "female",
+"national_id": "429249311",
+"birth_date": "2009-10-08",
+"phone": "0599625197",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "صافي محمود سليم أبو ناصر",
+"gender": "female",
+"national_id": "429138027",
+"birth_date": "2009-07-09",
+"phone": "0597060369",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "صباح موسي عارف قدوم",
+"gender": "female",
+"national_id": "429305436",
+"birth_date": "2009-10-02",
+"phone": "0593202536",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "صفاء محمود عبدالكريم الزيتونية",
+"gender": "female",
+"national_id": "427556857",
+"birth_date": "2009-04-02",
+"phone": "0599099563",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "غزل احمد محمد المدهون",
+"gender": "female",
+"national_id": "415385269",
+"birth_date": "2009-12-26",
+"phone": "0598408737",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "فاطمة الزهراء تيسير بهار",
+"gender": "female",
+"national_id": "427561956",
+"birth_date": "2009-04-24",
+"phone": "0597400176",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "فدوي خميس رمضان البايض",
+"gender": "female",
+"national_id": "429411283",
+"birth_date": "2009-12-01",
+"phone": "0598124794",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "فرح زكريا حسن مدوخ",
+"gender": "female",
+"national_id": "429384464",
+"birth_date": "2009-12-09",
+"phone": "0597518556",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "فرح كامل فتحي أبو الشعر",
+"gender": "female",
+"national_id": "427314810",
+"birth_date": "2009-02-01",
+"phone": "0595902488",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "فلسطين محمد سلمان ساره",
+"gender": "female",
+"national_id": "429341118",
+"birth_date": "2009-09-06",
+"phone": "0599146218",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "قمر إبراهيم عبدالكريم رجب",
+"gender": "female",
+"national_id": "429137490",
+"birth_date": "2009-07-07",
+"phone": "0592546113",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "ليان حازم زكي سويدان",
+"gender": "female",
+"national_id": "429428063",
+"birth_date": "2010-01-14",
+"phone": "0599606207",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "ليان محمد فايز مدوخ",
+"gender": "female",
+"national_id": "429347610",
+"birth_date": "2009-08-27",
+"phone": null,
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "ليان سالم سليم النبيه",
+"gender": "female",
+"national_id": "427561253",
+"birth_date": "2009-06-29",
+"phone": "0567913099",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "ليان يوسف فتحي عياد",
+"gender": "female",
+"national_id": "429133580",
+"birth_date": "2009-07-01",
+"phone": "0597434485",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "مرح عامر تحسين الشامي",
+"gender": "female",
+"national_id": "426464988",
+"birth_date": "2009-02-28",
+"phone": "0599224677",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "مريم ماجد ايمن عبود",
+"gender": "female",
+"national_id": "426480919",
+"birth_date": "2009-08-04",
+"phone": "0592683868",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "منة الله ماهر علي الحداد",
+"gender": "female",
+"national_id": "429412745",
+"birth_date": "2009-12-04",
+"phone": "0595608074",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "مني محمد محمد كسكين",
+"gender": "female",
+"national_id": "429170384",
+"birth_date": "2009-08-17",
+"phone": "0592070989",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "مني نشاة نصر قنيطة",
+"gender": "female",
+"national_id": "429205248",
+"birth_date": null,
+"phone": "0592401782",
+"phone2": null
+},
+{
+"grade": "توجيهي أدبي",
+"name": "ناري نضال موسي عباس",
+"gender": "female",
+"national_id": "429349442",
+"birth_date": "2009-09-01",
+"phone": "0598909509",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "إبراهيم محمد هشام العمصي",
+"gender": "male",
+"national_id": "429153422",
+"birth_date": "2009-07-26",
+"phone": "0598866540",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "ايهم محمد صالح زياره",
+"gender": "male",
+"national_id": "429572308",
+"birth_date": "2010-01-31",
+"phone": "0599454835",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "حسن محمد فرج",
+"gender": "male",
+"national_id": "429592983",
+"birth_date": "2010-02-19",
+"phone": "0597900717",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "خليل علي أبو الخير",
+"gender": "male",
+"national_id": "426410056",
+"birth_date": "2009-04-11",
+"phone": "0599884060",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "عبد الحكيم محمد عبدالحكيم أبو دقن",
+"gender": "male",
+"national_id": "429470826",
+"birth_date": "2009-12-26",
+"phone": "0567772723",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "عبدالرحمن وائل محمود أبو حليمة",
+"gender": "male",
+"national_id": "427437835",
+"birth_date": "2009-03-19",
+"phone": "0598338170",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "عزمي محمد محمد دياب",
+"gender": "male",
+"national_id": "429070121",
+"birth_date": "2009-08-21",
+"phone": "0598861774",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "علي عبد علي صمامة",
+"gender": "male",
+"national_id": "429019516",
+"birth_date": "2009-06-28",
+"phone": "0567211475",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "قصي حسني الصواف",
+"gender": "male",
+"national_id": "427601869",
+"birth_date": "2009-04-21",
+"phone": "0594885381",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "كارم عادل اديب سكر",
+"gender": "male",
+"national_id": "429152465",
+"birth_date": "2099-08-11",
+"phone": "0599560902",
+"phone2": "0599055180"
+},
+{
+"grade": "توجيهي علمي",
+"name": "محمد احمد محمد صالح الدالي",
+"gender": "male",
+"national_id": "429431232",
+"birth_date": "2009-12-17",
+"phone": "0593373789",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "محمد عامر سليمان أبو شريعة",
+"gender": "male",
+"national_id": "429202203",
+"birth_date": "2009-10-10",
+"phone": "0595661575",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "محمد وسام محمد كساب",
+"gender": "male",
+"national_id": "429010192",
+"birth_date": "2009-06-12",
+"phone": "0592530767",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "محمود سمير احمد جنينة",
+"gender": "male",
+"national_id": "426430138",
+"birth_date": "2009-05-18",
+"phone": "0595514841",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "محمود نائل ابراهيم البايض",
+"gender": "male",
+"national_id": "429430861",
+"birth_date": "2010-01-09",
+"phone": "0598246612",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "مصطفي إبراهيم الحطاب",
+"gender": "male",
+"national_id": "429007875",
+"birth_date": "2009-06-01",
+"phone": "0598765402",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "مصطفي اياد الحطاب",
+"gender": "male",
+"national_id": "429246820",
+"birth_date": "2009-10-27",
+"phone": "0597077546",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "مصطفي محمد مصطفي هنية",
+"gender": "male",
+"national_id": "429150170",
+"birth_date": "2009-08-19",
+"phone": "0594422676",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "مؤمن محمد محمود السقا",
+"gender": "male",
+"national_id": "429888688",
+"birth_date": "2009-11-21",
+"phone": "0598998513",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "اسيل سمير احمد نصر",
+"gender": "female",
+"national_id": "429208747",
+"birth_date": "2009-09-15",
+"phone": "0599725317",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "اميرة درويش عطية الثلاثيني",
+"gender": "female",
+"national_id": "429338510",
+"birth_date": "2009-11-28",
+"phone": "0593124124",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "انوار سعيد ثابت الريفي",
+"gender": "female",
+"national_id": "429078736",
+"birth_date": "2009-07-07",
+"phone": "0592470960",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "ايمان هشام عبدالله العصار",
+"gender": "female",
+"national_id": "429200645",
+"birth_date": "2009-10-24",
+"phone": "0592583265",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "بلسم عاطف أبو العطا",
+"gender": "female",
+"national_id": "426430047",
+"birth_date": "2009-03-31",
+"phone": "0598924215",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "بيسان ديب جمعه الراعي",
+"gender": "female",
+"national_id": "429223282",
+"birth_date": "2009-10-23",
+"phone": "0592089832",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "تالين مامون نعيم عطالله",
+"gender": "female",
+"national_id": "429303092",
+"birth_date": "2009-10-18",
+"phone": "0599976402",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "تسنيم سهيل الغزالي",
+"gender": "female",
+"national_id": "427596853",
+"birth_date": "2009-02-06",
+"phone": "0592350787",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "جني سمير احمد زقوت",
+"gender": "female",
+"national_id": "429279045",
+"birth_date": "2009-10-31",
+"phone": "0599866686",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "حلا شاهين حسين أبو عجوة",
+"gender": "female",
+"national_id": "429348774",
+"birth_date": "2009-09-02",
+"phone": "0599620528",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "حلا نادي فتحي أبو الشعر",
+"gender": "female",
+"national_id": "429347461",
+"birth_date": "2009-08-30",
+"phone": "0598560236",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "حنين محمود رزق الحطاب",
+"gender": "female",
+"national_id": "426393922",
+"birth_date": "2009-01-31",
+"phone": "0599489708",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "رغد عبدالكريم لولو",
+"gender": "female",
+"national_id": "429303183",
+"birth_date": "2009-10-19",
+"phone": "0599429414",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "رغد فوزي محمد شابط",
+"gender": "female",
+"national_id": "429354350",
+"birth_date": "2009-11-23",
+"phone": "0599903378",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "رفيف إيهاب عوني الرفاتي",
+"gender": "female",
+"national_id": "429003320",
+"birth_date": "2009-05-20",
+"phone": "0599841812",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "روزا فضل عبد ربه الريفي",
+"gender": "female",
+"national_id": "429433139",
+"birth_date": "2009-12-15",
+"phone": "0595500966",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "روعة عثمان الصفدي",
+"gender": "female",
+"national_id": "426422770",
+"birth_date": "2009-03-28",
+"phone": "0599762521",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "رؤي جهاد كمال كرم",
+"gender": "female",
+"national_id": "427596507",
+"birth_date": "2009-05-03",
+"phone": "0599945571",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "رؤي منير أيوب أيوب",
+"gender": "female",
+"national_id": "427424015",
+"birth_date": "2009-07-09",
+"phone": "0567409643",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "زين سالم قطيفان",
+"gender": "female",
+"national_id": "426471942",
+"birth_date": "2009-03-08",
+"phone": "0598266386",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "سعاد وائل عارف المظلوم",
+"gender": "female",
+"national_id": "429302789",
+"birth_date": "2009-10-16",
+"phone": "0597697037",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "شهندا رمزي فوزي زويد",
+"gender": "female",
+"national_id": "429539422",
+"birth_date": "2010-01-23",
+"phone": "0597485950",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "عبير عبداللطيف نعيم اهل",
+"gender": "female",
+"national_id": "429388671",
+"birth_date": "2009-08-08",
+"phone": "0566020295",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "فاطمة اسعد سالم الريفي",
+"gender": "female",
+"national_id": "429209919",
+"birth_date": null,
+"phone": "0567478576",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "فرح إسماعيل خالد عزام",
+"gender": "female",
+"national_id": "429354046",
+"birth_date": "2009-11-19",
+"phone": "0597799292",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "فرح فادي جميل عطالله",
+"gender": "female",
+"national_id": "429227705",
+"birth_date": "2009-09-21",
+"phone": "0567070947",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "فرح ياسر فضل الدهشان",
+"gender": "female",
+"national_id": "429074131",
+"birth_date": "2009-09-17",
+"phone": "0599443771",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "لمي حسن دويمة",
+"gender": "female",
+"national_id": "426412821",
+"birth_date": "2009-03-26",
+"phone": "0566929593",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "لوجين رزق العيلة",
+"gender": "female",
+"national_id": "429889793",
+"birth_date": "2009-12-14",
+"phone": "0599173190",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "ليان يوسف احمد الشوبكي",
+"gender": "female",
+"national_id": "429887714",
+"birth_date": null,
+"phone": "0592490316",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "ليلي محمد عمر المقيد",
+"gender": "female",
+"national_id": "429125826",
+"birth_date": "2009-10-09",
+"phone": "0599542627",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "ملك مالك عبدالشافي الشوبكي",
+"gender": "female",
+"national_id": "429150014",
+"birth_date": "2009-08-18",
+"phone": "0593229748",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "منة بسام مدوخ",
+"gender": "female",
+"national_id": "426416343",
+"birth_date": "2009-03-17",
+"phone": "0597899990",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "مها محمد حماد النجار",
+"gender": "female",
+"national_id": "429385578",
+"birth_date": "2009-12-09",
+"phone": "0598804434",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "نايا هاشم محمد أبو العنين",
+"gender": "female",
+"national_id": "429429863",
+"birth_date": "2010-12-18",
+"phone": "0592943304",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "ندي اكرم سعدي سكر",
+"gender": "female",
+"national_id": "426420899",
+"birth_date": "2009-05-07",
+"phone": "0595078614",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "ندي عبدالله كمال سارة",
+"gender": "female",
+"national_id": "429011265",
+"birth_date": "2009-06-14",
+"phone": "0599665532",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "نعيمة مصطفي المشهراوي",
+"gender": "female",
+"national_id": "413078155",
+"birth_date": "2009-10-25",
+"phone": "0592178667",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "هبة احمد عبد الفتاح المشهراوي",
+"gender": "female",
+"national_id": "429186000",
+"birth_date": "2009-08-04",
+"phone": "0597927675",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "ورود اياد محمود شعشاعة",
+"gender": "female",
+"national_id": "414760892",
+"birth_date": "2009-08-28",
+"phone": "0595299201",
+"phone2": null
+},
+{
+"grade": "توجيهي علمي",
+"name": "يمني اياد عبد الفتاح أبو جهل",
+"gender": "female",
+"national_id": "429576564",
+"birth_date": "2009-02-14",
+"phone": "0598092711",
+"phone2": null
+}
+]
+}

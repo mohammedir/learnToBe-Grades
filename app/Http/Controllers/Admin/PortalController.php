@@ -1,0 +1,121 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Models\Section;
+use App\Models\Setting;
+use App\Models\Student;
+use App\Services\StudentCredentials;
+use Illuminate\Http\Request;
+
+/** بوابة الطلاب: نشر الدرجات وإنشاء حسابات الدخول */
+class PortalController extends Controller
+{
+    public function index(Request $request)
+    {
+        $sections = Section::ordered()->with('gradeLevel')->withCount([
+            'students',
+            'students as accounts_count' => fn ($q) => $q->whereNotNull('password')->whereNotNull('national_id'),
+            'students as logged_count' => fn ($q) => $q->whereNotNull('last_login_at'),
+            'students as no_id_count' => fn ($q) => $q->whereNull('national_id'),
+        ])->get();
+
+        $section = $request->filled('section') ? Section::with('gradeLevel')->find($request->integer('section')) : null;
+
+        $suspended = Student::with('section.gradeLevel')->whereNotNull('suspended_at')->orderByDesc('suspended_at')->get();
+
+        return view('admin.portal.index', [
+            'suspended' => $suspended,
+            'sections' => $sections,
+            'section' => $section,
+            'students' => $section ? $section->orderedStudents() : collect(),
+            'published' => (bool) Setting::get('grades_published', false),
+            'title' => Setting::get('grades_title', 'نتائج الفصل الدراسي الأول'),
+            'totals' => [
+                'students' => $sections->sum('students_count'),
+                'accounts' => $sections->sum('accounts_count'),
+                'logged' => $sections->sum('logged_count'),
+                'no_id' => $sections->sum('no_id_count'),
+            ],
+        ]);
+    }
+
+    public function publish(Request $request)
+    {
+        $data = $request->validate([
+            'title' => ['required', 'string', 'max:120'],
+            'published' => ['required', 'boolean'],
+        ], [], ['title' => 'عنوان النتائج']);
+        Setting::put('grades_title', $data['title']);
+        Setting::put('grades_published', $data['published'] ? '1' : '0');
+
+        return back()->with('status', $data['published'] ? 'تم نشر الدرجات. يرى الطلاب الآن درجاتهم عند الدخول.' : 'تم إخفاء الدرجات عن الطلاب.');
+    }
+
+    /** إنشاء كلمات مرور لشعبة (الجدد فقط أو الكل) وتنزيلها فوراً */
+    public function issueSection(Request $request, Section $section, StudentCredentials $credentials)
+    {
+        $mode = $request->validate(['mode' => ['required', 'in:new,all']])['mode'];
+        $section->load('gradeLevel');
+        $students = $section->orderedStudents()->load('section.gradeLevel');
+        if ($mode === 'new') {
+            $students = $students->filter(fn ($s) => ! $s->password);
+        }
+        $issued = $credentials->issue($students);
+        if ($issued->isEmpty()) {
+            return back()->with('warning', 'لا يوجد طلاب بحاجة لكلمة مرور في هذه الشعبة، أو ليس لهم رقم هوية.');
+        }
+
+        return $credentials->download($issued, $section->full_name);
+    }
+
+    /** تعيين كلمة مرور يكتبها الموظف بنفسه لطالب */
+    public function setPassword(Request $request, Student $student)
+    {
+        if (! $student->national_id) {
+            return back()->with('warning', 'لا يمكن تعيين كلمة مرور لطالب بدون رقم هوية.');
+        }
+        $data = $request->validate([
+            'password' => ['required', 'string', 'min:6', 'max:64'],
+            'must_change' => ['nullable', 'boolean'],
+        ], [], ['password' => 'كلمة المرور']);
+
+        $student->forceFill([
+            'password' => $data['password'],
+            'initial_password' => $data['password'],
+            'must_change_password' => $request->boolean('must_change'),
+            'password_issued_at' => now(),
+        ])->save();
+
+        return back()->with('status', "تم تعيين كلمة مرور جديدة للطالب {$student->name}."
+            .($request->boolean('must_change') ? ' سيُطلب منه تغييرها عند الدخول.' : ''));
+    }
+
+    /** إيقاف حساب الطالب في البوابة مع ذكر السبب */
+    public function suspend(Request $request, Student $student)
+    {
+        $data = $request->validate(['reason' => ['required', 'string', 'min:3', 'max:500']], [], ['reason' => 'سبب الإيقاف']);
+        $student->forceFill(['suspended_at' => now(), 'suspension_reason' => trim($data['reason']), 'suspended_by' => $request->user()->id])->save();
+
+        return back()->with('status', "أُوقف حساب {$student->name}. سيرى رسالة الإيقاف والسبب عند الدخول.");
+    }
+
+    public function unsuspend(Student $student)
+    {
+        $student->forceFill(['suspended_at' => null, 'suspension_reason' => null, 'suspended_by' => null])->save();
+
+        return back()->with('status', "أُعيد تفعيل حساب {$student->name}.");
+    }
+
+    /** إعادة تعيين كلمة مرور طالب واحد (مثلاً إن نسيها) */
+    public function issueStudent(Student $student, StudentCredentials $credentials)
+    {
+        $student->load('section.gradeLevel');
+        if (! $student->national_id) {
+            return back()->with('warning', 'لا يمكن إنشاء حساب لطالب بدون رقم هوية. أضف رقم الهوية من صفحة الطلاب.');
+        }
+
+        return $credentials->download($credentials->issue(collect([$student])), $student->name);
+    }
+}

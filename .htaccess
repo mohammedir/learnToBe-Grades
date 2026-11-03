@@ -1,0 +1,11 @@
+# Hostinger: الدومين يفتح public_html، فنحوّل كل الطلبات إلى مجلد public في Laravel
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+# حماية الملفات الحساسة لو وصل لها أحد مباشرة
+<FilesMatch "^\.env|composer\.(json|lock)|artisan$">
+    Require all denied
+</FilesMatch>

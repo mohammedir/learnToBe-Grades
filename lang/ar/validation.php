@@ -1,0 +1,40 @@
+<?php
+
+return [
+    'alpha_dash' => 'حقل :attribute يقبل الحروف الإنجليزية والأرقام والشرطات فقط.',
+    'array' => 'حقل :attribute يجب أن يكون قائمة.',
+    'boolean' => 'قيمة :attribute غير صحيحة.',
+    'confirmed' => 'تأكيد :attribute غير مطابق.',
+    'current_password' => 'كلمة المرور الحالية غير صحيحة.',
+    'date' => 'حقل :attribute ليس تاريخاً صحيحاً.',
+    'digits_between' => 'حقل :attribute يجب أن يكون من :min إلى :max أرقام.',
+    'exists' => 'قيمة :attribute غير موجودة.',
+    'file' => 'حقل :attribute يجب أن يكون ملفاً.',
+    'in' => 'قيمة :attribute غير صحيحة.',
+    'integer' => 'حقل :attribute يجب أن يكون عدداً صحيحاً.',
+    'max' => [
+        'numeric' => 'حقل :attribute يجب ألا يزيد على :max.',
+        'file' => 'حجم :attribute يجب ألا يزيد على :max كيلوبايت.',
+        'string' => 'حقل :attribute يجب ألا يزيد على :max حرفاً.',
+        'array' => 'حقل :attribute يجب ألا يحتوي أكثر من :max عناصر.',
+    ],
+    'mimes' => 'حقل :attribute يجب أن يكون ملفاً من نوع: :values.',
+    'min' => [
+        'numeric' => 'حقل :attribute يجب ألا يقل عن :min.',
+        'file' => 'حجم :attribute يجب ألا يقل عن :min كيلوبايت.',
+        'string' => 'حقل :attribute يجب ألا يقل عن :min أحرف.',
+        'array' => 'اختر :min عنصراً على الأقل في :attribute.',
+    ],
+    'numeric' => 'حقل :attribute يجب أن يكون رقماً.',
+    'password' => [
+        'letters' => 'حقل :attribute يجب أن يحتوي حرفاً واحداً على الأقل.',
+        'mixed' => 'حقل :attribute يجب أن يحتوي حرفاً كبيراً وحرفاً صغيراً.',
+        'numbers' => 'حقل :attribute يجب أن يحتوي رقماً واحداً على الأقل.',
+        'symbols' => 'حقل :attribute يجب أن يحتوي رمزاً واحداً على الأقل.',
+        'uncompromised' => 'كلمة المرور هذه ظهرت في تسريب بيانات. اختر غيرها.',
+    ],
+    'required' => 'حقل :attribute مطلوب.',
+    'string' => 'حقل :attribute يجب أن يكون نصاً.',
+    'unique' => 'قيمة :attribute مستخدمة من قبل.',
+    'attributes' => [],
+];

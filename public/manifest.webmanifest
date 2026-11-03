@@ -1,0 +1,19 @@
+{
+  "name": "تطبيق مدرسة LearnToBe تعلم لتكون",
+  "short_name": "تعلم لتكون",
+  "description": "تطبيق مدرسة تعلم لتكون الخاصة: رصد الدرجات ومتابعتها، وبوابة الطلاب",
+  "lang": "ar",
+  "dir": "rtl",
+  "id": "/",
+  "start_url": "/?source=app",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#F4F6FA",
+  "theme_color": "#1F3864",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
