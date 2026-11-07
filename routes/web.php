@@ -151,6 +151,9 @@ Route::middleware('auth')->group(function () {
 
         // بوابة الطلاب: نشر الدرجات وكلمات المرور
         Route::get('portal', [Admin\PortalController::class, 'index'])->middleware('perm:portal,view')->name('portal.index');
+        Route::get('portal/credentials', [Admin\PortalController::class, 'credentials'])->middleware('perm:portal,view')->name('portal.credentials');
+        Route::get('portal/credentials/export', [Admin\PortalController::class, 'exportCredentials'])->middleware('perm:portal,edit')->name('portal.credentials.export');
+        Route::get('portal/credentials/print', [Admin\PortalController::class, 'printCredentials'])->middleware('perm:portal,edit')->name('portal.credentials.print');
         Route::middleware('perm:portal,edit')->group(function () {
             Route::post('portal/publish', [Admin\PortalController::class, 'publish'])->name('portal.publish');
             Route::post('portal/sections/{section}/issue', [Admin\PortalController::class, 'issueSection'])->name('portal.issue-section');

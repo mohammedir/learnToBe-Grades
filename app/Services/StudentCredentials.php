@@ -45,9 +45,9 @@ class StudentCredentials
             $s = $row['student'];
             $rows[] = [
                 $i + 1, $s->name, $s->section->full_name, $s->national_id, $row['password'],
-                $msg = "مدرسة تعلم لتكون الخاصة\nبوابة درجات الطالب: {$s->name}\nرابط الدخول: {$url}\nرقم الهوية: {$s->national_id}\nكلمة المرور المؤقتة: {$row['password']}\nسيُطلب تغيير كلمة المرور عند أول دخول.",
+                ($real = ! in_array($row['password'], ['اختارها الطالب', 'لا يوجد حساب'], true)) ? $msg = "مدرسة تعلم لتكون الخاصة\nبوابة درجات الطالب: {$s->name}\nرابط الدخول: {$url}\nرقم الهوية: {$s->national_id}\nكلمة المرور المؤقتة: {$row['password']}\nسيُطلب تغيير كلمة المرور عند أول دخول." : '',
                 $s->phone ?? '',
-                $s->whatsappUrl($msg) ?? '',
+                $real ? ($s->whatsappUrl($msg) ?? '') : '',
             ];
         }
         $ws->fromArray($rows, null, 'A1', true);

@@ -92,6 +92,63 @@ class PortalController extends Controller
             .($request->boolean('must_change') ? ' سيُطلب منه تغييرها عند الدخول.' : ''));
     }
 
+    /** صفحة بيانات دخول الطلاب: الأسماء وأرقام الهوية وكلمات المرور */
+    public function credentials(Request $request)
+    {
+        $students = $this->credentialsQuery($request)->get();
+
+        return view('admin.portal.credentials', [
+            'students' => $students,
+            'grades' => \App\Models\GradeLevel::orderBy('sort_order')->with('sections')->get(),
+            'f' => $request->only(['grade', 'section', 'q', 'status']),
+            'canSee' => $request->user()->hasPermission('portal', 'edit'),
+            'counts' => [
+                'all' => $students->count(),
+                'temp' => $students->filter(fn ($s) => $s->initial_password)->count(),
+                'own' => $students->filter(fn ($s) => $s->password && ! $s->initial_password && ! $s->must_change_password)->count(),
+                'none' => $students->filter(fn ($s) => ! $s->password)->count(),
+            ],
+        ]);
+    }
+
+    /** تنزيل بيانات الدخول الحالية (بدون إنشاء كلمات جديدة) */
+    public function exportCredentials(Request $request, StudentCredentials $credentials)
+    {
+        $rows = $this->credentialsQuery($request)->get()->filter(fn ($s) => $s->national_id)->map(fn ($s) => [
+            'student' => $s,
+            'password' => $s->initial_password ?: ($s->password ? 'اختارها الطالب' : 'لا يوجد حساب'),
+        ])->values();
+        abort_if($rows->isEmpty(), 404, 'لا يوجد طلاب بهذه التصفية.');
+
+        return $credentials->download($rows, 'بيانات الدخول');
+    }
+
+    /** بطاقات دخول للطباعة وتوزيعها على الطلاب */
+    public function printCredentials(Request $request)
+    {
+        $students = $this->credentialsQuery($request)->get()->filter(fn ($s) => $s->national_id && $s->initial_password)->values();
+
+        return view('admin.portal.print', ['students' => $students]);
+    }
+
+    private function credentialsQuery(Request $request)
+    {
+        $q = trim((string) $request->query('q', ''));
+
+        return Student::with('section.gradeLevel')->where('students.is_active', true)
+            ->when($request->integer('section'), fn ($w, $v) => $w->where('students.section_id', $v))
+            ->when($request->integer('grade'), fn ($w, $v) => $w->whereHas('section', fn ($s) => $s->where('grade_level_id', $v)))
+            ->when($q !== '', fn ($w) => $w->where(fn ($x) => $x->where('students.name', 'like', "%{$q}%")->orWhere('students.national_id', 'like', "%{$q}%")->orWhere('students.phone', 'like', "%{$q}%")))
+            ->when($request->query('status') === 'temp', fn ($w) => $w->whereNotNull('students.initial_password'))
+            ->when($request->query('status') === 'own', fn ($w) => $w->whereNotNull('students.password')->whereNull('students.initial_password'))
+            ->when($request->query('status') === 'none', fn ($w) => $w->whereNull('students.password'))
+            ->join('sections', 'sections.id', '=', 'students.section_id')
+            ->join('grade_levels', 'grade_levels.id', '=', 'sections.grade_level_id')
+            ->orderBy('grade_levels.sort_order')->orderBy('sections.name')
+            ->orderByRaw("CASE WHEN students.gender = 'male' THEN 0 ELSE 1 END")->orderBy('students.name')
+            ->select('students.*');
+    }
+
     /** إيقاف حساب الطالب في البوابة مع ذكر السبب */
     public function suspend(Request $request, Student $student)
     {

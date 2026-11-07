@@ -67,6 +67,14 @@ class TeacherController extends Controller
             'password' => [$teacher ? 'nullable' : 'required', Password::min(6)],
         ], [], ['name' => 'اسم المدرس', 'username' => 'اسم المستخدم', 'phone' => 'رقم الجوال', 'password' => 'كلمة المرور']);
         $data['is_active'] = $request->boolean('is_active');
+        $data['show_phone_to_students'] = $request->boolean('show_phone_to_students');
+        if (! empty($data['phone'])) {
+            $phone = \App\Support\Phone::normalize($data['phone']);
+            if (! $phone) {
+                throw \Illuminate\Validation\ValidationException::withMessages(['phone' => 'رقم الجوال غير صحيح. اكتبه 10 أرقام يبدأ بـ 05، مثل 0599123456.']);
+            }
+            $data['phone'] = $phone;
+        }
 
         return $data;
     }

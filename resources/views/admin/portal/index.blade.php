@@ -3,7 +3,9 @@
 @section('module', 'portal')
 @section('content')
 <div class="page-head">
-    <div><h1>بوابة الطلاب</h1><div class="sub">يدخل الطالب برقم هويته وكلمة مرور مؤقتة، ويغيّرها عند أول دخول، ثم يرى درجاته بعد نشرها. رابط الدخول: <a href="{{ route('student.login') }}" dir="ltr">{{ route('student.login') }}</a></div></div>
+    <div class="spacer" style="order:2"></div>
+    <a class="btn primary" style="order:3" href="{{ route('admin.portal.credentials') }}">بيانات دخول الطلاب</a>
+    <div style="order:1"><h1>بوابة الطلاب</h1><div class="sub">يدخل الطالب برقم هويته وكلمة مرور مؤقتة، ويغيّرها عند أول دخول، ثم يرى درجاته بعد نشرها. رابط الدخول: <a href="{{ route('student.login') }}" dir="ltr">{{ route('student.login') }}</a></div></div>
 </div>
 
 <div class="stats">

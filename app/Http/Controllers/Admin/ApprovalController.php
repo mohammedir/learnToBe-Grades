@@ -15,7 +15,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-/** اعتماد الدرجات وفك اعتمادها: لكل خانة (كشف × عنصر.)، أو لعمود، أو لكشف، أو للكل */
+/** اعتماد الدرجات وفك اعتمادها: لكل خانة (كشف × عنصر)، أو لعمود، أو لكشف، أو للكل */
 class ApprovalController extends Controller
 {
     public function index(Request $request)
@@ -25,7 +25,7 @@ class ApprovalController extends Controller
             ->sortBy(fn ($a) => [$a->section->gradeLevel->sort_order, $a->section->gender === 'female' ? 0 : 1, $a->section->name, $a->subject->sort_order])->values();
         $components = AssessmentComponent::active()->get();
 
-        // عدد الطلاب في كل شعبة، وعدد الدرجات المرصودة لكل (شعبة، مادة، عنصر 2)
+        // عدد الطلاب في كل شعبة، وعدد الدرجات المرصودة لكل (شعبة، مادة، عنصر)
         $sectionIds = $assignments->pluck('section_id')->unique();
         $studentCounts = Student::where('is_active', true)->whereIn('section_id', $sectionIds)
             ->selectRaw('section_id, COUNT(*) n')->groupBy('section_id')->pluck('n', 'section_id');

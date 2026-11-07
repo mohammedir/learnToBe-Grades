@@ -11,7 +11,7 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    protected $fillable = ['name', 'job_title', 'username', 'phone', 'role', 'permissions', 'is_active', 'password'];
+    protected $fillable = ['name', 'job_title', 'username', 'phone', 'show_phone_to_students', 'role', 'permissions', 'is_active', 'password'];
 
     protected $hidden = ['password', 'remember_token'];
 
@@ -22,6 +22,7 @@ class User extends Authenticatable
             'is_active' => 'boolean',
             'last_login_at' => 'datetime',
             'permissions' => 'array',
+            'show_phone_to_students' => 'boolean',
         ];
     }
 

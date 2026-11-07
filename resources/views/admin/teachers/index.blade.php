@@ -15,7 +15,7 @@
         <tr>
             <td><b>{{ $t->name }}</b></td>
             <td dir="ltr" style="text-align:right">{{ $t->username }}</td>
-            <td dir="ltr" style="text-align:right">{{ $t->phone }}</td>
+            <td class="phones">@if($t->phone)<span class="phone"><a href="tel:{{ $t->phone }}" dir="ltr">{{ $t->phone }}</a><a class="wa" href="{{ \App\Support\Phone::whatsapp($t->phone) }}" target="_blank" rel="noopener">واتساب</a></span>@if(! $t->show_phone_to_students)<small style="color:var(--muted)">مخفي عن الطلاب</small>@endif @else<span style="color:var(--muted)">—</span>@endif</td>
             <td class="c">{{ $t->assignments_count }}</td>
             <td class="c">@if($t->is_active)<span class="pill done">مفعّل</span>@else<span class="pill off">موقوف</span>@endif</td>
             <td class="muted">{{ $t->last_login_at?->format('Y-m-d H:i') ?? 'لم يدخل بعد' }}</td>
