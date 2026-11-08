@@ -86,9 +86,12 @@ class GradeSheet
      *
      * @return array<int, array{students:int, complete:int, any:bool}> keyed by assignment id
      */
-    public static function progressFor(Collection $assignments): array
+    public static function progressFor(Collection $assignments, ?array $onlyComponents = null): array
     {
         $componentIds = AssessmentComponent::active()->pluck('id');
+        if ($onlyComponents) {
+            $componentIds = $componentIds->intersect(array_map('intval', $onlyComponents))->values();
+        }
         $needed = $componentIds->count();
         $out = [];
         $approved = \App\Models\MarkApproval::whereIn('assessment_component_id', $componentIds)
@@ -112,6 +115,8 @@ class GradeSheet
                 'any' => $counts->isNotEmpty(),
                 'approved' => $approved[$a->section_id.'-'.$a->subject_id] ?? 0,
                 'components' => $needed,
+                'filled' => (int) $counts->sum(),
+                'expected' => $studentIds->count() * $needed,
             ];
         }
 

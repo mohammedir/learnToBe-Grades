@@ -8,7 +8,14 @@
     <div style="order:1"><h1>بوابة الطلاب</h1><div class="sub">يدخل الطالب برقم هويته وكلمة مرور مؤقتة، ويغيّرها عند أول دخول، ثم يرى درجاته بعد نشرها. رابط الدخول: <a href="{{ route('student.login') }}" dir="ltr">{{ route('student.login') }}</a></div></div>
 </div>
 
+@php($lockMode = $lock['all'] ? 'all' : ($lock['features'] ? 'partial' : 'open'))
+@php($lockOff = \App\Support\PortalLock::offLabels())
+@if($lockMode !== 'open')
+    <div class="alert warn"><b>🔒 {{ $lockMode === 'all' ? 'بوابة الطالب معطّلة كاملة' : 'مزايا معطّلة: '.implode('، ', $lockOff) }}</b> · السبب: {{ $lock['reason'] }}@if($lock['since']) · منذ {{ $lock['since'] }}@endif</div>
+@endif
+
 <div class="stats">
+    <div class="stat"><b>{{ $lockMode === 'open' ? 'تعمل' : ($lockMode === 'all' ? 'معطّلة' : 'جزئياً') }}</b><span>حالة البوابة</span></div>
     <div class="stat"><b>{{ $published ? 'منشورة' : 'مخفية' }}</b><span>الدرجات للطلاب</span></div>
     <div class="stat"><b>{{ $totals['accounts'] }}/{{ $totals['students'] }}</b><span>طلاب لهم كلمة مرور</span></div>
     <div class="stat"><b>{{ $totals['logged'] }}</b><span>طالب دخل البوابة</span></div>
@@ -31,6 +38,32 @@
 @endif
 
 @perm('portal', 'edit')
+<div class="panel lock-panel @if($lockMode !== 'open') on @endif" data-mode="{{ old('mode', $lockMode) }}" id="lock-panel">
+    <h2>تشغيل وتعطيل بوابة الطالب</h2>
+    <form method="post" action="{{ route('admin.portal.lock') }}">
+        @csrf
+        <div class="lock-modes" role="radiogroup" aria-label="حالة البوابة">
+            <label><input type="radio" name="mode" value="open" @checked(old('mode', $lockMode) === 'open')> ✅ البوابة تعمل بالكامل</label>
+            <label><input type="radio" name="mode" value="partial" @checked(old('mode', $lockMode) === 'partial')> ⚙️ تعطيل مزايا محددة</label>
+            <label><input type="radio" name="mode" value="all" @checked(old('mode', $lockMode) === 'all')> 🔒 تعطيل البوابة كاملة</label>
+        </div>
+        <div class="lock-detail">
+            <div class="lock-feats">
+                @foreach(\App\Support\PortalLock::FEATURES as $key => $label)
+                    <label class="check"><input type="checkbox" name="features[]" value="{{ $key }}" @checked(in_array($key, old('features', $lock['features'])))> {{ $label }}</label>
+                @endforeach
+            </div>
+            <div class="grid2">
+                <div class="field"><label for="lock-reason">سبب التعطيل (يظهر للطالب)</label><textarea id="lock-reason" name="reason" rows="2" maxlength="500" placeholder="مثال: البوابة متوقفة لمراجعة الدرجات وستعود بعد اعتمادها.">{{ old('reason', $lock['reason']) }}</textarea></div>
+                <div class="field"><label for="lock-until">موعد العودة المتوقع (اختياري)</label><input type="date" id="lock-until" name="until" value="{{ old('until', $lock['until']) }}"></div>
+            </div>
+        </div>
+        <button class="btn primary" type="submit">حفظ حالة البوابة</button>
+    </form>
+    <p style="color:var(--muted);font-size:13px;margin-bottom:0">التعطيل الكامل: يرى الطالب بعد الدخول صفحة «البوابة متوقفة» مع السبب فقط، ويظهر تنبيه على صفحة الدخول. تعطيل ميزة: تختفي من صفحة الطالب ويظهر له شريط بالسبب. لا يؤثر التعطيل على عمل المدرسين أو على الدرجات المحفوظة.</p>
+</div>
+<script>document.querySelectorAll('#lock-panel input[name=mode]').forEach(r => r.addEventListener('change', () => document.getElementById('lock-panel').dataset.mode = r.value));</script>
+
 <div class="panel">
     <h2>نشر الدرجات</h2>
     <form class="inline" method="post" action="{{ route('admin.portal.publish') }}">

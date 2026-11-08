@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@600;700&display=swap">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v=4">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v=5">
     @include('partials.pwa-head')
 </head>
 <body>
@@ -21,7 +21,7 @@
         </a>
         <nav class="nav">
             @if(auth()->user()->isBackOffice())
-                @perm('marks')<a href="{{ route('admin.dashboard') }}" @class(['active' => request()->routeIs('admin.dashboard', 'admin.marks.*')])>متابعة الرصد</a>@endperm
+                @perm('marks')<a href="{{ route('admin.dashboard') }}" @class(['active' => request()->routeIs('admin.dashboard', 'admin.marks.*')])>متابعة الرصد</a><a href="{{ route('admin.analytics') }}" @class(['active' => request()->routeIs('admin.analytics')])>الرسوم البيانية</a>@endperm
                 @perm('marks', 'edit')<a href="{{ route('admin.entry.index') }}" @class(['active' => request()->routeIs('admin.entry.*')])>رصد الدرجات</a>@endperm
                 @perm('approvals')<a href="{{ route('admin.approvals.index') }}" @class(['active' => request()->routeIs('admin.approvals.*')])>اعتماد الدرجات</a>@endperm
                 @perm('teachers')<a href="{{ route('admin.teachers.index') }}" @class(['active' => request()->routeIs('admin.teachers.*')])>المدرسون</a>@endperm
@@ -34,6 +34,7 @@
                 @if(auth()->user()->isAdmin())<a href="{{ route('admin.users.index') }}" @class(['active' => request()->routeIs('admin.users.*')])>المستخدمون والصلاحيات</a>@endif
             @else
                 <a href="{{ route('teacher.home') }}" @class(['active' => request()->routeIs('teacher.home', 'teacher.sheet', 'teacher.notes')])>كشوفي</a>
+                <a href="{{ route('teacher.analytics') }}" @class(['active' => request()->routeIs('teacher.analytics')])>الرسوم البيانية</a>
                 <a href="{{ route('teacher.quizzes.index') }}" @class(['active' => request()->routeIs('teacher.quizzes.*')])>الاختبارات</a>
             @endif
         </nav>

@@ -29,6 +29,13 @@
     @endif
 </section>
 
+@if($offLabels)
+    <div class="lock-note" role="status">
+        <span class="lk" aria-hidden="true">🔒</span>
+        <div><b>متوقف مؤقتاً من إدارة المدرسة: {{ implode('، ', $offLabels) }}</b>@if($lock['reason'])<p>{{ $lock['reason'] }}</p>@endif</div>
+    </div>
+@endif
+
 @if($notes->isNotEmpty())
     <section class="notes-board">
         <div class="section-title"><h2>رسائل من مدرسيك</h2><span class="muted" style="color:var(--muted);font-size:13px">{{ $notes->count() }} رسالة</span></div>
@@ -75,7 +82,9 @@
 </section>
 @endif
 
-@if(! $published)
+@if($gradesOff)
+    <div class="panel empty-state"><b>عرض الدرجات متوقف مؤقتاً</b><p>{{ $lock['reason'] ?: 'ستظهر درجاتك هنا عند إعادة تفعيلها من إدارة المدرسة.' }}</p></div>
+@elseif(! $published)
     <div class="panel empty-state">
         <b>لم تُنشر الدرجات بعد</b>
         <p>تظهر درجاتك هنا عندما تنشرها إدارة المدرسة. افتح البوابة لاحقاً.</p>

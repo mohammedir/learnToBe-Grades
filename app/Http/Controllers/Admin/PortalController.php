@@ -31,6 +31,7 @@ class PortalController extends Controller
             'section' => $section,
             'students' => $section ? $section->orderedStudents() : collect(),
             'published' => (bool) Setting::get('grades_published', false),
+            'lock' => \App\Support\PortalLock::state(),
             'title' => Setting::get('grades_title', 'نتائج الفصل الدراسي الأول'),
             'totals' => [
                 'students' => $sections->sum('students_count'),
@@ -51,6 +52,33 @@ class PortalController extends Controller
         Setting::put('grades_published', $data['published'] ? '1' : '0');
 
         return back()->with('status', $data['published'] ? 'تم نشر الدرجات. يرى الطلاب الآن درجاتهم عند الدخول.' : 'تم إخفاء الدرجات عن الطلاب.');
+    }
+
+    /** تعطيل البوابة كاملة أو مزايا محددة مع السبب، أو إعادة تشغيلها */
+    public function lock(Request $request)
+    {
+        $data = $request->validate([
+            'mode' => ['required', 'in:open,all,partial'],
+            'features' => ['array', 'required_if:mode,partial'],
+            'features.*' => ['in:'.implode(',', array_keys(\App\Support\PortalLock::FEATURES))],
+            'reason' => ['nullable', 'required_unless:mode,open', 'string', 'max:500'],
+            'until' => ['nullable', 'date'],
+        ], [
+            'features.required_if' => 'حدّد ميزة واحدة على الأقل لتعطيلها.',
+            'reason.required_unless' => 'اكتب سبب التعطيل ليظهر للطلاب.',
+        ], ['reason' => 'سبب التعطيل', 'until' => 'تاريخ العودة']);
+
+        if ($data['mode'] === 'open') {
+            \App\Support\PortalLock::clear();
+
+            return back()->with('status', 'تم تشغيل بوابة الطالب بكامل مزاياها.');
+        }
+
+        \App\Support\PortalLock::save($data['mode'] === 'all', $data['features'] ?? [], $data['reason'], $data['until'] ?? null);
+
+        return back()->with('status', $data['mode'] === 'all'
+            ? 'تم تعطيل بوابة الطالب كاملة. يرى الطالب صفحة «البوابة متوقفة» مع السبب.'
+            : 'تم تعطيل: '.implode('، ', \App\Support\PortalLock::offLabels()).'.');
     }
 
     /** إنشاء كلمات مرور لشعبة (الجدد فقط أو الكل) وتنزيلها فوراً */

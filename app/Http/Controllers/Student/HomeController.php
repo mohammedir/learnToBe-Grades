@@ -36,16 +36,21 @@ class HomeController extends Controller
     public function index()
     {
         $student = Auth::guard('student')->user()->load('section.gradeLevel');
-        $published = (bool) Setting::get('grades_published', false);
+        $lock = \App\Support\PortalLock::state();
+        $off = fn ($f) => $lock['all'] || in_array($f, $lock['features'], true);
+        $published = (bool) Setting::get('grades_published', false) && ! $off('grades');
 
         return view('student.home', [
             'student' => $student,
             'published' => $published,
             'title' => Setting::get('grades_title', 'نتائج الفصل الدراسي الأول'),
             'report' => $published ? new StudentReport($student) : null,
-            'notes' => $student->notes()->with(['subject', 'author'])->limit(30)->get(),
-            'quizzes' => \App\Services\StudentQuizzes::for($student),
-            'teachers' => self::teachersOf($student),
+            'notes' => $off('notes') ? collect() : $student->notes()->with(['subject', 'author'])->limit(30)->get(),
+            'quizzes' => $off('quizzes') ? collect() : \App\Services\StudentQuizzes::for($student),
+            'teachers' => $off('teachers') ? collect() : self::teachersOf($student),
+            'lock' => $lock,
+            'gradesOff' => $off('grades'),
+            'offLabels' => \App\Support\PortalLock::offLabels(),
         ]);
     }
 }

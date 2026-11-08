@@ -8,6 +8,7 @@
     </div>
     <div class="spacer"></div>
     <span class="status" id="save-status">تُحفظ كل درجة تلقائياً</span>
+    <a class="btn" href="{{ route('teacher.analytics', ['assignment' => $assignment->id]) }}">📊 رسم بياني</a>
     <a class="btn" href="{{ route('teacher.notes', $assignment) }}">ملاحظات الطلاب</a>
     <a class="btn" href="{{ route('teacher.quizzes.index', ['assignment' => $assignment->id]) }}">الاختبارات</a>
     <a class="btn" href="{{ route('teacher.sheet.export', $assignment) }}">تنزيل Excel</a>

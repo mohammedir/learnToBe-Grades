@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>تسجيل الدخول – تطبيق مدرسة تعلم لتكون</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Noto+Kufi+Arabic:wght@700&display=swap">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v=4">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v=5">
     @include('partials.pwa-head')
 </head>
 <body>

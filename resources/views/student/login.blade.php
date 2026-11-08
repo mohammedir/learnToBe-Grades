@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>دخول الطلاب – تطبيق مدرسة تعلم لتكون</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Noto+Kufi+Arabic:wght@700&display=swap">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v=4">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v=5">
     @include('partials.pwa-head')
 </head>
 <body>
@@ -17,6 +17,10 @@
             <span style="color:var(--muted);font-size:13px">LearnToBe · بوابة الطالب: الدرجات والتحصيل</span>
         </div>
         @if($errors->any())<div class="alert bad">{{ $errors->first() }}</div>@endif
+        @if(\App\Support\PortalLock::closed())
+            @php($lk = \App\Support\PortalLock::state())
+            <div class="alert warn"><b>البوابة متوقفة مؤقتاً.</b>@if($lk['reason']) {{ $lk['reason'] }}@endif</div>
+        @endif
         <form class="form" method="post" action="{{ route('student.login.attempt') }}">
             @csrf
             <div class="field">

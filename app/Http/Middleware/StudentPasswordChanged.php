@@ -25,6 +25,16 @@ class StudentPasswordChanged
             return response()->view('student.suspended', ['student' => $student], 403);
         }
 
+        // البوابة معطّلة كاملة من الإدارة
+        if (\App\Support\PortalLock::closed()) {
+            return response()->view('student.closed', ['lock' => \App\Support\PortalLock::state()]);
+        }
+
+        // ميزة الاختبارات معطّلة: لا يمكن فتح أي اختبار
+        if ($request->routeIs('student.quiz*') && \App\Support\PortalLock::off('quizzes')) {
+            return redirect()->route('student.home')->with('warning', 'الاختبارات الإلكترونية متوقفة مؤقتاً من إدارة المدرسة.');
+        }
+
         if ($student->must_change_password) {
             return redirect()->route('student.password')->with('warning', 'لأمان حسابك، اختر كلمة مرور جديدة خاصة بك قبل المتابعة.');
         }

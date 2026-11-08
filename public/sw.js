@@ -1,5 +1,5 @@
 /* عامل الخدمة: يحفظ ملفات التصميم فقط، ولا يحفظ صفحات الدرجات (بيانات خاصة) */
-const CACHE = 'learntobe-v3';
+const CACHE = 'learntobe-v4';
 const ASSETS = ['/css/app.css', '/js/sheet.js', '/js/pwa.js', '/images/logo.png', '/icons/icon-192.png', '/offline.html'];
 
 self.addEventListener('install', (e) => {
