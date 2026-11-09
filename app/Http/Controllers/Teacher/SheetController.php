@@ -43,4 +43,10 @@ class SheetController extends Controller
     {
         abort_unless((int) $assignment->teacher_id === (int) $request->user()->id, 403, 'هذا الكشف غير مكلّف به.');
     }
+
+    /** كل كشوف المدرس في ملف Excel واحد */
+    public function exportAll(\Illuminate\Http\Request $request, \App\Services\MarksExporter $exporter)
+    {
+        return $exporter->teacher($request->user());
+    }
 }

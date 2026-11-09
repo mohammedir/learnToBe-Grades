@@ -29,12 +29,12 @@
     @endif
 </section>
 
-@if($offLabels)
+@foreach($lockNotes as $ln)
     <div class="lock-note" role="status">
         <span class="lk" aria-hidden="true">🔒</span>
-        <div><b>متوقف مؤقتاً من إدارة المدرسة: {{ implode('، ', $offLabels) }}</b>@if($lock['reason'])<p>{{ $lock['reason'] }}</p>@endif</div>
+        <div><b>{{ $ln['own'] ? 'أوقفت الإدارة لحسابك' : 'متوقف مؤقتاً من إدارة المدرسة' }}: {{ implode('، ', $ln['labels']) }}</b>@if($ln['reason'])<p>{{ $ln['reason'] }}</p>@endif</div>
     </div>
-@endif
+@endforeach
 
 @if($notes->isNotEmpty())
     <section class="notes-board">
@@ -83,7 +83,7 @@
 @endif
 
 @if($gradesOff)
-    <div class="panel empty-state"><b>عرض الدرجات متوقف مؤقتاً</b><p>{{ $lock['reason'] ?: 'ستظهر درجاتك هنا عند إعادة تفعيلها من إدارة المدرسة.' }}</p></div>
+    <div class="panel empty-state"><b>عرض الدرجات متوقف مؤقتاً</b><p>{{ $gradesOffReason ?: 'ستظهر درجاتك هنا عند إعادة تفعيلها من إدارة المدرسة.' }}</p></div>
 @elseif(! $published)
     <div class="panel empty-state">
         <b>لم تُنشر الدرجات بعد</b>

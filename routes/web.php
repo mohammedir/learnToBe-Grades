@@ -58,6 +58,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/sheet/{assignment}', [Teacher\SheetController::class, 'show'])->name('sheet');
         Route::post('/sheet/{assignment}/mark', [Teacher\SheetController::class, 'saveMark'])->name('sheet.mark');
         Route::get('/sheet/{assignment}/export', [Teacher\SheetController::class, 'export'])->name('sheet.export');
+        Route::get('/export-all', [Teacher\SheetController::class, 'exportAll'])->name('export-all');
         Route::get('/analytics', [\App\Http\Controllers\AnalyticsController::class, 'teacher'])->name('analytics');
         // ملاحظات الطلاب
         Route::get('/sheet/{assignment}/notes', [Teacher\NoteController::class, 'index'])->name('notes');
@@ -87,6 +88,7 @@ Route::middleware('auth')->group(function () {
             Route::get('marks/{assignment}/export', [Admin\MarkController::class, 'export'])->name('marks.export');
             Route::get('export-all', [Admin\MarkController::class, 'exportAll'])->name('marks.export-all');
             Route::get('analytics', [\App\Http\Controllers\AnalyticsController::class, 'admin'])->name('analytics');
+            Route::get('teachers/{teacher}/export', [Admin\MarkController::class, 'exportTeacher'])->name('marks.export-teacher');
         });
         Route::middleware('perm:marks,edit')->group(function () {
             Route::post('marks/{assignment}/mark', [Admin\MarkController::class, 'saveMark'])->name('marks.save');
@@ -159,6 +161,7 @@ Route::middleware('auth')->group(function () {
         Route::middleware('perm:portal,edit')->group(function () {
             Route::post('portal/publish', [Admin\PortalController::class, 'publish'])->name('portal.publish');
             Route::post('portal/lock', [Admin\PortalController::class, 'lock'])->name('portal.lock');
+            Route::post('portal/lock-student', [Admin\PortalController::class, 'lockStudent'])->name('portal.lock-student');
             Route::post('portal/sections/{section}/issue', [Admin\PortalController::class, 'issueSection'])->name('portal.issue-section');
             Route::post('portal/students/{student}/issue', [Admin\PortalController::class, 'issueStudent'])->name('portal.issue-student');
             Route::put('portal/students/{student}/password', [Admin\PortalController::class, 'setPassword'])->name('portal.set-password');

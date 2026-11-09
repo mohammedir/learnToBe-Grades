@@ -32,6 +32,14 @@ class MarkController extends Controller
         return $exporter->single($assignment->section, $assignment->subject);
     }
 
+    /** كل كشوف مدرس واحد في ملف Excel، فوق كل كشف ترويسة الصف والمادة والمدرس */
+    public function exportTeacher(\App\Models\User $teacher, MarksExporter $exporter)
+    {
+        abort_unless($teacher->role === 'teacher' || $teacher->assignments()->exists(), 404);
+
+        return $exporter->teacher($teacher);
+    }
+
     public function exportAll(MarksExporter $exporter)
     {
         return $exporter->all();

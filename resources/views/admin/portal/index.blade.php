@@ -24,12 +24,14 @@
 
 @if($suspended->isNotEmpty())
 <div class="panel" style="border-color:var(--bad-bg)">
-    <h2>حسابات موقوفة ({{ $suspended->count() }})</h2>
+    <h2>طلاب معطّلة عنهم البوابة ({{ $suspended->count() }})</h2>
     <div class="scroll"><table>
-        <thead><tr><th>الطالب</th><th>الشعبة</th><th>السبب</th><th>منذ</th><th></th></tr></thead>
+        <thead><tr><th>الطالب</th><th>الشعبة</th><th>المعطّل</th><th>السبب</th><th>منذ</th><th></th></tr></thead>
         <tbody>
         @foreach($suspended as $st)
-            <tr><td><b>{{ $st->name }}</b></td><td>{{ $st->section->full_name }}</td><td>{{ $st->suspension_reason }}</td><td class="muted">{{ $st->suspended_at->format('Y/m/d') }}</td>
+            <tr><td><b>{{ $st->name }}</b></td><td>{{ $st->section->full_name }}</td>
+                <td>@if($st->isSuspended())<span class="pill off">البوابة كاملة</span>@else{{ implode('، ', array_map(fn ($k) => \App\Support\PortalLock::FEATURES[$k], $st->featuresOff())) }}@endif</td>
+                <td>{{ $st->isSuspended() ? $st->suspension_reason : $st->portal_off_reason }}</td><td class="muted">{{ ($st->suspended_at ?? $st->portal_off_at)?->format('Y/m/d') }}</td>
                 <td>@perm('portal', 'edit')<form method="post" action="{{ route('admin.portal.unsuspend', $st) }}">@csrf @method('delete')<button class="btn sm" type="submit">إعادة التفعيل</button></form>@endperm</td></tr>
         @endforeach
         </tbody>
@@ -58,11 +60,25 @@
                 <div class="field"><label for="lock-until">موعد العودة المتوقع (اختياري)</label><input type="date" id="lock-until" name="until" value="{{ old('until', $lock['until']) }}"></div>
             </div>
         </div>
-        <button class="btn primary" type="submit">حفظ حالة البوابة</button>
+        <button class="btn primary" type="submit">حفظ حالة البوابة لجميع الطلاب</button>
     </form>
+    <details class="lock-one" @if($errors->has('student_id')) open @endif>
+        <summary><b>تعطيل لطالب معين فقط</b> <span class="muted">— البوابة كاملة أو مزايا محددة لطالب واحد</span></summary>
+        <div class="field" style="margin-top:10px"><label for="pick-student">الطالب</label>
+            <select id="pick-student" name="student_id" form="lock-one-form" required>
+                <option value="">اختر الطالب…</option>
+                @foreach($pickSections as $ps)
+                    @if($ps->students->isNotEmpty())
+                    <optgroup label="{{ $ps->full_name }}">@foreach($ps->students as $p)<option value="{{ $p->id }}" @selected(old('student_id') == $p->id)>{{ $p->name }}@if($p->isSuspended()) (موقوف) @elseif($p->featuresOff()) (معطّل جزئياً) @endif</option>@endforeach</optgroup>
+                    @endif
+                @endforeach
+            </select>
+        </div>
+        @include('admin.portal._student-lock', ['action' => route('admin.portal.lock-student'), 'method' => null, 'current' => [], 'reason' => '', 'uid' => 'one', 'formId' => 'lock-one-form'])
+    </details>
     <p style="color:var(--muted);font-size:13px;margin-bottom:0">التعطيل الكامل: يرى الطالب بعد الدخول صفحة «البوابة متوقفة» مع السبب فقط، ويظهر تنبيه على صفحة الدخول. تعطيل ميزة: تختفي من صفحة الطالب ويظهر له شريط بالسبب. لا يؤثر التعطيل على عمل المدرسين أو على الدرجات المحفوظة.</p>
 </div>
-<script>document.querySelectorAll('#lock-panel input[name=mode]').forEach(r => r.addEventListener('change', () => document.getElementById('lock-panel').dataset.mode = r.value));</script>
+<script>document.querySelectorAll('#lock-panel > form input[name=mode]').forEach(r => r.addEventListener('change', () => document.getElementById('lock-panel').dataset.mode = r.value));</script>
 
 <div class="panel">
     <h2>نشر الدرجات</h2>
@@ -162,18 +178,15 @@
                             </form>
                             <form method="post" action="{{ route('admin.portal.issue-student', $st) }}" style="margin-top:6px">@csrf<button class="btn sm" type="submit">كلمة عشوائية في ملف Excel</button></form>
                         </details>
-                        @if($st->isSuspended())
-                            <form method="post" action="{{ route('admin.portal.unsuspend', $st) }}">@csrf @method('delete')<button class="btn sm" type="submit">إعادة التفعيل</button></form>
-                        @else
-                        <details>
-                            <summary class="btn sm danger">إيقاف الحساب</summary>
-                            <form class="form" method="post" action="{{ route('admin.portal.suspend', $st) }}" style="margin-top:8px;min-width:260px">
-                                @csrf @method('put')
-                                <textarea name="reason" rows="2" required minlength="3" maxlength="500" placeholder="سبب الإيقاف كما سيظهر للطالب، مثل: عدم سداد الرسوم" aria-label="سبب إيقاف {{ $st->name }}"></textarea>
-                                <div><button class="btn sm danger" type="submit">إيقاف</button></div>
-                            </form>
-                        </details>
+                        @if($st->isSuspended() || $st->featuresOff())
+                            <form method="post" action="{{ route('admin.portal.unsuspend', $st) }}">@csrf @method('delete')<button class="btn sm" type="submit" title="{{ $st->isSuspended() ? 'البوابة موقوفة كاملة' : 'معطّل: '.implode('، ', array_map(fn ($k) => \App\Support\PortalLock::FEATURES[$k], $st->featuresOff())) }}">إعادة التفعيل</button></form>
                         @endif
+                        @unless($st->isSuspended())
+                        <details>
+                            <summary class="btn sm danger">تعطيل للطالب</summary>
+                            @include('admin.portal._student-lock', ['action' => route('admin.portal.suspend', $st), 'method' => 'put', 'current' => $st->featuresOff(), 'reason' => $st->portal_off_reason, 'uid' => 's'.$st->id])
+                        </details>
+                        @endunless
                     </div>
                     @endif
                     @endperm
@@ -199,4 +212,7 @@ document.querySelectorAll('.copy-msg').forEach(b => b.addEventListener('click', 
 </script>
 @endpush
 @endif
+@push('scripts')
+<script>document.querySelectorAll('.student-lock input[name=mode]').forEach(r => r.addEventListener('change', () => r.closest('.student-lock').dataset.mode = r.value));</script>
+@endpush
 @endsection

@@ -24,6 +24,8 @@ class Student extends Authenticatable
             'password_issued_at' => 'datetime',
             'last_login_at' => 'datetime',
             'suspended_at' => 'datetime',
+            'portal_features_off' => 'array',
+            'portal_off_at' => 'datetime',
         ];
     }
 
@@ -41,6 +43,12 @@ class Student extends Authenticatable
     public function whatsappUrl(string $text = ''): ?string
     {
         return \App\Support\Phone::whatsapp($this->phone, $text);
+    }
+
+    /** مزايا معطّلة لهذا الطالب وحده */
+    public function featuresOff(): array
+    {
+        return array_values(array_intersect(array_keys(\App\Support\PortalLock::FEATURES), $this->portal_features_off ?? []));
     }
 
     public function isSuspended(): bool

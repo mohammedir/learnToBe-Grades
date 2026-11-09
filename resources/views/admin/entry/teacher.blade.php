@@ -4,6 +4,7 @@
 <div class="page-head">
     <div><h1>كشوف {{ $teacher->name }}</h1><div class="sub">اختر الكشف لرصد درجاته نيابة عن المدرس.</div></div>
     <div class="spacer"></div>
+    @if($assignments->isNotEmpty())<a class="btn primary" href="{{ route('admin.marks.export-teacher', $teacher) }}">⬇ تصدير كل كشوفه Excel</a>@endif
     <a class="btn" href="{{ route('admin.entry.index') }}">كل المدرسين</a>
 </div>
 @if($assignments->isEmpty())

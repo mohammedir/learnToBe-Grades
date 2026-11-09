@@ -488,9 +488,16 @@ td.mark.locked input{background:var(--sunk);color:var(--muted);cursor:not-allowe
 .lock-modes label{border:1px solid var(--rule);border-radius:10px;padding:8px 12px;cursor:pointer;background:var(--surface)}
 .lock-modes label:has(input:checked){border-color:var(--accent);background:var(--accent-bg, #EAF0FA);font-weight:600}
 .lock-feats{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:6px;margin-bottom:12px}
-.lock-panel[data-mode="open"] .lock-detail{display:none}
-.lock-panel[data-mode="all"] .lock-feats{display:none}
+.lock-panel[data-mode="open"] > form .lock-detail{display:none}
+.lock-panel[data-mode="all"] > form .lock-feats{display:none}
 .lock-note{font-size:15px}
 .lock-note p{font-size:14.5px;margin-top:2px}
 .lock-reason span{color:var(--warn)}
 .lock-panel form>.btn{margin-top:6px}
+.student-lock .lock-modes label{padding:5px 10px;font-size:13.5px}
+.student-lock .lock-feats{grid-template-columns:1fr;gap:2px;margin-bottom:6px}
+.student-lock[data-mode="all"] .lock-feats{display:none}
+.lock-one{margin-top:14px;border-top:1px solid var(--rule);padding-top:12px}
+.lock-one summary{cursor:pointer}
+.lock-one .student-lock{max-width:520px}
+.lock-one .field select{max-width:520px}

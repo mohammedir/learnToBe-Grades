@@ -31,7 +31,7 @@ class StudentPasswordChanged
         }
 
         // ميزة الاختبارات معطّلة: لا يمكن فتح أي اختبار
-        if ($request->routeIs('student.quiz*') && \App\Support\PortalLock::off('quizzes')) {
+        if ($request->routeIs('student.quiz*') && \App\Support\PortalLock::offFor($student, 'quizzes')) {
             return redirect()->route('student.home')->with('warning', 'الاختبارات الإلكترونية متوقفة مؤقتاً من إدارة المدرسة.');
         }
 

@@ -49,7 +49,7 @@
                 <td class="c">{{ $row['done'] }}</td>
                 <td><div class="inline" style="flex-wrap:nowrap"><div class="bar" style="flex:1"><i style="width:{{ $row['percent'] }}%;background:{{ $row['percent'] >= 100 ? 'var(--ok)' : ($row['percent'] >= 50 ? 'var(--accent)' : 'var(--warn)') }}"></i></div><b style="min-width:44px">{{ $row['percent'] }}%</b></div></td>
                 <td class="c">{{ number_format($row['missing']) }}</td>
-                <td>@perm('marks', 'edit')<a class="btn sm" href="{{ route('admin.entry.teacher', $row['teacher']) }}">كشوفه</a>@endperm</td>
+                <td><div class="inline">@perm('marks', 'edit')<a class="btn sm" href="{{ route('admin.entry.teacher', $row['teacher']) }}">كشوفه</a>@endperm<a class="btn sm" href="{{ route('admin.marks.export-teacher', $row['teacher']) }}" title="تصدير كل كشوفه Excel">⬇ Excel</a></div></td>
             </tr>
         @endforeach
         </tbody>

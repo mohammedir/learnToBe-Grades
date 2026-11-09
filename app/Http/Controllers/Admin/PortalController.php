@@ -23,13 +23,16 @@ class PortalController extends Controller
 
         $section = $request->filled('section') ? Section::with('gradeLevel')->find($request->integer('section')) : null;
 
-        $suspended = Student::with('section.gradeLevel')->whereNotNull('suspended_at')->orderByDesc('suspended_at')->get();
+        $suspended = Student::with('section.gradeLevel')
+            ->where(fn ($q) => $q->whereNotNull('suspended_at')->orWhereNotNull('portal_off_at'))
+            ->orderByDesc('suspended_at')->orderByDesc('portal_off_at')->get();
 
         return view('admin.portal.index', [
             'suspended' => $suspended,
             'sections' => $sections,
             'section' => $section,
             'students' => $section ? $section->orderedStudents() : collect(),
+            'pickSections' => Section::ordered()->with(['gradeLevel', 'students' => fn ($q) => $q->where('is_active', true)->whereNotNull('national_id')->orderBy('name')])->get(),
             'published' => (bool) Setting::get('grades_published', false),
             'lock' => \App\Support\PortalLock::state(),
             'title' => Setting::get('grades_title', 'نتائج الفصل الدراسي الأول'),
@@ -178,19 +181,43 @@ class PortalController extends Controller
     }
 
     /** إيقاف حساب الطالب في البوابة مع ذكر السبب */
+    /** تعطيل البوابة لطالب بعينه: كاملة (إيقاف الحساب) أو مزايا محددة، مع السبب */
     public function suspend(Request $request, Student $student)
     {
-        $data = $request->validate(['reason' => ['required', 'string', 'min:3', 'max:500']], [], ['reason' => 'سبب الإيقاف']);
+        $data = $request->validate([
+            'mode' => ['nullable', 'in:all,partial'],
+            'features' => ['array', 'required_if:mode,partial'],
+            'features.*' => ['in:'.implode(',', array_keys(\App\Support\PortalLock::FEATURES))],
+            'reason' => ['required', 'string', 'min:3', 'max:500'],
+        ], ['features.required_if' => 'حدّد ميزة واحدة على الأقل لتعطيلها.'], ['reason' => 'سبب التعطيل']);
+
+        if (($data['mode'] ?? 'all') === 'partial') {
+            $student->forceFill(['portal_features_off' => array_values($data['features']), 'portal_off_reason' => trim($data['reason']), 'portal_off_at' => now()])->save();
+            $labels = implode('، ', array_map(fn ($k) => \App\Support\PortalLock::FEATURES[$k], $student->featuresOff()));
+
+            return back()->with('status', "عُطّل للطالب {$student->name}: {$labels}. سيرى السبب في صفحته.");
+        }
+
         $student->forceFill(['suspended_at' => now(), 'suspension_reason' => trim($data['reason']), 'suspended_by' => $request->user()->id])->save();
 
-        return back()->with('status', "أُوقف حساب {$student->name}. سيرى رسالة الإيقاف والسبب عند الدخول.");
+        return back()->with('status', "أُوقفت البوابة كاملة للطالب {$student->name}. سيرى رسالة الإيقاف والسبب عند الدخول.");
     }
 
+    /** من لوحة التعطيل: اختيار الطالب من القائمة */
+    public function lockStudent(Request $request)
+    {
+        $student = Student::findOrFail($request->validate(['student_id' => ['required', 'integer']], [], ['student_id' => 'الطالب'])['student_id']);
+
+        return $this->suspend($request, $student);
+    }
+
+    /** إعادة تفعيل كل شيء للطالب (الإيقاف الكامل والمزايا المعطّلة) */
     public function unsuspend(Student $student)
     {
-        $student->forceFill(['suspended_at' => null, 'suspension_reason' => null, 'suspended_by' => null])->save();
+        $student->forceFill(['suspended_at' => null, 'suspension_reason' => null, 'suspended_by' => null,
+            'portal_features_off' => null, 'portal_off_reason' => null, 'portal_off_at' => null])->save();
 
-        return back()->with('status', "أُعيد تفعيل حساب {$student->name}.");
+        return back()->with('status', "أُعيد تفعيل البوابة بالكامل للطالب {$student->name}.");
     }
 
     /** إعادة تعيين كلمة مرور طالب واحد (مثلاً إن نسيها) */

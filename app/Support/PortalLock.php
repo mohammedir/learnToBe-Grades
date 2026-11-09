@@ -66,6 +66,31 @@ class PortalLock
         return array_map(fn ($k) => self::FEATURES[$k], $s['all'] ? array_keys(self::FEATURES) : $s['features']);
     }
 
+    /**
+     * الحالة الفعلية لطالب: ما عطّلته الإدارة للجميع + ما عُطّل له وحده.
+     * notes: سبب لكل مصدر تعطيل (للجميع / لك خاصة).
+     */
+    public static function forStudent($student): array
+    {
+        $g = self::state();
+        $own = $student->featuresOff();
+        $features = $g['all'] ? array_keys(self::FEATURES) : array_values(array_unique(array_merge($g['features'], $own)));
+        $notes = [];
+        if ($g['all'] || $g['features']) {
+            $notes[] = ['labels' => array_map(fn ($k) => self::FEATURES[$k], $g['all'] ? array_keys(self::FEATURES) : $g['features']), 'reason' => $g['reason'], 'own' => false];
+        }
+        if ($own = array_diff($own, $g['all'] ? array_keys(self::FEATURES) : $g['features'])) {
+            $notes[] = ['labels' => array_map(fn ($k) => self::FEATURES[$k], array_values($own)), 'reason' => (string) $student->portal_off_reason, 'own' => true];
+        }
+
+        return ['all' => $g['all'], 'features' => $features, 'notes' => $notes, 'global' => $g];
+    }
+
+    public static function offFor($student, string $feature): bool
+    {
+        return in_array($feature, self::forStudent($student)['features'], true);
+    }
+
     public static function active(): bool
     {
         $s = self::state();

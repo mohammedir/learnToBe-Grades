@@ -3,6 +3,7 @@
 @section('content')
 <div class="page-head">
     <div><h1>أهلاً {{ auth()->user()->name }}</h1><div class="sub">هذه الشعب والمواد المكلّف برصد درجاتها. اختر كشفاً للبدء.</div></div>
+    @if($assignments->isNotEmpty())<div class="spacer"></div><a class="btn" href="{{ route('teacher.export-all') }}">⬇ تصدير كل كشوفي Excel</a>@endif
 </div>
 @if($assignments->isEmpty())
     <div class="panel">لم تُكلَّف بأي شعبة بعد. تواصل مع إدارة المدرسة لإضافة شعبك وموادك.</div>

@@ -21,6 +21,7 @@
             <td class="muted">{{ $t->last_login_at?->format('Y-m-d H:i') ?? 'لم يدخل بعد' }}</td>
             <td class="inline" style="justify-content:flex-end">
                 <a class="btn sm primary" href="{{ route('admin.teachers.assignments', $t) }}">الشعب والمواد</a>
+                @perm('marks')<a class="btn sm" href="{{ route('admin.marks.export-teacher', $t) }}" title="كل كشوف المدرس في ملف واحد">⬇ Excel</a>@endperm
                 @perm('teachers', 'edit')<a class="btn sm" href="{{ route('admin.teachers.edit', $t) }}">تعديل</a>@endperm
             </td>
         </tr>
