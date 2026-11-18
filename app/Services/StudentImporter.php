@@ -19,7 +19,7 @@ use PhpOffice\PhpSpreadsheet\Shared\Date as ExcelDate;
 class StudentImporter
 {
     /** تقرير الاستيراد للعرض قبل التأكيد وبعده */
-    public array $report = ['phones' => 0, 'created' => [], 'updated' => 0, 'corrected' => [], 'moved' => [], 'deactivated' => [], 'warnings' => [], 'newSections' => []];
+    public array $report = ['phones' => 0, 'created' => [], 'updated' => 0, 'corrected' => [], 'moved' => [], 'deactivated' => [], 'reactivated' => [], 'keptInactive' => [], 'warnings' => [], 'newSections' => []];
 
     /**
      * @param  bool  $sync  إيقاف الطلاب غير الموجودين في الملف (تبقى درجاتهم محفوظة)
@@ -177,7 +177,16 @@ class StudentImporter
 
         foreach ($matched as [$student, $r]) {
             $grade = $grades[$r['grade']];
-            $data = ['name' => $r['name'], 'gender' => $r['gender'], 'birth_date' => $r['birth_date'] ?? $student->birth_date, 'is_active' => true];
+            $data = ['name' => $r['name'], 'gender' => $r['gender'], 'birth_date' => $r['birth_date'] ?? $student->birth_date];
+            if (! $student->is_active) {
+                // الطالب الذي غيّرت الإدارة حالته يدوياً (منسحب/متوقف) لا يُعاد تلقائياً من الملف
+                if ($student->status_changed_by) {
+                    $this->report['keptInactive'][] = $r['name'].' ('.$student->enrollment_label.')';
+                } else {
+                    $data += ['is_active' => true, 'enrollment_status' => 'active', 'status_reason' => null, 'status_date' => now()->toDateString()];
+                    $this->report['reactivated'][] = $r['name'];
+                }
+            }
             if ($r['national_id']) {
                 $data['national_id'] = $r['national_id'];
             }
@@ -210,7 +219,7 @@ class StudentImporter
 
         if ($sync) {
             foreach ($pool->where('is_active', true) as $s) {
-                $s->update(['is_active' => false]);
+                $s->update(['is_active' => false, 'enrollment_status' => 'stopped', 'status_reason' => 'لم يرد في ملف الاستيراد', 'status_date' => now()->toDateString(), 'status_changed_by' => null]);
                 $this->report['deactivated'][] = $s->name;
             }
         }

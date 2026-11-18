@@ -52,6 +52,20 @@ class QuizController extends Controller
         return redirect()->route('student.quiz', $quiz)->with('status', 'تم تسليم الاختبار.');
     }
 
+    /** أحداث المراقبة أثناء الحل (خروج من الصفحة، نسخ، لقطة شاشة) — تُرسل من المتصفح */
+    public function event(Request $request, Quiz $quiz)
+    {
+        $student = $this->student();
+        $this->allowed($quiz);
+        $data = $request->validate(['type' => ['required', 'in:leave,close,copy,screenshot,print'], 'seconds' => ['nullable', 'integer', 'min:0']]);
+        $attempt = QuizAttempt::where(['quiz_id' => $quiz->id, 'student_id' => $student->id])->whereNull('submitted_at')->first();
+        if ($attempt) {
+            $attempt->recordIntegrity($data['type'], (int) ($data['seconds'] ?? 0));
+        }
+
+        return response()->json(['leaves' => $attempt?->leave_count]);
+    }
+
     private function student()
     {
         return Auth::guard('student')->user();

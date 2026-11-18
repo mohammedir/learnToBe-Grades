@@ -20,16 +20,27 @@ class StudentController extends Controller
         $q = trim((string) $request->query('q', ''));
 
         $students = collect();
+        $inactiveCount = Student::where('is_active', false)->count();
+        // الطلاب غير المنتظمين (متوقف / منسحب / منقول)
+        if ($request->query('show') === 'inactive') {
+            $inactive = Student::with(['section.gradeLevel', 'statusChanger'])->withCount('marks')->where('is_active', false)
+                ->when($request->query('status'), fn ($w, $v) => $w->where('enrollment_status', $v))
+                ->when($q !== '', fn ($w) => $w->where(fn ($x) => $x->where('name', 'like', "%{$q}%")->orWhere('national_id', 'like', "%{$q}%")))
+                ->orderByDesc('status_date')->orderBy('name')->get();
+
+            return view('admin.students.inactive', compact('grades', 'inactive', 'q', 'inactiveCount'));
+        }
         if ($section) {
             $students = $section->orderedStudents();
         } elseif ($q !== '') {
-            $students = Student::with('section.gradeLevel')->where('is_active', true)
+            // البحث يشمل غير المنتظمين أيضاً (مع إظهار حالتهم)
+            $students = Student::with('section.gradeLevel')->orderByDesc('is_active')
                 ->where(fn ($w) => $w->where('name', 'like', "%{$q}%")->orWhere('national_id', 'like', "%{$q}%")
                     ->orWhere('phone', 'like', '%'.(\App\Support\Phone::normalize($q) ?? $q).'%')->orWhere('phone2', 'like', "%{$q}%"))
                 ->orderBy('name')->limit(100)->get();
         }
 
-        return view('admin.students.index', compact('grades', 'section', 'students', 'q'));
+        return view('admin.students.index', compact('grades', 'section', 'students', 'q', 'inactiveCount'));
     }
 
     public function store(Request $request)
@@ -46,12 +57,38 @@ class StudentController extends Controller
         return back()->with('status', 'تم حفظ بيانات الطالب.');
     }
 
-    public function destroy(Student $student)
+    public function destroy(Request $request, Student $student)
     {
         // لا نحذف الطالب نهائياً حتى لا تضيع درجاته
-        $student->update(['is_active' => false]);
+        $student->setEnrollment('stopped', 'حُذف من قوائم الشعب', null, $request->user());
 
-        return back()->with('status', 'تم حذف الطالب من قوائم الشعب. درجاته السابقة بقيت محفوظة.');
+        return back()->with('status', 'أُخفي الطالب من قوائم الشعب. درجاته السابقة بقيت محفوظة، ويمكن إعادته من «الطلاب غير المنتظمين».');
+    }
+
+    /** تغيير حالة الطالب: متوقف / منسحب / منقول، أو إعادته منتظماً (مع اختيار الشعبة) */
+    public function status(Request $request, Student $student)
+    {
+        $data = $request->validate([
+            'status' => ['required', Rule::in(array_keys(Student::ENROLLMENT))],
+            'reason' => ['nullable', 'string', 'max:500'],
+            'date' => ['nullable', 'date'],
+            'section_id' => ['nullable', 'exists:sections,id'],
+        ], [], ['status' => 'حالة الطالب', 'reason' => 'السبب', 'date' => 'التاريخ', 'section_id' => 'الشعبة']);
+
+        if ($data['status'] === 'active') {
+            $section = Section::find($data['section_id'] ?? $student->section_id);
+            if (! $section->accepts($student->gender)) {
+                return back()->with('warning', 'الشعبة '.$section->full_name.' خاصة بـ'.$section->gender_label.'. اختر شعبة مناسبة للطالب.');
+            }
+            $student->setEnrollment('active', $data['reason'] ?? null, $data['date'] ?? null, $request->user(), $section->id);
+            $marks = $student->marks()->count();
+
+            return back()->with('status', "عاد {$student->name} منتظماً في {$section->full_name}، ويظهر الآن للمدرسين في كشوف الرصد".($marks ? " مع درجاته السابقة ({$marks} درجة)" : '').'.');
+        }
+
+        $student->setEnrollment($data['status'], $data['reason'] ?? null, $data['date'] ?? null, $request->user());
+
+        return back()->with('status', "تم تغيير حالة {$student->name} إلى «{$student->enrollment_label}». لم يعد يظهر في كشوف الرصد ولا يُحسب في نسب الإكمال، ودرجاته محفوظة.");
     }
 
     /** نقل مجموعة طلاب إلى شعبة أخرى (لتقسيم الصف إلى شعب) */

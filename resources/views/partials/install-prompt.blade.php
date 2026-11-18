@@ -9,6 +9,7 @@
             <div class="install-actions">
                 <button class="btn primary" type="button" data-action="install">تثبيت التطبيق</button>
                 <button class="btn" type="button" data-action="later">لاحقاً</button>
+                <button class="linkbtn have" type="button" data-action="have">التطبيق مثبت عندي</button>
             </div>
         </div>
 
@@ -20,13 +21,13 @@
                 <li>اختر <b>«إضافة إلى الشاشة الرئيسية»</b>.</li>
                 <li>اضغط <b>«إضافة»</b>.</li>
             </ol>
-            <div class="install-actions"><button class="btn" type="button" data-action="later">فهمت</button></div>
+            <div class="install-actions"><button class="btn" type="button" data-action="later">لاحقاً</button><button class="linkbtn have" type="button" data-action="have">التطبيق مثبت عندي</button></div>
         </div>
 
         <div data-mode="other" hidden>
             <p>من قائمة المتصفح <b>⋮</b> اختر <b>«إضافة إلى الشاشة الرئيسية»</b> أو <b>«تثبيت التطبيق»</b>.</p>
-            <div class="install-actions"><button class="btn" type="button" data-action="later">فهمت</button></div>
+            <div class="install-actions"><button class="btn" type="button" data-action="later">لاحقاً</button><button class="linkbtn have" type="button" data-action="have">التطبيق مثبت عندي</button></div>
         </div>
     </div>
 </div>
-<script src="{{ asset('js/pwa.js') }}?v=2" defer></script>
+<script src="{{ asset('js/pwa.js') }}?v=3" defer></script>

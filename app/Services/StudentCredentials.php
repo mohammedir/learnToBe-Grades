@@ -11,8 +11,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
 /**
- * إنشاء كلمات مرور مؤقتة للطلاب وتنزيلها في ملف Excel مع رسالة جاهزة للإرسال.
- * كلمة المرور تظهر مرة واحدة فقط في الملف، ثم تُحفظ مشفّرة.
+ * إعادة الطلاب إلى كلمة المرور الموحدة (123456789) وتنزيل بياناتهم في ملف Excel مع رسالة جاهزة للإرسال.
  */
 class StudentCredentials
 {
@@ -20,15 +19,9 @@ class StudentCredentials
     public function issue(Collection $students): Collection
     {
         return $students->filter(fn (Student $s) => filled($s->national_id))->map(function (Student $s) {
-            $password = (string) random_int(100000, 999999);
-            $s->forceFill([
-                'password' => $password,
-                'initial_password' => $password,
-                'must_change_password' => true,
-                'password_issued_at' => now(),
-            ])->save();
+            \App\Support\StudentPassword::reset($s);
 
-            return ['student' => $s, 'password' => $password];
+            return ['student' => $s, 'password' => \App\Support\StudentPassword::default()];
         })->values();
     }
 
@@ -40,12 +33,12 @@ class StudentCredentials
         $ws->setTitle('حسابات الطلاب');
         $ws->setRightToLeft(true);
 
-        $rows = [['م', 'اسم الطالب', 'الشعبة', 'رقم الهوية (اسم المستخدم)', 'كلمة المرور المؤقتة', 'رسالة جاهزة للإرسال لولي الأمر', 'الجوال', 'رابط واتساب']];
+        $rows = [['م', 'اسم الطالب', 'الشعبة', 'رقم الهوية (اسم المستخدم)', 'كلمة المرور لأول دخول', 'رسالة جاهزة للإرسال لولي الأمر', 'الجوال', 'رابط واتساب']];
         foreach ($issued as $i => $row) {
             $s = $row['student'];
             $rows[] = [
                 $i + 1, $s->name, $s->section->full_name, $s->national_id, $row['password'],
-                ($real = ! in_array($row['password'], ['اختارها الطالب', 'لا يوجد حساب'], true)) ? $msg = "مدرسة تعلم لتكون الخاصة\nبوابة درجات الطالب: {$s->name}\nرابط الدخول: {$url}\nرقم الهوية: {$s->national_id}\nكلمة المرور المؤقتة: {$row['password']}\nسيُطلب تغيير كلمة المرور عند أول دخول." : '',
+                ($real = ! in_array($row['password'], ['اختارها الطالب', 'لا يوجد حساب'], true)) ? $msg = "مدرسة تعلم لتكون الخاصة\nبوابة درجات الطالب: {$s->name}\nرابط الدخول: {$url}\nرقم الهوية: {$s->national_id}\nكلمة المرور لأول دخول: {$row['password']}\nسيُطلب تغيير كلمة المرور عند أول دخول." : '',
                 $s->phone ?? '',
                 $real ? ($s->whatsappUrl($msg) ?? '') : '',
             ];

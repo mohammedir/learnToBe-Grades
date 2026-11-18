@@ -123,6 +123,33 @@ class PortalController extends Controller
             .($request->boolean('must_change') ? ' سيُطلب منه تغييرها عند الدخول.' : ''));
     }
 
+    /** تغيير كلمة المرور الموحدة لأول دخول (لا تتغير كلمات من غيّروا كلماتهم) */
+    public function defaultPassword(Request $request)
+    {
+        $data = $request->validate(['default_password' => ['required', 'string', 'min:6', 'max:32']], [], ['default_password' => 'كلمة المرور الموحدة']);
+        $old = \App\Support\StudentPassword::default();
+        \App\Models\Setting::put('student_default_password', $data['default_password']);
+        // من لم يغيّر كلمته بعد ينتقل للكلمة الجديدة
+        $moved = 0;
+        \App\Models\Student::where('initial_password', $old)->where('must_change_password', true)->each(function ($s) use (&$moved) {
+            \App\Support\StudentPassword::reset($s);
+            $moved++;
+        });
+
+        return back()->with('status', 'كلمة المرور الموحدة الآن: '.$data['default_password'].($moved ? " (نُقل إليها {$moved} طالب لم يغيّروا كلماتهم بعد)" : '').'.');
+    }
+
+    /** إعادة طالب واحد إلى كلمة المرور الموحدة دون تنزيل ملف */
+    public function resetDefault(Student $student)
+    {
+        if (! $student->national_id) {
+            return back()->with('warning', 'لا يمكن إنشاء حساب لطالب بدون رقم هوية.');
+        }
+        \App\Support\StudentPassword::reset($student);
+
+        return back()->with('status', "أُعيدت كلمة مرور {$student->name} إلى الموحدة (".\App\Support\StudentPassword::default().') وسيُطلب منه تغييرها عند الدخول.');
+    }
+
     /** صفحة بيانات دخول الطلاب: الأسماء وأرقام الهوية وكلمات المرور */
     public function credentials(Request $request)
     {
@@ -135,7 +162,7 @@ class PortalController extends Controller
             'canSee' => $request->user()->hasPermission('portal', 'edit'),
             'counts' => [
                 'all' => $students->count(),
-                'temp' => $students->filter(fn ($s) => $s->initial_password)->count(),
+                'temp' => $students->filter(fn ($s) => $s->login_password)->count(),
                 'own' => $students->filter(fn ($s) => $s->password && ! $s->initial_password && ! $s->must_change_password)->count(),
                 'none' => $students->filter(fn ($s) => ! $s->password)->count(),
             ],
@@ -147,7 +174,7 @@ class PortalController extends Controller
     {
         $rows = $this->credentialsQuery($request)->get()->filter(fn ($s) => $s->national_id)->map(fn ($s) => [
             'student' => $s,
-            'password' => $s->initial_password ?: ($s->password ? 'اختارها الطالب' : 'لا يوجد حساب'),
+            'password' => $s->login_password ?? ($s->password ? 'اختارها الطالب' : 'لا يوجد حساب'),
         ])->values();
         abort_if($rows->isEmpty(), 404, 'لا يوجد طلاب بهذه التصفية.');
 
@@ -157,7 +184,7 @@ class PortalController extends Controller
     /** بطاقات دخول للطباعة وتوزيعها على الطلاب */
     public function printCredentials(Request $request)
     {
-        $students = $this->credentialsQuery($request)->get()->filter(fn ($s) => $s->national_id && $s->initial_password)->values();
+        $students = $this->credentialsQuery($request)->get()->filter(fn ($s) => $s->login_password)->values();
 
         return view('admin.portal.print', ['students' => $students]);
     }
@@ -170,7 +197,7 @@ class PortalController extends Controller
             ->when($request->integer('section'), fn ($w, $v) => $w->where('students.section_id', $v))
             ->when($request->integer('grade'), fn ($w, $v) => $w->whereHas('section', fn ($s) => $s->where('grade_level_id', $v)))
             ->when($q !== '', fn ($w) => $w->where(fn ($x) => $x->where('students.name', 'like', "%{$q}%")->orWhere('students.national_id', 'like', "%{$q}%")->orWhere('students.phone', 'like', "%{$q}%")))
-            ->when($request->query('status') === 'temp', fn ($w) => $w->whereNotNull('students.initial_password'))
+            ->when($request->query('status') === 'temp', fn ($w) => $w->whereNotNull('students.national_id')->where(fn ($x) => $x->whereNotNull('students.initial_password')->orWhereNull('students.password')))
             ->when($request->query('status') === 'own', fn ($w) => $w->whereNotNull('students.password')->whereNull('students.initial_password'))
             ->when($request->query('status') === 'none', fn ($w) => $w->whereNull('students.password'))
             ->join('sections', 'sections.id', '=', 'students.section_id')

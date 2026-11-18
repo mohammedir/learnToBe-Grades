@@ -11,7 +11,7 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    protected $fillable = ['name', 'job_title', 'username', 'phone', 'show_phone_to_students', 'role', 'permissions', 'is_active', 'password'];
+    protected $fillable = ['name', 'job_title', 'username', 'phone', 'show_phone_to_students', 'role', 'supplier_id', 'permissions', 'is_active', 'password'];
 
     protected $hidden = ['password', 'remember_token'];
 
@@ -66,6 +66,9 @@ class User extends Authenticatable
         if ($this->isTeacher()) {
             return route('teacher.home');
         }
+        if ($this->isSupplier()) {
+            return route('supplier.home');
+        }
         foreach (Permissions::MODULES as $module => $info) {
             if ($this->hasPermission($module)) {
                 return route($info[3]);
@@ -80,8 +83,20 @@ class User extends Authenticatable
         return match ($this->role) {
             'admin' => 'مدير عام',
             'staff' => $this->job_title ?: 'موظف',
+            'supplier' => 'المطبعة / المورد',
             default => 'مدرس',
         };
+    }
+
+    /** حساب المطبعة/المورد: يرى طلباته فقط ويغيّر حالتها */
+    public function isSupplier(): bool
+    {
+        return $this->role === 'supplier';
+    }
+
+    public function supplier(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Supplier::class);
     }
 
     public function isTeacher(): bool

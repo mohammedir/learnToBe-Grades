@@ -37,6 +37,7 @@ Route::prefix('student')->name('student.')->group(function () {
             Route::get('/quiz/{quiz}', [Student\QuizController::class, 'show'])->name('quiz');
             Route::post('/quiz/{quiz}/start', [Student\QuizController::class, 'start'])->name('quiz.start');
             Route::post('/quiz/{quiz}/submit', [Student\QuizController::class, 'submit'])->name('quiz.submit');
+            Route::post('/quiz/{quiz}/event', [Student\QuizController::class, 'event'])->middleware('throttle:120,1')->name('quiz.event');
         });
     });
 });
@@ -51,6 +52,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/password', [PasswordController::class, 'edit'])->name('password.edit');
     Route::put('/password', [PasswordController::class, 'update'])->name('password.update');
+
+    // تسجيل الحضور بمسح رمز QR (المدرسون والموظفون) — يعمل بدون إنترنت ثم يُرفع
+    Route::middleware('role:teacher,staff,admin')->prefix('attendance')->name('attendance.')->group(function () {
+        Route::get('/', [App\Http\Controllers\AttendanceController::class, 'show'])->name('scan');
+        Route::get('/state', [App\Http\Controllers\AttendanceController::class, 'state'])->name('state');
+        Route::post('/sync', [App\Http\Controllers\AttendanceController::class, 'sync'])->middleware('throttle:30,1')->name('sync');
+    });
 
     // بوابة المدرس
     Route::middleware('role:teacher')->prefix('teacher')->name('teacher.')->group(function () {
@@ -76,6 +84,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/quizzes/{quiz}/review/{attempt}', [Teacher\QuizController::class, 'review'])->name('quizzes.review');
         Route::post('/quizzes/{quiz}/review/{attempt}', [Teacher\QuizController::class, 'saveReview'])->name('quizzes.review.save');
         Route::post('/quizzes/{quiz}/transfer', [Teacher\QuizController::class, 'transfer'])->name('quizzes.transfer');
+    });
+
+    // بوابة المطبعة / المورد: طلباته فقط
+    Route::middleware('role:supplier')->prefix('supplier')->name('supplier.')->group(function () {
+        Route::get('/', [App\Http\Controllers\Supplier\PortalController::class, 'index'])->name('home');
+        Route::get('/orders/{order}', [App\Http\Controllers\Supplier\PortalController::class, 'show'])->name('orders.show');
+        Route::post('/orders/{order}/status', [App\Http\Controllers\Supplier\PortalController::class, 'status'])->name('orders.status');
+        Route::post('/orders/{order}/price', [App\Http\Controllers\Supplier\PortalController::class, 'price'])->name('orders.price');
+        Route::get('/statement', [App\Http\Controllers\Supplier\PortalController::class, 'statement'])->name('statement');
+        Route::get('/statement/print', [App\Http\Controllers\Supplier\PortalController::class, 'print'])->name('statement.print');
     });
 
     // لوحة الإدارة: المدير العام وكل موظف حسب صلاحياته
@@ -151,6 +169,7 @@ Route::middleware('auth')->group(function () {
             Route::post('students/import/confirm', [Admin\StudentController::class, 'importConfirm'])->name('students.import.confirm');
             Route::put('students/{student}', [Admin\StudentController::class, 'update'])->name('students.update');
             Route::delete('students/{student}', [Admin\StudentController::class, 'destroy'])->name('students.destroy');
+            Route::put('students/{student}/status', [Admin\StudentController::class, 'status'])->name('students.status');
         });
 
         // بوابة الطلاب: نشر الدرجات وكلمات المرور
@@ -165,11 +184,63 @@ Route::middleware('auth')->group(function () {
             Route::post('portal/sections/{section}/issue', [Admin\PortalController::class, 'issueSection'])->name('portal.issue-section');
             Route::post('portal/students/{student}/issue', [Admin\PortalController::class, 'issueStudent'])->name('portal.issue-student');
             Route::put('portal/students/{student}/password', [Admin\PortalController::class, 'setPassword'])->name('portal.set-password');
+            Route::post('portal/students/{student}/reset-default', [Admin\PortalController::class, 'resetDefault'])->name('portal.reset-default');
+            Route::put('portal/default-password', [Admin\PortalController::class, 'defaultPassword'])->name('portal.default-password');
             Route::put('portal/students/{student}/suspend', [Admin\PortalController::class, 'suspend'])->name('portal.suspend');
             Route::delete('portal/students/{student}/suspend', [Admin\PortalController::class, 'unsuspend'])->name('portal.unsuspend');
         });
 
         // الاختبارات: الإدارة تتابعها وتنشئها نيابة عن المدرسين
+        // حضور المدرسين
+        Route::prefix('attendance')->name('attendance.')->group(function () {
+            Route::middleware('perm:attendance,view')->group(function () {
+                Route::get('/', [Admin\AttendanceController::class, 'index'])->name('index');
+                Route::get('month', [Admin\AttendanceController::class, 'month'])->name('month');
+                Route::get('month/export', [Admin\AttendanceController::class, 'export'])->name('export');
+                Route::get('person/{user}', [Admin\AttendanceController::class, 'person'])->name('person');
+                Route::get('points', [Admin\AttendanceController::class, 'points'])->name('points');
+                Route::get('points/{point}/print', [Admin\AttendanceController::class, 'printPoint'])->name('points.print');
+            });
+            Route::middleware('perm:attendance,edit')->group(function () {
+                Route::post('points', [Admin\AttendanceController::class, 'storePoint'])->name('points.store');
+                Route::put('points/{point}', [Admin\AttendanceController::class, 'updatePoint'])->name('points.update');
+                Route::post('points/{point}/regenerate', [Admin\AttendanceController::class, 'regenerate'])->name('points.regenerate');
+                Route::put('settings', [Admin\AttendanceController::class, 'settings'])->name('settings');
+                Route::post('manual', [Admin\AttendanceController::class, 'manual'])->name('manual');
+                Route::delete('records/{record}', [Admin\AttendanceController::class, 'destroyRecord'])->name('records.destroy');
+            });
+        });
+
+        // المالية ← المشتريات (المطبعة)
+        Route::prefix('finance')->name('finance.')->group(function () {
+            Route::middleware('perm:finance,view')->group(function () {
+                Route::get('/', [Admin\Finance\FinanceController::class, 'index'])->name('index');
+                Route::get('purchases', [Admin\Finance\PurchaseController::class, 'index'])->name('purchases.index');
+                Route::get('purchases/{purchase}', [Admin\Finance\PurchaseController::class, 'show'])->whereNumber('purchase')->name('purchases.show');
+                Route::get('purchases/{purchase}/print', [Admin\Finance\PurchaseController::class, 'print'])->name('purchases.print');
+                Route::get('payments', [Admin\Finance\PaymentController::class, 'index'])->name('payments.index');
+                Route::get('statement/{supplier?}', [Admin\Finance\StatementController::class, 'show'])->name('statement');
+                Route::get('statement/{supplier}/print', [Admin\Finance\StatementController::class, 'print'])->name('statement.print');
+                Route::get('statement/{supplier}/export', [Admin\Finance\StatementController::class, 'export'])->name('statement.export');
+                Route::get('suppliers', [Admin\Finance\SupplierController::class, 'index'])->name('suppliers.index');
+            });
+            Route::middleware('perm:finance,edit')->group(function () {
+                Route::get('purchases/create', [Admin\Finance\PurchaseController::class, 'create'])->name('purchases.create');
+                Route::post('purchases', [Admin\Finance\PurchaseController::class, 'store'])->name('purchases.store');
+                Route::get('purchases/{purchase}/edit', [Admin\Finance\PurchaseController::class, 'edit'])->name('purchases.edit');
+                Route::put('purchases/{purchase}', [Admin\Finance\PurchaseController::class, 'update'])->name('purchases.update');
+                Route::post('purchases/{purchase}/status', [Admin\Finance\PurchaseController::class, 'status'])->name('purchases.status');
+                Route::post('purchases/{purchase}/cancel', [Admin\Finance\PurchaseController::class, 'cancel'])->name('purchases.cancel');
+                Route::post('purchases/{purchase}/price', [Admin\Finance\PurchaseController::class, 'price'])->name('purchases.price');
+                Route::post('payments', [Admin\Finance\PaymentController::class, 'store'])->name('payments.store');
+                Route::delete('payments/{payment}', [Admin\Finance\PaymentController::class, 'destroy'])->name('payments.destroy');
+                Route::get('suppliers/create', [Admin\Finance\SupplierController::class, 'create'])->name('suppliers.create');
+                Route::post('suppliers', [Admin\Finance\SupplierController::class, 'store'])->name('suppliers.store');
+                Route::get('suppliers/{supplier}/edit', [Admin\Finance\SupplierController::class, 'edit'])->name('suppliers.edit');
+                Route::put('suppliers/{supplier}', [Admin\Finance\SupplierController::class, 'update'])->name('suppliers.update');
+            });
+        });
+
         Route::middleware('perm:quizzes,view')->group(function () {
             Route::get('quizzes', [Teacher\QuizController::class, 'index'])->name('quizzes.index');
             Route::get('quizzes/{quiz}/results', [Teacher\QuizController::class, 'results'])->name('quizzes.results');

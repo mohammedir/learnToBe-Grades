@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@600;700&display=swap">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v=6">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v=12">
     @include('partials.pwa-head')
 </head>
 <body>
@@ -17,7 +17,7 @@
     <div class="wrap">
         <a class="brand" href="{{ route('home') }}">
             <img src="{{ asset('images/logo.png') }}" alt="">
-            <span><b>تطبيق مدرسة تعلم لتكون</b><small>LearnToBe · لوحة المدرسين والإدارة</small></span>
+            <span><b>تطبيق مدرسة تعلم لتكون</b><small>LearnToBe · {{ auth()->user()->isSupplier() ? 'بوابة المطبعة' : 'لوحة المدرسين والإدارة' }}</small></span>
         </a>
         <nav class="nav">
             @if(auth()->user()->isBackOffice())
@@ -31,11 +31,18 @@
                 @perm('quizzes')<a href="{{ route('admin.quizzes.index') }}" @class(['active' => request()->routeIs('admin.quizzes.*')])>الاختبارات</a>@endperm
                 @perm('portal')<a href="{{ route('admin.portal.index') }}" @class(['active' => request()->routeIs('admin.portal.*')])>بوابة الطلاب</a>@endperm
                 @perm('components')<a href="{{ route('admin.components.index') }}" @class(['active' => request()->routeIs('admin.components.*')])>عناصر الدرجة</a>@endperm
+                @perm('attendance')<a href="{{ route('admin.attendance.index') }}" @class(['active' => request()->routeIs('admin.attendance.*')])>حضور المدرسين</a>@endperm
+                @perm('finance')<a href="{{ route('admin.finance.index') }}" @class(['active' => request()->routeIs('admin.finance.*')])>المالية</a>@endperm
+                @if(auth()->user()->role === 'staff')<a href="{{ route('attendance.scan') }}" @class(['active' => request()->routeIs('attendance.scan')])>📍 حضوري</a>@endif
                 @if(auth()->user()->isAdmin())<a href="{{ route('admin.users.index') }}" @class(['active' => request()->routeIs('admin.users.*')])>المستخدمون والصلاحيات</a>@endif
+            @elseif(auth()->user()->isSupplier())
+                <a href="{{ route('supplier.home') }}" @class(['active' => request()->routeIs('supplier.home', 'supplier.orders.*')])>الطلبات</a>
+                <a href="{{ route('supplier.statement') }}" @class(['active' => request()->routeIs('supplier.statement')])>كشف الحساب</a>
             @else
                 <a href="{{ route('teacher.home') }}" @class(['active' => request()->routeIs('teacher.home', 'teacher.sheet', 'teacher.notes')])>كشوفي</a>
                 <a href="{{ route('teacher.analytics') }}" @class(['active' => request()->routeIs('teacher.analytics')])>الرسوم البيانية</a>
                 <a href="{{ route('teacher.quizzes.index') }}" @class(['active' => request()->routeIs('teacher.quizzes.*')])>الاختبارات</a>
+                <a href="{{ route('attendance.scan') }}" @class(['active' => request()->routeIs('attendance.scan')])>📍 حضوري</a>
             @endif
         </nav>
         <div class="userbox">
@@ -61,6 +68,9 @@
         @yield('content')
     </div>
 </main>
+@auth
+@if(in_array(auth()->user()->role, ['teacher', 'staff']) && ! request()->routeIs('attendance.scan'))<script src="{{ asset('js/attendance.js') }}?v=1" defer></script>@endif
+@endauth
 @stack('scripts')
 @include('partials.install-prompt')
 </body>

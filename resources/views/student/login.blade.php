@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>دخول الطلاب – تطبيق مدرسة تعلم لتكون</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Noto+Kufi+Arabic:wght@700&display=swap">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v=6">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v=12">
     @include('partials.pwa-head')
 </head>
 <body>
@@ -30,7 +30,7 @@
             <div class="field">
                 <label for="password">كلمة المرور</label>
                 <input type="password" id="password" name="password" autocomplete="current-password" dir="ltr" required>
-                <span class="hint">في أول دخول استخدم كلمة المرور المؤقتة التي أرسلتها المدرسة.</span>
+                <span class="hint">في أول دخول استخدم كلمة المرور الموحدة التي أعلنتها المدرسة، وسيُطلب منك تغييرها.</span>
             </div>
             <label class="check"><input type="checkbox" name="remember" value="1"> تذكّرني على هذا الجهاز</label>
             <button class="btn primary" type="submit" style="justify-content:center">دخول</button>

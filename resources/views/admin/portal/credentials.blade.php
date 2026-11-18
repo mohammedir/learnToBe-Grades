@@ -19,9 +19,9 @@
         <select name="section" aria-label="الشعبة" onchange="this.form.submit()"><option value="">كل الشعب</option>@foreach($grades as $g)<optgroup label="{{ $g->name }}">@foreach($g->sections as $s)<option value="{{ $s->id }}" @selected(($f['section'] ?? null) == $s->id)>{{ $g->name }} – {{ $s->short_name }}</option>@endforeach</optgroup>@endforeach</select>
         <select name="status" aria-label="حالة الحساب" onchange="this.form.submit()">
             <option value="">كل الحالات</option>
-            <option value="temp" @selected(($f['status'] ?? '') === 'temp')>كلمة مؤقتة ظاهرة ({{ $counts['temp'] }})</option>
+            <option value="temp" @selected(($f['status'] ?? '') === 'temp')>كلمة أول دخول ظاهرة ({{ $counts['temp'] }})</option>
             <option value="own" @selected(($f['status'] ?? '') === 'own')>اختار كلمته الخاصة</option>
-            <option value="none" @selected(($f['status'] ?? '') === 'none')>بدون حساب</option>
+            <option value="none" @selected(($f['status'] ?? '') === 'none')>لم يدخل بعد</option>
         </select>
         <input type="search" name="q" value="{{ $f['q'] ?? '' }}" placeholder="بحث بالاسم أو الهوية أو الجوال" aria-label="بحث">
         <button class="btn" type="submit">بحث</button>
@@ -33,9 +33,9 @@
 
 <div class="stats">
     <div class="stat"><b>{{ $counts['all'] }}</b><span>طالب في القائمة</span></div>
-    <div class="stat"><b>{{ $counts['temp'] }}</b><span>كلمة مؤقتة ظاهرة</span></div>
+    <div class="stat"><b>{{ $counts['temp'] }}</b><span>كلمة أول دخول ظاهرة</span></div>
     <div class="stat"><b>{{ $counts['own'] }}</b><span>اختاروا كلماتهم الخاصة</span></div>
-    <div class="stat"><b>{{ $counts['none'] }}</b><span>بدون حساب</span></div>
+    <div class="stat"><b>{{ $counts['none'] }}</b><span>لم يدخل بعد</span></div>
 </div>
 
 <div class="scroll">
@@ -51,21 +51,21 @@
                 @if($st->national_id)<code>{{ $st->national_id }}</code>@else<span class="pill off">بدون هوية</span>@endif
             </td>
             <td>
-                @if($canSee && $st->initial_password)
-                    <code class="secret" dir="ltr" data-secret="{{ $st->initial_password }}">••••••</code>
+                @if($canSee && $st->login_password)
+                    <code class="secret" dir="ltr" data-secret="{{ $st->login_password }}">••••••</code>
                     <button class="btn sm ghost reveal" type="button">إظهار</button>
                 @elseif($st->password)
-                    <span style="color:var(--muted);font-size:13px">{{ $st->must_change_password ? 'مؤقتة (غير محفوظة للعرض)' : 'اختارها الطالب 🔒' }}</span>
+                    <span style="color:var(--muted);font-size:13px">{{ $st->must_change_password ? 'لم يغيّرها بعد' : 'اختارها الطالب 🔒' }}</span>
                 @else
-                    <span style="color:var(--muted)">لا يوجد حساب</span>
+                    <span style="color:var(--muted)">بدون رقم هوية</span>
                 @endif
             </td>
             <td dir="ltr" style="text-align:right;white-space:nowrap">{{ $st->phone ?: '—' }}</td>
             <td>
                 @if($canSee && $st->national_id)
                 <div class="inline" style="flex-wrap:nowrap">
-                    @if($st->initial_password)
-                        @php($msg = "مدرسة تعلم لتكون الخاصة\nبوابة الطالب: ".$st->name."\nرابط الدخول: ".route('student.login')."\nرقم الهوية: ".$st->national_id."\nكلمة المرور: ".$st->initial_password."\nسيُطلب تغيير كلمة المرور عند أول دخول.")
+                    @if($st->login_password)
+                        @php($msg = "مدرسة تعلم لتكون الخاصة\nبوابة الطالب: ".$st->name."\nرابط الدخول: ".route('student.login')."\nرقم الهوية: ".$st->national_id."\nكلمة المرور: ".$st->login_password."\nسيُطلب تغيير كلمة المرور عند أول دخول.")
                         @if($st->phone)<a class="btn sm wa-btn" href="{{ $st->whatsappUrl($msg) }}" target="_blank" rel="noopener">واتساب</a>@endif
                         <button class="btn sm copy-msg" type="button" data-msg="{{ $msg }}">نسخ</button>
                     @endif
@@ -80,7 +80,7 @@
     </tbody>
 </table>
 </div>
-<p class="hint">الكلمة المؤقتة تظهر هنا حتى يغيّرها الطالب. بعد أن يختار الطالب كلمته الخاصة تُحفظ مشفّرة ولا يراها أحد، ويمكنك تعيين كلمة جديدة له بزر «تغيير كلمة المرور».</p>
+<p class="hint">كلمة أول دخول (الموحدة <b dir="ltr">{{ \App\Support\StudentPassword::default() }}</b> أو التي عيّنتها الإدارة) تظهر هنا حتى يغيّرها الطالب. بعد أن يختار الطالب كلمته الخاصة تُحفظ مشفّرة ولا يراها أحد، ويمكنك تعيين كلمة جديدة له بزر «تغيير كلمة المرور».</p>
 
 @if($canSee)
 <dialog id="pw-dialog" class="dialog">

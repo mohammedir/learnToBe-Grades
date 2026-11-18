@@ -10,6 +10,18 @@
     <a class="btn" href="{{ route($rp.'quizzes.results', $quiz) }}">كل النتائج</a>
 </div>
 
+<div class="panel" style="border-inline-start:4px solid {{ $attempt->leave_count ? 'var(--warn)' : 'var(--ok)' }}">
+    <div class="inline"><b>مراقبة أثناء الحل:</b>
+        <span class="integ {{ $attempt->leave_count === 0 ? 'ok' : ($attempt->leave_count <= 2 ? 'mid' : 'high') }}">خرج من الصفحة {{ $attempt->leave_count }} مرة</span>
+        @if($attempt->leave_seconds)<span class="muted">مجموع الغياب {{ \App\Models\QuizAttempt::duration($attempt->leave_seconds) }}</span>@endif
+        @if($attempt->copy_attempts)<span class="integ mid">محاولات نسخ/لصق {{ $attempt->copy_attempts }}</span>@endif
+        @if($attempt->screenshot_attempts)<span class="integ high">محاولات تصوير/طباعة {{ $attempt->screenshot_attempts }}</span>@endif
+    </div>
+    @if($attempt->integrity_log)
+        <ul class="integ-log">@foreach($attempt->integrity_log as $ev)<li><span dir="ltr">{{ $ev['at'] ?? '' }}</span> · {{ \App\Models\QuizAttempt::INTEGRITY_EVENTS[$ev['t']] ?? $ev['t'] }}@if(! empty($ev['s'])) ({{ \App\Models\QuizAttempt::duration($ev['s']) }})@endif</li>@endforeach</ul>
+    @endif
+</div>
+
 <form method="post" action="{{ route($rp.'quizzes.review.save', [$quiz, $attempt]) }}" id="review-form">
     @csrf
     @foreach($quiz->questions as $i => $q)

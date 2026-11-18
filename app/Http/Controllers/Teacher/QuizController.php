@@ -136,6 +136,7 @@ class QuizController extends Controller
                 'avg' => $graded->count() ? round($graded->avg('score'), 2) : null,
                 'max' => $graded->max('score'),
                 'min' => $graded->min('score'),
+                'left' => $attempts->where('leave_count', '>', 0)->count(),
             ],
         ]);
     }

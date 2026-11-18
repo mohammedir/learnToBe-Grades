@@ -69,6 +69,7 @@
             @if($quiz->closes_at)<li>آخر موعد للتسليم: <b>{{ $quiz->closes_at->format('Y/m/d H:i') }}</b>.</li>@endif
             @if($quiz->questions->contains('type', 'text'))<li>بعض الأسئلة إجابتها نصية يصححها المدرس.</li>@endif
             <li>يمكنك التسليم مرة واحدة فقط، فراجع إجاباتك قبل التسليم.</li>
+            <li class="guard-li">🔒 صفحة الاختبار محمية: يُمنع نسخ الأسئلة وتصويرها، و<b>يُسجَّل كل خروج من صفحة الاختبار</b> (فتح تطبيق أو تبويب آخر) ويظهر عدده للمدرس. ابقَ في الصفحة حتى تسلّم.</li>
         </ul>
         @if($state === 'open')
             <form method="post" action="{{ route('student.quiz.start', $quiz) }}">@csrf<button class="btn primary big" type="submit">ابدأ الاختبار</button></form>
@@ -81,19 +82,22 @@
 
 @else
     @php($deadline = $attempt->deadline())
+    <div class="quiz-wm" aria-hidden="true">@for($w = 0; $w < 36; $w++)<span>{{ $student->name }} · {{ $student->national_id }}</span>@endfor</div>
+    <div class="quiz-shield" aria-hidden="true"><div><b>🔒 عُد إلى الاختبار</b><span>خروجك من الصفحة يُسجَّل ويظهر للمدرس</span></div></div>
+    <div class="alert warn leave-warn" id="leave-warn" @if(! $attempt->leave_count) hidden @endif role="status">⚠️ خرجت من صفحة الاختبار <b id="leave-n">{{ $attempt->leave_count }}</b> مرة. يُسجَّل ذلك ويظهر للمدرس.</div>
     <div class="take-bar" id="take-bar">
         <span id="answered">—</span>
         <div class="progress" aria-hidden="true"><i id="progress-fill"></i></div>
         @if($deadline)<span class="timer" id="timer" data-deadline="{{ $deadline->getTimestamp() * 1000 }}" data-now="{{ now()->getTimestamp() * 1000 }}">⏱ <b>--:--</b></span>@endif
     </div>
-    <form method="post" action="{{ route('student.quiz.submit', $quiz) }}" id="quiz-take" data-key="quiz-{{ $quiz->id }}-{{ $student->id }}">
+    <form method="post" action="{{ route('student.quiz.submit', $quiz) }}" id="quiz-take" class="quiz-protected" data-key="quiz-{{ $quiz->id }}-{{ $student->id }}" data-event-url="{{ route('student.quiz.event', $quiz) }}" data-leaves="{{ $attempt->leave_count }}">
         @csrf
         @foreach($quiz->questions as $i => $qq)
             <fieldset class="q-take" data-q>
                 <legend><span class="q-n">{{ $i + 1 }}</span> <span class="pts">{{ $fmt($qq->points) }} {{ $qq->points == 1 ? 'درجة' : 'درجات' }}</span></legend>
                 <div class="q-text">{!! nl2br(e($qq->body)) !!}</div>
                 @if($qq->imageUrl())
-                    <a href="{{ $qq->imageUrl() }}" target="_blank" rel="noopener"><img class="q-img" src="{{ $qq->imageUrl() }}" alt="صورة السؤال {{ $i + 1 }}" loading="lazy"></a>
+                    <a href="{{ $qq->imageUrl() }}" target="_blank" rel="noopener"><img class="q-img" src="{{ $qq->imageUrl() }}" alt="صورة السؤال {{ $i + 1 }}" loading="lazy" draggable="false"></a>
                 @endif
                 @switch($qq->type)
                     @case('mcq')
@@ -151,8 +155,11 @@
     form.addEventListener('submit', (e) => {
         if (submitting) return;
         const left = qs.length - qs.filter(answered).length;
-        if (left > 0 && !confirm('لم تُجب عن ' + left + ' سؤال. هل تريد التسليم؟')) { e.preventDefault(); return; }
-        if (left === 0 && !confirm('تسليم الاختبار الآن؟ لا يمكن التعديل بعد التسليم.')) { e.preventDefault(); return; }
+        window.quizQuiet = true;
+        const ok = left > 0 ? confirm('لم تُجب عن ' + left + ' سؤال. هل تريد التسليم؟') : confirm('تسليم الاختبار الآن؟ لا يمكن التعديل بعد التسليم.');
+        setTimeout(() => { window.quizQuiet = false; }, 300);
+        if (!ok) { e.preventDefault(); return; }
+        window.quizSubmitting = true;
         submitting = true; try { localStorage.removeItem(key); } catch (err) {}
     });
     count();
@@ -161,7 +168,7 @@
         const offset = Date.now() - +t.dataset.now, end = +t.dataset.deadline;
         const tick = () => {
             const ms = end - (Date.now() - offset);
-            if (ms <= 0) { t.querySelector('b').textContent = '00:00'; submitting = true; try { localStorage.removeItem(key); } catch (e) {} form.submit(); return; }
+            if (ms <= 0) { t.querySelector('b').textContent = '00:00'; submitting = true; window.quizSubmitting = true; try { localStorage.removeItem(key); } catch (e) {} form.submit(); return; }
             const m = Math.floor(ms / 60000), s = Math.floor(ms / 1000) % 60;
             t.querySelector('b').textContent = String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
             t.classList.toggle('low', ms < 60000);
@@ -169,6 +176,76 @@
         };
         tick();
     }
+})();
+
+// ===== حماية صفحة الاختبار =====
+(function () {
+    const form = document.getElementById('quiz-take');
+    if (!form) return;
+    document.body.classList.add('quiz-mode');
+    const url = form.dataset.eventUrl, token = form.querySelector('[name=_token]').value;
+    const warn = document.getElementById('leave-warn'), leaveN = document.getElementById('leave-n');
+    let leaves = +form.dataset.leaves || 0, away = null, lastCopy = 0;
+
+    const send = (type, seconds) => {
+        const fd = new FormData();
+        fd.append('_token', token); fd.append('type', type);
+        if (seconds) fd.append('seconds', String(seconds));
+        if (!(navigator.sendBeacon && navigator.sendBeacon(url, fd))) {
+            fetch(url, { method: 'POST', body: fd, credentials: 'same-origin', keepalive: true }).catch(() => {});
+        }
+    };
+    const busy = () => window.quizSubmitting || window.quizQuiet;
+
+    // الخروج من الصفحة: تبويب/تطبيق آخر أو نافذة أخرى. يُحسب عند العودة مع مدة الغياب
+    const goAway = () => {
+        if (busy() || away) return;
+        away = Date.now();
+        document.body.classList.add('quiz-away');
+    };
+    const comeBack = () => {
+        if (!away || document.hidden || !document.hasFocus()) return;
+        const s = Math.round((Date.now() - away) / 1000);
+        away = null;
+        document.body.classList.remove('quiz-away');
+        if (busy() || s < 1) return;
+        leaves++;
+        send('leave', s);
+        leaveN.textContent = leaves; warn.hidden = false;
+    };
+    document.addEventListener('visibilitychange', () => (document.hidden ? goAway() : comeBack()));
+    window.addEventListener('blur', goAway);
+    window.addEventListener('focus', comeBack);
+    window.addEventListener('pagehide', () => {
+        if (window.quizSubmitting) return;
+        send(away ? 'leave' : 'close', away ? Math.round((Date.now() - away) / 1000) : 0);
+    });
+
+    // منع النسخ والقص واللصق والقائمة والسحب
+    const copyTry = (e) => {
+        e.preventDefault();
+        if (Date.now() - lastCopy > 3000) { lastCopy = Date.now(); send('copy'); }
+    };
+    ['copy', 'cut', 'paste'].forEach((ev) => document.addEventListener(ev, copyTry));
+    document.addEventListener('contextmenu', (e) => e.preventDefault());
+    document.addEventListener('dragstart', (e) => e.preventDefault());
+    document.addEventListener('selectstart', (e) => { if (!e.target.closest || !e.target.closest('input,textarea')) e.preventDefault(); });
+
+    // لقطة الشاشة والطباعة من لوحة المفاتيح
+    const flash = () => { document.body.classList.add('quiz-away'); setTimeout(() => { if (!away) document.body.classList.remove('quiz-away'); }, 1500); };
+    const wipe = () => { try { navigator.clipboard && navigator.clipboard.writeText(''); } catch (e) {} };
+    document.addEventListener('keydown', (e) => {
+        const k = (e.key || '').toLowerCase(), mod = e.ctrlKey || e.metaKey;
+        if ((e.metaKey && e.shiftKey && ['3', '4', '5', 's'].includes(k)) || (mod && e.shiftKey && k === 's')) {
+            e.preventDefault(); flash(); wipe(); send('screenshot');
+        } else if (mod && k === 'p') {
+            e.preventDefault(); send('print');
+        } else if (mod && ['c', 'x', 'v', 'a', 's', 'u'].includes(k)) {
+            e.preventDefault(); if (['c', 'x', 'v'].includes(k)) copyTry(e);
+        }
+    });
+    document.addEventListener('keyup', (e) => { if ((e.key || '').toLowerCase() === 'printscreen') { flash(); wipe(); send('screenshot'); } });
+    window.addEventListener('beforeprint', () => send('print'));
 })();
 </script>
 @endpush

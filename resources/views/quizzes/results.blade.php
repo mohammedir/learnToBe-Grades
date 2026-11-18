@@ -33,6 +33,7 @@
     <div class="stat"><b>{{ $stats['review'] }}</b><span>بانتظار التصحيح</span></div>
     <div class="stat"><b>{{ $fmt($stats['avg']) }}</b><span>المتوسط من {{ $fmt($max) }}</span></div>
     <div class="stat"><b>{{ $fmt($stats['max']) }} / {{ $fmt($stats['min']) }}</b><span>أعلى / أقل درجة</span></div>
+    <div class="stat"><b @if($stats['left']) style="color:var(--warn)" @endif>{{ $stats['left'] }}</b><span>طالب خرج من صفحة الاختبار</span></div>
 </div>
 
 @if($stats['review'] && $canEdit)
@@ -42,7 +43,7 @@
 
 <div class="scroll">
 <table>
-    <thead><tr><th>الطالب</th><th class="c">الحالة</th><th class="c">الدرجة</th><th class="c">النسبة</th><th>وقت التسليم</th><th></th></tr></thead>
+    <thead><tr><th>الطالب</th><th class="c">الحالة</th><th class="c">الدرجة</th><th class="c">النسبة</th><th class="c" title="عدد مرات خروج الطالب من صفحة الاختبار أثناء الحل">الخروج من الاختبار</th><th>وقت التسليم</th><th></th></tr></thead>
     <tbody>
     @foreach($students as $st)
         @php($a = $attempts[$st->id] ?? null)
@@ -57,6 +58,15 @@
             </td>
             <td class="c"><b>{{ $a?->submitted_at ? $fmt($a->score).' / '.$fmt($a->max_score) : '—' }}</b>@if($a?->needs_review)<small style="color:var(--muted)"> (جزئي)</small>@endif</td>
             <td class="c">{{ $a?->submitted_at && $a->max_score > 0 ? round($a->score / $a->max_score * 100).'%' : '—' }}</td>
+            <td class="c">
+                @if($a)
+                    @php($lv = $a->leave_count)
+                    <span class="integ {{ $lv === 0 ? 'ok' : ($lv <= 2 ? 'mid' : 'high') }}" title="{{ implode(' · ', $a->integritySummary()) ?: 'لم يخرج من الصفحة' }}">{{ $lv === 0 ? '✓ 0' : '⚠ '.$lv }}</span>
+                    @if($a->leave_seconds || $a->copy_attempts || $a->screenshot_attempts)
+                        <span class="integ-sub">@if($a->leave_seconds){{ \App\Models\QuizAttempt::duration($a->leave_seconds) }} خارجها@endif @if($a->copy_attempts) · نسخ {{ $a->copy_attempts }}@endif @if($a->screenshot_attempts) · تصوير {{ $a->screenshot_attempts }}@endif</span>
+                    @endif
+                @else — @endif
+            </td>
             <td class="muted">{{ $a?->submitted_at?->format('Y/m/d H:i') ?? '' }}</td>
             <td>@if($a?->submitted_at && $canEdit)<a class="btn sm {{ $a->needs_review ? 'primary' : '' }}" href="{{ route($rp.'quizzes.review', [$quiz, $a]) }}">{{ $a->needs_review ? 'صحّح' : 'عرض / تعديل' }}</a>@endif</td>
         </tr>

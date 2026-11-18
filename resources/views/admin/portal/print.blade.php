@@ -27,7 +27,7 @@ body{font-family:"IBM Plex Sans Arabic",Tahoma,Arial,sans-serif;margin:0;color:#
 </style>
 </head>
 <body>
-<div class="bar"><b>{{ $students->count() }} بطاقة</b><span style="color:#5B6678;font-size:13px">تظهر هنا فقط الحسابات التي كلمتها المؤقتة ما زالت ظاهرة.</span><span style="flex:1"></span><button onclick="window.print()">طباعة</button></div>
+<div class="bar"><b>{{ $students->count() }} بطاقة</b><span style="color:#5B6678;font-size:13px">تظهر هنا فقط الحسابات التي التي لم يغيّر أصحابها كلمة أول دخول بعد.</span><span style="flex:1"></span><button onclick="window.print()">طباعة</button></div>
 @if($students->isEmpty())
     <div class="empty">لا توجد بطاقات للطباعة بهذه التصفية. أنشئ كلمات مرور للطلاب أولاً من «بوابة الطلاب».</div>
 @else
@@ -38,7 +38,7 @@ body{font-family:"IBM Plex Sans Arabic",Tahoma,Arial,sans-serif;margin:0;color:#
             <div class="name">{{ $st->name }}</div>
             <div class="sec">{{ $st->section->full_name }}</div>
             <div class="row"><span>اسم المستخدم (رقم الهوية)</span><code>{{ $st->national_id }}</code></div>
-            <div class="row"><span>كلمة المرور</span><code>{{ $st->initial_password }}</code></div>
+            <div class="row"><span>كلمة المرور</span><code>{{ $st->login_password }}</code></div>
             <div class="url">{{ route('student.login') }}</div>
             <div class="note">سيُطلب منك اختيار كلمة مرور جديدة عند أول دخول.</div>
         </div>

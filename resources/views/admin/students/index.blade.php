@@ -5,6 +5,7 @@
 <div class="page-head">
     <div><h1>الطلاب</h1><div class="sub">اختر شعبة لعرض طلابها، أو ابحث بالاسم أو رقم الهوية.</div></div>
     <div class="spacer"></div>
+    <a class="btn" href="{{ route('admin.students.index', ['show' => 'inactive']) }}">الطلاب غير المنتظمين @if($inactiveCount)<span class="count-badge">{{ $inactiveCount }}</span>@endif</a>
     @perm('students', 'edit')<a class="btn" href="{{ route('admin.students.import') }}">استيراد من Excel</a>@endperm
 </div>
 <div class="panel">
@@ -49,7 +50,7 @@
     @forelse($students as $st)
         <tr>
             <td class="c">@if($canEdit)<input type="checkbox" class="pick" name="student_ids[]" value="{{ $st->id }}" form="move-form" aria-label="{{ $st->name }}">@endif</td>
-            <td><b>{{ $st->name }}</b></td>
+            <td><b>{{ $st->name }}</b>@unless($st->is_active) <span class="pill off" title="{{ $st->status_reason }}">{{ $st->enrollment_label }}</span>@endunless</td>
             <td>{{ $st->section->full_name }}</td>
             <td class="c">{{ $st->gender_label }}</td>
             <td dir="ltr" style="text-align:right">{{ $st->national_id }}</td>
@@ -75,8 +76,8 @@
                         <input type="date" name="birth_date" value="{{ $st->birth_date?->format('Y-m-d') }}" aria-label="تاريخ الميلاد">
                         <div class="inline"><button class="btn sm primary" type="submit">حفظ</button></div>
                     </form>
-                    <form method="post" action="{{ route('admin.students.destroy', $st) }}" style="margin-top:6px" onsubmit="return confirm('حذف الطالب من القوائم؟')">@csrf @method('delete')<button class="btn sm danger" type="submit">حذف الطالب</button></form>
                 </details>
+                @include('admin.students._status', ['st' => $st])
                 @endif
             </td>
         </tr>

@@ -5,7 +5,7 @@
 <div class="page-head">
     <div class="spacer" style="order:2"></div>
     <a class="btn primary" style="order:3" href="{{ route('admin.portal.credentials') }}">بيانات دخول الطلاب</a>
-    <div style="order:1"><h1>بوابة الطلاب</h1><div class="sub">يدخل الطالب برقم هويته وكلمة مرور مؤقتة، ويغيّرها عند أول دخول، ثم يرى درجاته بعد نشرها. رابط الدخول: <a href="{{ route('student.login') }}" dir="ltr">{{ route('student.login') }}</a></div></div>
+    <div style="order:1"><h1>بوابة الطلاب</h1><div class="sub">يدخل الطالب برقم هويته وكلمة المرور الموحدة <b dir="ltr">{{ \App\Support\StudentPassword::default() }}</b>، ويُجبر على تغييرها عند أول دخول، ثم يرى درجاته بعد نشرها. رابط الدخول: <a href="{{ route('student.login') }}" dir="ltr">{{ route('student.login') }}</a></div></div>
 </div>
 
 @php($lockMode = $lock['all'] ? 'all' : ($lock['features'] ? 'partial' : 'open'))
@@ -20,6 +20,24 @@
     <div class="stat"><b>{{ $totals['accounts'] }}/{{ $totals['students'] }}</b><span>طلاب لهم كلمة مرور</span></div>
     <div class="stat"><b>{{ $totals['logged'] }}</b><span>طالب دخل البوابة</span></div>
     <div class="stat"><b>{{ $totals['no_id'] }}</b><span>بدون رقم هوية (لا يمكنهم الدخول)</span></div>
+</div>
+
+<div class="panel default-pw">
+    <div class="dpw-main">
+        <span class="muted small">كلمة المرور الموحدة لأول دخول (لكل الطلاب)</span>
+        <b dir="ltr">{{ \App\Support\StudentPassword::default() }}</b>
+        <span class="muted small">أي طالب له رقم هوية يدخل بها مباشرة دون إنشاء حساب، ثم يُجبر على اختيار كلمته الخاصة، ولا يُسمح له بالإبقاء على الموحدة.</span>
+    </div>
+    @perm('portal', 'edit')
+    <details class="dpw-edit">
+        <summary class="btn sm">تغيير الكلمة الموحدة</summary>
+        <form class="inline" method="post" action="{{ route('admin.portal.default-password') }}" style="margin-top:8px" onsubmit="return confirm('من لم يغيّر كلمته بعد سينتقل للكلمة الجديدة. متابعة؟')">
+            @csrf @method('put')
+            <input type="text" name="default_password" dir="ltr" minlength="6" maxlength="32" required placeholder="123456789" aria-label="الكلمة الموحدة الجديدة" style="max-width:180px">
+            <button class="btn sm primary" type="submit">حفظ</button>
+        </form>
+    </details>
+    @endperm
 </div>
 
 @if($suspended->isNotEmpty())
@@ -110,8 +128,8 @@
                 <td>
                     @perm('portal', 'edit')
                     <div class="inline">
-                        <form method="post" action="{{ route('admin.portal.issue-section', $sec) }}">@csrf<input type="hidden" name="mode" value="new"><button class="btn sm primary" type="submit">إنشاء للجدد</button></form>
-                        <form method="post" action="{{ route('admin.portal.issue-section', $sec) }}" onsubmit="return confirm('ستتغير كلمات مرور كل طلاب {{ $sec->full_name }}، ولن تعمل كلماتهم القديمة. متابعة؟')">@csrf<input type="hidden" name="mode" value="all"><button class="btn sm" type="submit">إعادة إنشاء للكل</button></form>
+                        <form method="post" action="{{ route('admin.portal.issue-section', $sec) }}">@csrf<input type="hidden" name="mode" value="new"><button class="btn sm primary" type="submit" title="ملف Excel ببيانات دخول من لم يدخلوا بعد">ملف الدخول للجدد</button></form>
+                        <form method="post" action="{{ route('admin.portal.issue-section', $sec) }}" onsubmit="return confirm('ستعود كلمات مرور كل طلاب {{ $sec->full_name }} إلى الكلمة الموحدة، ولن تعمل كلماتهم الخاصة. متابعة؟')">@csrf<input type="hidden" name="mode" value="all"><button class="btn sm" type="submit">إعادة الكل إلى الموحدة</button></form>
                     </div>
                     @endperm
                 </td>
@@ -129,20 +147,21 @@
         <div class="spacer"></div>
         @perm('portal', 'edit')<button class="btn sm" type="button" id="reveal-all">إظهار كل كلمات المرور</button>@endperm
     </div>
-    <p style="margin-top:0;color:var(--muted);font-size:13px">تظهر كلمة المرور المؤقتة التي أنشأتها الإدارة حتى يغيّرها الطالب. بعد أن يختار الطالب كلمته الخاصة تُحفظ مشفّرة ولا يراها أحد؛ إن نسيها عيّن له كلمة جديدة. زر «نسخ الرسالة» ينسخ رسالة جاهزة لولي الأمر فيها الرابط ورقم الهوية وكلمة المرور.</p>
+    <p style="margin-top:0;color:var(--muted);font-size:13px">تظهر كلمة المرور الموحدة حتى يغيّرها الطالب. بعد أن يختار الطالب كلمته الخاصة تُحفظ مشفّرة ولا يراها أحد؛ إن نسيها عيّن له كلمة جديدة. زر «نسخ الرسالة» ينسخ رسالة جاهزة لولي الأمر فيها الرابط ورقم الهوية وكلمة المرور.</p>
     <div class="scroll">
     <table>
         <thead><tr><th>اسم الطالب</th><th>الجوال</th><th>اسم المستخدم (رقم الهوية)</th><th>كلمة المرور</th><th class="c">الحالة</th><th>آخر دخول</th><th></th></tr></thead>
         <tbody>
         @foreach($students as $st)
-            @php($canSee = auth()->user()->hasPermission('portal', 'edit') && $st->initial_password)
+            @php($pw = $st->national_id ? ($st->initial_password ?: ($st->password ? null : \App\Support\StudentPassword::default())) : null)
+            @php($canSee = auth()->user()->hasPermission('portal', 'edit') && $pw)
             <tr>
                 <td><b>{{ $st->name }}</b></td>
                 <td dir="ltr" style="text-align:right">{{ $st->phone ?: '—' }}</td>
                 <td dir="ltr" style="text-align:right">{{ $st->national_id ?: '—' }}</td>
                 <td>
                     @if($canSee)
-                        <code class="secret" dir="ltr" data-secret="{{ $st->initial_password }}">••••••</code>
+                        <code class="secret" dir="ltr" data-secret="{{ $pw }}">••••••</code>
                         <button class="btn sm ghost reveal" type="button">إظهار</button>
                     @elseif($st->password)
                         <span class="muted" style="color:var(--muted)">{{ $st->must_change_password ? 'مؤقتة (أُنشئت قبل التحديث)' : 'اختارها الطالب' }}</span>
@@ -153,7 +172,7 @@
                 <td class="c">
                     @if($st->isSuspended())<span class="pill off" title="{{ $st->suspension_reason }}">موقوف</span>
                     @elseif(! $st->national_id)<span class="pill off">بدون هوية</span>
-                    @elseif(! $st->password)<span class="pill none">لا يوجد حساب</span>
+                    @elseif(! $st->password)<span class="pill none" title="يدخل بالكلمة الموحدة">لم يدخل بعد</span>
                     @elseif($st->must_change_password)<span class="pill part">لم يغيّرها بعد</span>
                     @else<span class="pill done">مفعّل</span>@endif
                 </td>
@@ -163,10 +182,10 @@
                     @if($st->national_id)
                     <div class="inline">
                         @if($canSee && $st->phone)
-                            <a class="btn sm wa-btn" target="_blank" rel="noopener" href="{{ $st->whatsappUrl("مدرسة تعلم لتكون الخاصة\nبوابة الطالب: ".$st->name."\nرابط الدخول: ".route('student.login')."\nرقم الهوية: ".$st->national_id."\nكلمة المرور: ".$st->initial_password."\nسيُطلب تغيير كلمة المرور عند أول دخول.") }}">إرسال واتساب</a>
+                            <a class="btn sm wa-btn" target="_blank" rel="noopener" href="{{ $st->whatsappUrl("مدرسة تعلم لتكون الخاصة\nبوابة الطالب: ".$st->name."\nرابط الدخول: ".route('student.login')."\nرقم الهوية: ".$st->national_id."\nكلمة المرور: ".$pw."\nسيُطلب تغيير كلمة المرور عند أول دخول.") }}">إرسال واتساب</a>
                         @endif
                         @if($canSee)
-                            <button class="btn sm copy-msg" type="button" data-msg="{{ "مدرسة تعلم لتكون الخاصة\nبوابة الطالب: ".$st->name."\nرابط الدخول: ".route('student.login')."\nرقم الهوية: ".$st->national_id."\nكلمة المرور: ".$st->initial_password."\nسيُطلب تغيير كلمة المرور عند أول دخول." }}">نسخ الرسالة</button>
+                            <button class="btn sm copy-msg" type="button" data-msg="{{ "مدرسة تعلم لتكون الخاصة\nبوابة الطالب: ".$st->name."\nرابط الدخول: ".route('student.login')."\nرقم الهوية: ".$st->national_id."\nكلمة المرور: ".$pw."\nسيُطلب تغيير كلمة المرور عند أول دخول." }}">نسخ الرسالة</button>
                         @endif
                         <details>
                             <summary class="btn sm">تعديل كلمة المرور</summary>
@@ -176,7 +195,7 @@
                                 <label class="check"><input type="checkbox" name="must_change" value="1" checked> يطلب منه تغييرها عند الدخول</label>
                                 <div class="inline"><button class="btn sm primary" type="submit">حفظ</button></div>
                             </form>
-                            <form method="post" action="{{ route('admin.portal.issue-student', $st) }}" style="margin-top:6px">@csrf<button class="btn sm" type="submit">كلمة عشوائية في ملف Excel</button></form>
+                            <form method="post" action="{{ route('admin.portal.reset-default', $st) }}" style="margin-top:6px">@csrf<button class="btn sm" type="submit">إعادة إلى الكلمة الموحدة</button></form>
                         </details>
                         @if($st->isSuspended() || $st->featuresOff())
                             <form method="post" action="{{ route('admin.portal.unsuspend', $st) }}">@csrf @method('delete')<button class="btn sm" type="submit" title="{{ $st->isSuspended() ? 'البوابة موقوفة كاملة' : 'معطّل: '.implode('، ', array_map(fn ($k) => \App\Support\PortalLock::FEATURES[$k], $st->featuresOff())) }}">إعادة التفعيل</button></form>
