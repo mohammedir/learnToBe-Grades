@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\AttendanceExcuse;
 use App\Models\AttendancePoint;
 use App\Models\AttendanceRecord;
 use App\Models\Setting;
@@ -41,7 +42,12 @@ class AttendanceController extends Controller
     {
         [$y, $m] = $this->ym($request);
 
-        return view('admin.attendance.month', AttendanceReport::month($y, $m) + ['y' => $y, 'm' => $m]);
+        $from = Carbon::create($y, $m, 1);
+
+        return view('admin.attendance.month', AttendanceReport::month($y, $m) + ['y' => $y, 'm' => $m,
+            'excuses' => AttendanceExcuse::with(['user', 'creator'])->whereBetween('date', [$from->toDateString(), $from->copy()->endOfMonth()->toDateString()])
+                ->orderBy('date')->get(),
+        ]);
     }
 
     public function export(Request $request)
@@ -53,7 +59,7 @@ class AttendanceController extends Controller
         $ws->setTitle('الحضور');
         $ws->setRightToLeft(true);
         $label = $r['from']->locale('ar')->translatedFormat('F Y');
-        $head = ['م', 'الاسم', 'أيام الحضور', 'من أيام الدوام', 'نسبة الحضور', 'أيام التأخير', 'دقائق التأخير', 'أيام الغياب', 'خروج مبكر', 'بلا تسجيل مغادرة', 'ساعات العمل'];
+        $head = ['م', 'الاسم', 'أيام الحضور', 'من أيام الدوام', 'نسبة الحضور', 'أيام التأخير', 'دقائق التأخير', 'غياب بدون عذر', 'غياب بعذر (مجاز)', 'خروج مبكر', 'بلا تسجيل مغادرة', 'ساعات العمل'];
         foreach ($r['days'] as $d) {
             $head[] = $d->day;
         }
@@ -64,10 +70,10 @@ class AttendanceController extends Controller
         $ws->getStyle("A1:{$last}1")->getFill()->setFillType(Fill::FILL_SOLID)->getStartColor()->setRGB('1F3864');
         $ws->getStyle('A1')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
         $ws->getRowDimension(1)->setRowHeight(26);
-        $sym = ['present' => '✓', 'late' => 'ت', 'absent' => 'غ', 'waiting' => '', 'off' => '-'];
+        $sym = ['present' => '✓', 'late' => 'ت', 'absent' => 'غ', 'excused' => 'ع', 'waiting' => '', 'off' => '-'];
         $rows = [$head];
         foreach ($r['rows'] as $i => $t) {
-            $line = [$i + 1, $t['user']->name, $t['present'], $r['workdays'], $t['rate'] === null ? '' : $t['rate'] / 100, $t['late'], $t['late_minutes'], $t['absent'], $t['early'], $t['no_out'], round($t['minutes'] / 60, 1)];
+            $line = [$i + 1, $t['user']->name, $t['present'], $r['workdays'], $t['rate'] === null ? '' : $t['rate'] / 100, $t['late'], $t['late_minutes'], $t['absent'], $t['excused'], $t['early'], $t['no_out'], round($t['minutes'] / 60, 1)];
             foreach ($r['days'] as $d) {
                 $line[] = $sym[$t['cells'][$d->day] ?? 'waiting'] ?? '';
             }
@@ -83,14 +89,26 @@ class AttendanceController extends Controller
         $ws->getStyle("E4:E{$end}")->getNumberFormat()->setFormatCode('0%');
         $ws->getStyle("A3:{$last}{$end}")->getFont()->setName('Arial');
         $ws->getColumnDimension('B')->setWidth(28);
-        foreach (range(3, 11) as $c) {
+        foreach (range(3, 12) as $c) {
             $ws->getColumnDimensionByColumn($c)->setWidth(12);
         }
-        for ($c = 12; $c <= count($head); $c++) {
+        for ($c = 13; $c <= count($head); $c++) {
             $ws->getColumnDimensionByColumn($c)->setWidth(4);
         }
-        $ws->getStyle("C3:K3")->getAlignment()->setWrapText(true);
-        $ws->setCellValue('A'.($end + 2), 'الرموز: ✓ حاضر · ت متأخر · غ غائب · - عطلة. الدوام من '.$r['settings']['start'].' إلى '.$r['settings']['end'].' مع سماح '.$r['settings']['grace'].' دقائق.');
+        $ws->getStyle("C3:L3")->getAlignment()->setWrapText(true);
+        // ملاحظات الأعذار في ورقة ثانية
+        $ex = AttendanceExcuse::with(['user', 'creator'])->whereBetween('date', [$r['from']->toDateString(), $r['from']->copy()->endOfMonth()->toDateString()])->orderBy('date')->get();
+        if ($ex->isNotEmpty()) {
+            $w2 = $book->createSheet();
+            $w2->setTitle('الأعذار والإجازات');
+            $w2->setRightToLeft(true);
+            $w2->fromArray(array_merge([['التاريخ', 'الاسم', 'الملاحظة', 'سجّلها']], $ex->map(fn ($e) => [$e->date->format('Y-m-d'), $e->user?->name, $e->note ?: 'غائب بعذر (مجاز)', $e->creator?->name])->all()), null, 'A1', true);
+            $w2->getStyle('A1:D1')->getFont()->setBold(true);
+            foreach (['A' => 12, 'B' => 28, 'C' => 50, 'D' => 20] as $col => $wd) {
+                $w2->getColumnDimension($col)->setWidth($wd);
+            }
+        }
+        $ws->setCellValue('A'.($end + 2), 'الرموز: ✓ حاضر · ت متأخر · غ غائب · ع غائب بعذر (مجاز) · - عطلة. الدوام من '.$r['settings']['start'].' إلى '.$r['settings']['end'].' مع سماح '.$r['settings']['grace'].' دقائق.');
         $ws->freezePane('C4');
         $ws->getPageSetup()->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_LANDSCAPE)->setFitToWidth(1)->setFitToHeight(0);
 
@@ -105,12 +123,17 @@ class AttendanceController extends Controller
         $from = Carbon::create($y, $m, 1)->startOfDay();
         $to = $from->copy()->endOfMonth();
         $s = AttendanceReport::settings();
-        $recs = AttendanceRecord::with(['point', 'creator'])->where('user_id', $user->id)->whereBetween('occurred_at', [$from, $to])
+        $recs = AttendanceRecord::with(['point', 'creator', 'editor'])->where('user_id', $user->id)->whereBetween('occurred_at', [$from, $to])
             ->orderBy('occurred_at')->get()->groupBy(fn ($r) => $r->occurred_at->toDateString());
+        $excuses = AttendanceExcuse::with('creator')->where('user_id', $user->id)->whereBetween('date', [$from->toDateString(), $to->toDateString()])
+            ->get()->keyBy(fn ($e) => $e->date->toDateString());
         $days = collect();
-        $last = $to->isFuture() ? now()->startOfDay() : $to->copy()->startOfDay();
+        // يشمل أياماً قادمة فيها إجازة مسجّلة مسبقاً
+        $futureLeave = $excuses->keys()->filter(fn ($k) => $k > now()->toDateString())->max();
+        $last = $futureLeave ? Carbon::parse($futureLeave) : ($to->isFuture() ? now()->startOfDay() : $to->copy()->startOfDay());
         for ($d = $last->copy(); $d->gte($from); $d->subDay()) {
-            $days->push(AttendanceReport::evaluate($user, $d->copy(), $recs->get($d->toDateString(), collect()), $s) + ['date' => $d->copy()]);
+            $key = $d->toDateString();
+            $days->push(AttendanceReport::evaluate($user, $d->copy(), $recs->get($key, collect()), $s, $excuses->get($key)) + ['date' => $d->copy()]);
         }
 
         return view('admin.attendance.person', compact('user', 'days', 'y', 'm', 'from'));
@@ -156,6 +179,116 @@ class AttendanceController extends Controller
         $point->update(['token' => AttendancePoint::newToken()]);
 
         return redirect()->route('admin.attendance.points.print', $point)->with('warning', 'تم تغيير الرمز. الرمز المطبوع القديم لم يعد يعمل؛ اطبع هذا الرمز الجديد وضعه مكانه.');
+    }
+
+    /** حذف رمز QR: يتوقف المطبوع فوراً، وتبقى التسجيلات السابقة محفوظة */
+    public function destroyPoint(AttendancePoint $point)
+    {
+        $name = $point->name;
+        $point->delete();
+
+        return redirect()->route('admin.attendance.points')->with('status', "حُذف رمز «{$name}». لم يعد الرمز المطبوع يعمل، وتسجيلات الحضور السابقة بقيت محفوظة.");
+    }
+
+    /**
+     * تعديل يوم مدرس: وقت الحضور، وقت المغادرة، والعذر (غائب بعذر / مجاز) مع ملاحظة.
+     * يُحفظ الوقت الأصلي عند التعديل، وتفريغ الخانة يحذف التسجيل.
+     */
+    public function updateDay(Request $request, User $user)
+    {
+        $data = $request->validate([
+            'date' => ['required', 'date', 'before_or_equal:'.now()->addDays(60)->toDateString()],
+            'in' => ['nullable', 'date_format:H:i'],
+            'out' => ['nullable', 'date_format:H:i'],
+            'excused' => ['boolean'],
+            'excuse_note' => ['nullable', 'string', 'max:500'],
+            'reason' => ['nullable', 'string', 'max:500'],
+        ], [], ['in' => 'وقت الحضور', 'out' => 'وقت المغادرة']);
+        if (! empty($data['in']) && ! empty($data['out']) && $data['out'] <= $data['in']) {
+            return back()->with('warning', 'وقت المغادرة يجب أن يكون بعد وقت الحضور.');
+        }
+        $date = Carbon::parse($data['date'])->startOfDay();
+        $admin = $request->user();
+        $changes = [];
+
+        $recs = AttendanceRecord::where('user_id', $user->id)->whereDate('occurred_at', $date->toDateString())->orderBy('occurred_at')->get();
+        foreach (['in' => $recs->firstWhere('type', 'in'), 'out' => $recs->where('type', 'out')->last()] as $type => $rec) {
+            $label = $type === 'in' ? 'الحضور' : 'المغادرة';
+            $time = $data[$type] ?? null;
+            if ($time) {
+                $at = $date->copy()->setTimeFromTimeString($time);
+                if ($rec) {
+                    if ($rec->occurred_at->format('H:i') !== $time) {
+                        $rec->forceFill(['original_at' => $rec->original_at ?? $rec->occurred_at, 'occurred_at' => $at, 'edited_by' => $admin->id, 'edited_at' => now(),
+                            'note' => $data['reason'] ?? $rec->note])->save();
+                        $changes[] = "عُدّل {$label} إلى {$time}";
+                    }
+                } else {
+                    AttendanceRecord::create(['user_id' => $user->id, 'type' => $type, 'occurred_at' => $at, 'synced_at' => now(),
+                        'source' => 'manual', 'note' => $data['reason'] ?? 'أُضيف من الإدارة', 'created_by' => $admin->id]);
+                    $changes[] = "أُضيف {$label} {$time}";
+                }
+            } elseif ($rec) {
+                // تفريغ الخانة = حذف تسجيلات هذا النوع في ذلك اليوم
+                AttendanceRecord::where('user_id', $user->id)->whereDate('occurred_at', $date->toDateString())->where('type', $type)->delete();
+                $changes[] = "حُذف {$label}";
+            }
+        }
+
+        $excuse = AttendanceExcuse::where('user_id', $user->id)->whereDate('date', $date->toDateString())->first();
+        if ($request->boolean('excused')) {
+            $note = trim((string) ($data['excuse_note'] ?? '')) ?: null;
+            if (! $excuse) {
+                AttendanceExcuse::create(['user_id' => $user->id, 'date' => $date->toDateString(), 'note' => $note, 'created_by' => $admin->id]);
+                $changes[] = 'سُجّل العذر';
+            } elseif ($excuse->note !== $note) {
+                $excuse->update(['note' => $note]);
+                $changes[] = 'عُدّلت ملاحظة العذر';
+            }
+        } elseif ($excuse) {
+            $excuse->delete();
+            $changes[] = 'أُلغي العذر';
+        }
+
+        $who = $user->name.' – '.$date->locale('ar')->translatedFormat('l j/n');
+
+        return back()->with('status', $changes ? $who.': '.implode('، ', $changes).'.' : 'لا تغييرات على '.$who.'.');
+    }
+
+    /** إجازة/عذر لعدة أيام دفعة واحدة (أيام الدوام فقط)، ويمكن تسجيلها مسبقاً */
+    public function storeExcuse(Request $request)
+    {
+        $data = $request->validate([
+            'user_id' => ['required', 'exists:users,id'],
+            'from' => ['required', 'date'],
+            'to' => ['nullable', 'date', 'after_or_equal:from'],
+            'note' => ['nullable', 'string', 'max:500'],
+        ], [], ['user_id' => 'المدرس', 'from' => 'من تاريخ', 'to' => 'إلى تاريخ', 'note' => 'الملاحظة']);
+        $s = AttendanceReport::settings();
+        $from = Carbon::parse($data['from'])->startOfDay();
+        $to = Carbon::parse($data['to'] ?? $data['from'])->startOfDay();
+        if ($from->diffInDays($to) > 60) {
+            return back()->with('warning', 'المدة طويلة جداً (أكثر من 60 يوماً).');
+        }
+        $n = 0;
+        for ($d = $from->copy(); $d->lte($to); $d->addDay()) {
+            if (! AttendanceReport::isWorkday($d, $s)) {
+                continue;
+            }
+            AttendanceExcuse::updateOrCreate(['user_id' => $data['user_id'], 'date' => $d->toDateString()],
+                ['note' => trim((string) ($data['note'] ?? '')) ?: null, 'created_by' => $request->user()->id]);
+            $n++;
+        }
+        $u = User::find($data['user_id']);
+
+        return back()->with('status', "سُجّل عذر/إجازة لـ{$u->name}: {$n} يوم دوام".($n === 0 ? ' (الأيام المختارة ليست أيام دوام)' : '').'.');
+    }
+
+    public function destroyExcuse(AttendanceExcuse $excuse)
+    {
+        $excuse->delete();
+
+        return back()->with('status', 'أُلغي العذر.');
     }
 
     public function printPoint(AttendancePoint $point)

@@ -205,6 +205,10 @@ Route::middleware('auth')->group(function () {
                 Route::post('points', [Admin\AttendanceController::class, 'storePoint'])->name('points.store');
                 Route::put('points/{point}', [Admin\AttendanceController::class, 'updatePoint'])->name('points.update');
                 Route::post('points/{point}/regenerate', [Admin\AttendanceController::class, 'regenerate'])->name('points.regenerate');
+                Route::delete('points/{point}', [Admin\AttendanceController::class, 'destroyPoint'])->name('points.destroy');
+                Route::put('day/{user}', [Admin\AttendanceController::class, 'updateDay'])->name('day.update');
+                Route::post('excuses', [Admin\AttendanceController::class, 'storeExcuse'])->name('excuses.store');
+                Route::delete('excuses/{excuse}', [Admin\AttendanceController::class, 'destroyExcuse'])->name('excuses.destroy');
                 Route::put('settings', [Admin\AttendanceController::class, 'settings'])->name('settings');
                 Route::post('manual', [Admin\AttendanceController::class, 'manual'])->name('manual');
                 Route::delete('records/{record}', [Admin\AttendanceController::class, 'destroyRecord'])->name('records.destroy');

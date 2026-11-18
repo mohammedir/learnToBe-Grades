@@ -40,6 +40,9 @@
                     @csrf<button class="btn sm danger" type="submit">تغيير الرمز (إبطال المطبوع)</button>
                     <span class="hint">استخدمه إذا صُوّر الرمز ونُشر بين المدرسين.</span>
                 </form>
+                <form method="post" action="{{ route('admin.attendance.points.destroy', $p) }}" onsubmit="return confirm('حذف رمز «{{ $p->name }}» نهائياً؟ سيتوقف الرمز المطبوع، وتبقى تسجيلات الحضور السابقة محفوظة.')" style="margin-top:8px">
+                    @csrf @method('delete')<button class="btn sm danger" type="submit">🗑 حذف الرمز</button>
+                </form>
                 @endperm
             </details>
         @empty

@@ -22,9 +22,11 @@ class AttendanceController extends Controller
         $s = AttendanceReport::settings();
         $recs = AttendanceRecord::where('user_id', $user->id)->where('occurred_at', '>=', $from)->orderBy('occurred_at')->get()
             ->groupBy(fn ($r) => $r->occurred_at->toDateString());
+        $excuses = \App\Models\AttendanceExcuse::where('user_id', $user->id)->where('date', '>=', $from->toDateString())->get()
+            ->keyBy(fn ($e) => $e->date->toDateString());
         $days = collect();
         for ($d = now()->startOfDay(); $d->gte($from); $d->subDay()) {
-            $e = AttendanceReport::evaluate($user, $d->copy(), $recs->get($d->toDateString(), collect()), $s);
+            $e = AttendanceReport::evaluate($user, $d->copy(), $recs->get($d->toDateString(), collect()), $s, $excuses->get($d->toDateString()));
             if ($e['records']->isNotEmpty() || ($e['workday'] && $e['status'] !== 'waiting')) {
                 $days->push($e + ['date' => $d->copy()]);
             }

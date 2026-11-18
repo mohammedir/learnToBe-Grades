@@ -50,7 +50,7 @@
                     <td>{{ $d['date']->locale('ar')->translatedFormat('l j/n') }}</td>
                     <td class="c" dir="ltr">{{ $d['in']?->occurred_at->format('H:i') ?? '—' }}</td>
                     <td class="c" dir="ltr">{{ $d['out']?->occurred_at->format('H:i') ?? '—' }}</td>
-                    <td class="c"><span class="pill {{ $st[$d['status']][1] }}">{{ $st[$d['status']][0] }}@if($d['late']) {{ $d['late'] }} د@endif</span></td>
+                    <td class="c"><span class="pill {{ $st[$d['status']][1] }}">{{ $st[$d['status']][0] }}@if($d['late']) {{ $d['late'] }} د@endif</span>@if($d['excuse'] && $d['status'] !== 'excused') <span class="pill info">بعذر</span>@endif @if($d['excuse']?->note)<div class="excuse-note">📝 {{ $d['excuse']->note }}</div>@endif</td>
                 </tr>
             @empty
                 <tr><td colspan="4" class="c muted">لا توجد تسجيلات هذا الشهر.</td></tr>

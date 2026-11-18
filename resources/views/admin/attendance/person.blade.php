@@ -10,12 +10,12 @@
     <form class="inline" method="get"><input type="month" name="month" value="{{ sprintf('%04d-%02d', $y, $m) }}" max="{{ now()->format('Y-m') }}" onchange="this.form.submit()" aria-label="الشهر"></form>
 </div>
 <div class="scroll"><table class="att-table">
-    <thead><tr><th>اليوم</th><th class="c">الحالة</th><th>التسجيلات</th></tr></thead>
+    <thead><tr><th>اليوم</th><th class="c">الحالة</th><th>التسجيلات</th><th></th></tr></thead>
     <tbody>
     @foreach($days as $d)
         <tr class="att-{{ $d['status'] }}">
             <td>{{ $d['date']->locale('ar')->translatedFormat('l j/n') }}</td>
-            <td class="c"><span class="pill {{ $st[$d['status']][1] }}">{{ $st[$d['status']][0] }}@if($d['late']) {{ $d['late'] }} د@endif</span></td>
+            <td class="c">@include('admin.attendance._status', ['r' => $d])</td>
             <td>
                 @foreach($d['records'] as $r)
                     <div class="rec-line">
@@ -25,7 +25,9 @@
                         @perm('attendance', 'edit')<form method="post" action="{{ route('admin.attendance.records.destroy', $r) }}" class="inline-form" onsubmit="return confirm('حذف هذا التسجيل؟')">@csrf @method('delete')<button class="linkbtn danger-link" type="submit">حذف</button></form>@endperm
                     </div>
                 @endforeach
+                @if($d['excuse'])<div class="muted small">العذر سجّله {{ $d['excuse']->creator?->name ?? '—' }} في {{ $d['excuse']->created_at->format('Y/m/d') }}</div>@endif
             </td>
+            <td>@include('admin.attendance._edit-day', ['r' => $d, 'date' => $d['date']])</td>
         </tr>
     @endforeach
     </tbody>

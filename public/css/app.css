@@ -856,3 +856,12 @@ body.quiz-away .quiz-protected{filter:blur(12px)}
 .att-card b{font-size:16px}
 .att-card .go{margin-inline-start:auto;font-weight:700;color:#1F9D6B}
 .att-today .tcell:last-child b{font-size:15px;white-space:nowrap}
+/* تعديل الحضور والأعذار */
+.day-edit{display:inline-block}
+.day-edit form{margin-top:8px;min-width:250px;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:10px;text-align:right}
+.de-times{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.de-times label{display:flex;flex-direction:column;font-size:12.5px;color:var(--muted);gap:2px}
+.de-exc{font-weight:600}
+.excuse-note{font-size:12.5px;color:var(--accent);background:#EEF3FC;border-radius:6px;padding:2px 8px;margin-top:4px;display:inline-block;max-width:260px;text-align:right}
+.att-month td.exc{color:var(--accent);background:#E6EEFA}
+.att-table td:first-child{min-width:150px}

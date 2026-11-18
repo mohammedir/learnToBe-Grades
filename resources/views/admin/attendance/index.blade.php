@@ -23,6 +23,7 @@
     <div class="stat s-ok"><b>{{ ($counts['present'] ?? 0) + ($counts['late'] ?? 0) }}</b><span>حاضر من {{ $rows->count() }}</span></div>
     <div class="stat s-warn"><b>{{ $counts['late'] ?? 0 }}</b><span>متأخر</span></div>
     <div class="stat s-bad"><b>{{ $counts['absent'] ?? 0 }}</b><span>غائب</span></div>
+    @if($counts['excused'] ?? 0)<div class="stat"><b style="color:var(--accent)">{{ $counts['excused'] }}</b><span>غائب بعذر (مجاز)</span></div>@endif
     <div class="stat"><b>{{ $counts['waiting'] ?? 0 }}</b><span>لم يسجّل بعد</span></div>
     <div class="stat"><b>{{ $noOut }}</b><span>بلا تسجيل مغادرة</span></div>
     @if($flagged)<div class="stat s-warn"><b>{{ $flagged }}</b><span>تحتاج مراجعة</span></div>@endif
@@ -37,9 +38,10 @@
             <td class="c tnum">{{ $r['in']?->occurred_at->format('H:i') ?? '—' }}</td>
             <td class="c tnum">{{ $r['out']?->occurred_at->format('H:i') ?? ($r['no_out'] ? '' : '—') }}@if($r['no_out'])<span class="pill part">لم يسجّل</span>@endif</td>
             <td class="c tnum">{{ $r['minutes'] !== null ? intdiv($r['minutes'], 60).':'.str_pad($r['minutes'] % 60, 2, '0', STR_PAD_LEFT) : '—' }}</td>
-            <td class="c"><span class="pill {{ $st[$r['status']][1] }}">{{ $st[$r['status']][0] }}@if($r['late']) {{ $r['late'] }} د@endif</span>@if($r['early'])<div class="small" style="color:var(--warn)">خرج مبكراً {{ $r['early'] }} د</div>@endif</td>
+            <td class="c">@include('admin.attendance._status', ['r' => $r])</td>
             <td>@include('admin.attendance._flags', ['flags' => $r['flags']])@if($r['records']->count() > 2)<span class="muted small">{{ $r['records']->count() }} تسجيلات</span>@endif</td>
-            <td>@if($r['user']->phone && in_array($r['status'], ['absent', 'waiting']))<a class="wa-mini" target="_blank" rel="noopener" href="{{ \App\Support\Phone::whatsapp($r['user']->phone, 'السلام عليكم أ. '.$r['user']->name.'، لم يُسجَّل حضورك اليوم في تطبيق المدرسة.') }}">واتساب</a>@endif</td>
+            <td><div class="inline" style="flex-wrap:nowrap;align-items:flex-start">@if($r['user']->phone && in_array($r['status'], ['absent', 'waiting']))<a class="wa-mini" target="_blank" rel="noopener" href="{{ \App\Support\Phone::whatsapp($r['user']->phone, 'السلام عليكم أ. '.$r['user']->name.'، لم يُسجَّل حضورك اليوم في تطبيق المدرسة.') }}">واتساب</a>@endif
+                @include('admin.attendance._edit-day', ['r' => $r, 'date' => $date])</div></td>
         </tr>
     @endforeach
     </tbody>
@@ -47,6 +49,17 @@
 
 @perm('attendance', 'edit')
 <details class="panel" style="margin-top:16px">
+    <summary><b>إجازة أو عذر</b> <span class="muted">— ليوم أو عدة أيام، حتى لو كانت قادمة (يُحتسب «غائب بعذر – مجاز»)</span></summary>
+    <form class="inline" method="post" action="{{ route('admin.attendance.excuses.store') }}" style="margin-top:10px">
+        @csrf
+        <select name="user_id" required aria-label="الاسم"><option value="">الاسم…</option>@foreach($people as $p)<option value="{{ $p->id }}">{{ $p->name }}</option>@endforeach</select>
+        <label class="date-f">من <input type="date" name="from" value="{{ $date->toDateString() }}" required></label>
+        <label class="date-f">إلى <input type="date" name="to" value="{{ $date->toDateString() }}"></label>
+        <input type="text" name="note" maxlength="500" placeholder="العذر (اختياري)، مثل: إجازة مرضية" aria-label="العذر" style="min-width:240px">
+        <button class="btn primary" type="submit">حفظ العذر</button>
+    </form>
+</details>
+<details class="panel">
     <summary><b>تسجيل يدوي</b> <span class="muted">— لمن نسي جواله أو تعطّل جهازه</span></summary>
     <form class="inline" method="post" action="{{ route('admin.attendance.manual') }}" style="margin-top:10px">
         @csrf

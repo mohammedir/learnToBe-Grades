@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@600;700&display=swap">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v=12">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v=13">
     @include('partials.pwa-head')
 </head>
 <body>
@@ -71,6 +71,7 @@
 @auth
 @if(in_array(auth()->user()->role, ['teacher', 'staff']) && ! request()->routeIs('attendance.scan'))<script src="{{ asset('js/attendance.js') }}?v=1" defer></script>@endif
 @endauth
+<script>document.addEventListener('change', (e) => { const t = e.target.closest && e.target.closest('[data-toggle]'); if (t) { const el = document.querySelector(t.dataset.toggle); if (el) el.hidden = !t.checked; } });</script>
 @stack('scripts')
 @include('partials.install-prompt')
 </body>

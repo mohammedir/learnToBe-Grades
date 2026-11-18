@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\AttendanceExcuse;
 use App\Models\AttendanceRecord;
 use App\Models\Setting;
 use App\Models\User;
@@ -42,13 +43,14 @@ class AttendanceReport
     {
         $s = self::settings();
         $people ??= self::people();
-        $records = AttendanceRecord::with(['point', 'creator'])->whereDate('occurred_at', $date->toDateString())
+        $records = AttendanceRecord::with(['point', 'creator', 'editor'])->whereDate('occurred_at', $date->toDateString())
             ->whereIn('user_id', $people->pluck('id'))->orderBy('occurred_at')->get()->groupBy('user_id');
+        $excuses = AttendanceExcuse::with('creator')->whereDate('date', $date->toDateString())->whereIn('user_id', $people->pluck('id'))->get()->keyBy('user_id');
 
-        return $people->map(fn ($u) => self::evaluate($u, $date, $records->get($u->id, collect()), $s));
+        return $people->map(fn ($u) => self::evaluate($u, $date, $records->get($u->id, collect()), $s, $excuses->get($u->id)));
     }
 
-    public static function evaluate(User $u, Carbon $date, Collection $recs, array $s): array
+    public static function evaluate(User $u, Carbon $date, Collection $recs, array $s, ?AttendanceExcuse $excuse = null): array
     {
         $in = $recs->firstWhere('type', 'in');
         $out = $recs->where('type', 'out')->last();
@@ -70,6 +72,10 @@ class AttendanceReport
             $status = $out ? 'present' : 'absent';
         }
         $noOut = $in && ! $out && ($date->lt($now->copy()->startOfDay()) || $now->gt($end->copy()->addHour()));
+        // العذر: الغائب يصبح «غائب بعذر (مجاز)»، والمتأخر/الخارج مبكراً يُعلَّم «بعذر» ولا يُحتسب عليه
+        if ($excuse && $workday && in_array($status, ['absent', 'waiting'], true) && ! $in) {
+            $status = 'excused';
+        }
 
         return [
             'user' => $u,
@@ -83,6 +89,7 @@ class AttendanceReport
             'minutes' => $in && $out && $out->occurred_at->gt($in->occurred_at) ? (int) $in->occurred_at->diffInMinutes($out->occurred_at) : null,
             'flags' => $recs->flatMap(fn ($r) => $r->flags())->unique(0)->values(),
             'workday' => $workday,
+            'excuse' => $excuse,
         ];
     }
 
@@ -90,6 +97,7 @@ class AttendanceReport
         'present' => ['حاضر', 'done'],
         'late' => ['متأخر', 'part'],
         'absent' => ['غائب', 'off'],
+        'excused' => ['غائب بعذر (مجاز)', 'info'],
         'waiting' => ['لم يسجّل بعد', 'none'],
         'off' => ['عطلة', 'none'],
     ];
@@ -104,6 +112,8 @@ class AttendanceReport
         $last = $to->isFuture() ? now()->startOfDay() : $to->copy()->startOfDay();
         $records = AttendanceRecord::whereBetween('occurred_at', [$from, $to])->whereIn('user_id', $people->pluck('id'))
             ->orderBy('occurred_at')->get()->groupBy(fn ($r) => $r->user_id.'|'.$r->occurred_at->toDateString());
+        $excuses = AttendanceExcuse::whereBetween('date', [$from->toDateString(), $to->toDateString()])->whereIn('user_id', $people->pluck('id'))
+            ->get()->keyBy(fn ($e) => $e->user_id.'|'.$e->date->toDateString());
 
         $days = [];
         for ($d = $from->copy(); $d->lte($last); $d->addDay()) {
@@ -111,25 +121,29 @@ class AttendanceReport
         }
         $workdays = collect($days)->filter(fn ($d) => self::isWorkday($d, $s))->count();
 
-        $rows = $people->map(function ($u) use ($days, $records, $s, $workdays) {
-            $t = ['user' => $u, 'present' => 0, 'late' => 0, 'late_minutes' => 0, 'absent' => 0, 'early' => 0, 'no_out' => 0, 'minutes' => 0, 'flags' => 0, 'cells' => []];
+        $rows = $people->map(function ($u) use ($days, $records, $excuses, $s, $workdays) {
+            $t = ['user' => $u, 'present' => 0, 'late' => 0, 'late_minutes' => 0, 'absent' => 0, 'excused' => 0, 'early' => 0, 'no_out' => 0, 'minutes' => 0, 'flags' => 0, 'cells' => []];
             foreach ($days as $d) {
-                $e = self::evaluate($u, $d, $records->get($u->id.'|'.$d->toDateString(), collect()), $s);
+                $key = $u->id.'|'.$d->toDateString();
+                $e = self::evaluate($u, $d, $records->get($key, collect()), $s, $excuses->get($key));
                 $t['cells'][$d->day] = $e['status'];
                 if (in_array($e['status'], ['present', 'late'], true)) {
                     $t['present']++;
                 }
-                if ($e['status'] === 'late') {
+                // التأخير أو الخروج المبكر بعذر لا يُحتسب
+                if ($e['status'] === 'late' && ! $e['excuse']) {
                     $t['late']++;
                     $t['late_minutes'] += $e['late'];
                 }
                 $t['absent'] += $e['status'] === 'absent' ? 1 : 0;
-                $t['early'] += $e['early'] ? 1 : 0;
+                $t['excused'] += $e['status'] === 'excused' && $e['workday'] ? 1 : 0;
+                $t['early'] += $e['early'] && ! $e['excuse'] ? 1 : 0;
                 $t['no_out'] += $e['no_out'] ? 1 : 0;
                 $t['minutes'] += (int) $e['minutes'];
                 $t['flags'] += $e['flags']->count() ? 1 : 0;
             }
-            $t['rate'] = $workdays ? (int) round($t['present'] / $workdays * 100) : null;
+            $due = $workdays - $t['excused']; // أيام الإجازة بعذر لا تُحسب من أيام الدوام المطلوبة
+            $t['rate'] = $due > 0 ? (int) round(min($t['present'], $due) / $due * 100) : null;
 
             return $t;
         });
