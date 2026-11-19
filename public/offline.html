@@ -1,17 +1,105 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>لا يوجد اتصال – تطبيق مدرسة تعلم لتكون</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1F3864">
+<title>بدون إنترنت – تطبيق مدرسة تعلم لتكون</title>
 <link rel="stylesheet" href="/css/app.css">
+<style>
+.off-banner{background:var(--warn-bg);color:var(--warn);border-radius:12px;padding:10px 14px;font-size:14px;font-weight:600;text-align:center}
+.who-box{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:10px 14px}
+.who-box i{font-style:normal;width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:700;flex:none}
+.who-box small{display:block;color:var(--muted);font-size:12.5px}
+</style>
 </head>
 <body>
-<div class="login"><div class="box" style="text-align:center">
+<header class="topbar"><div class="wrap"><a class="brand" href="/"><img src="/images/logo.png" alt="" style="width:34px;height:34px"><span><b>تطبيق مدرسة تعلم لتكون</b></span></a></div></header>
+<main><div class="wrap" style="padding-top:16px">
+
+<!-- مدرس سجّل الدخول سابقاً على هذا الجهاز: تسجيل الحضور بدون إنترنت -->
+<div class="att-app" id="att-app" hidden data-user="" data-points="[]">
+    <div class="off-banner">📶 لا يوجد إنترنت — يمكنك تسجيل الحضور والمغادرة، وسيُرفع تلقائياً عند الاتصال</div>
+    <header class="att-head">
+        <div><h1>تسجيل الحضور</h1><span class="muted" id="off-date"></span></div>
+        <span class="net off" id="att-net" data-on="متصل" data-off="بدون إنترنت">بدون إنترنت</span>
+    </header>
+    <div class="who-box"><i id="who-i">؟</i><div><b id="who-name"></b><small>آخر حساب سجّل الدخول على هذا الجهاز. إن لم تكن أنت، اتصل بالإنترنت وسجّل الدخول بحسابك أولاً.</small></div></div>
+
+    <section class="att-today">
+        <div class="tcell"><span>الحضور اليوم</span><b id="today-in">—</b></div>
+        <div class="tcell"><span>المغادرة اليوم</span><b id="today-out">—</b></div>
+        <div class="tcell"><span>الوقت الآن</span><b id="clock" dir="ltr">--:--</b></div>
+    </section>
+
+    <div class="att-buttons">
+        <button class="att-btn in" type="button" data-scan="in">
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4"/><path d="M10 16l4-4-4-4M14 12H4"/></svg></span>
+            <b>تسجيل حضور</b><small>امسح رمز QR عند وصولك</small>
+        </button>
+        <button class="att-btn out" type="button" data-scan="out">
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4"/><path d="M16 16l4-4-4-4M20 12H10"/></svg></span>
+            <b>تسجيل مغادرة</b><small>امسح الرمز عند خروجك</small>
+        </button>
+    </div>
+
+    <div class="att-pending" id="att-pending" hidden>
+        <div class="inline"><b>⏳ تسجيلات بانتظار الرفع: <span id="pending-n">0</span></b><span class="spacer"></span><button class="btn sm" type="button" id="sync-now">رفع الآن</button></div>
+        <ul id="pending-list"></ul>
+        <p class="muted small" style="margin:0">تُرفع تلقائياً بوقتها الأصلي عند اتصال جهازك بالإنترنت وفتح التطبيق.</p>
+    </div>
+    <div class="alert bad" id="att-failed" hidden></div>
+    <p style="text-align:center"><button class="btn" type="button" onclick="location.reload()">↻ إعادة المحاولة بالإنترنت</button></p>
+</div>
+
+<!-- لا يوجد حساب مدرس على هذا الجهاز -->
+<div class="login" id="no-net" hidden><div class="box" style="text-align:center">
   <img src="/images/logo.png" alt="" style="width:80px">
   <h1 style="font-family:var(--f-display);font-size:20px">لا يوجد اتصال بالإنترنت</h1>
   <p style="color:var(--muted)">تحقق من الاتصال ثم أعد المحاولة. الدرجات تُحفظ على الخادم فقط، فلا يمكن الرصد بدون إنترنت.</p>
   <button class="btn primary" onclick="location.reload()">إعادة المحاولة</button>
-  <p style="margin-top:18px"><a class="btn" href="/attendance">📍 تسجيل الحضور (يعمل بدون إنترنت)</a></p>
+  <p class="muted small" style="margin-top:14px">للمدرسين: تسجيل الحضور بدون إنترنت يعمل بعد تسجيل الدخول مرة واحدة على هذا الجهاز وهو متصل.</p>
 </div></div>
+
+</div></main>
+
+<div class="scan-screen" id="scan-screen" hidden>
+    <video id="scan-video" playsinline muted></video>
+    <div class="scan-frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="scan-top"><b id="scan-title">تسجيل حضور</b><span>وجّه الكاميرا إلى رمز QR المعلّق في المدرسة</span></div>
+    <div class="scan-bottom">
+        <label class="btn" id="photo-label">📷 التقاط صورة للرمز<input type="file" accept="image/*" capture="environment" id="scan-photo" hidden></label>
+        <button class="btn" type="button" id="scan-cancel">إلغاء</button>
+    </div>
+    <p class="scan-err" id="scan-err" hidden></p>
+</div>
+<div class="att-done" id="att-done" hidden role="alertdialog" aria-live="assertive">
+    <div class="att-done-card">
+        <div class="att-check" aria-hidden="true"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-16"/></svg></div>
+        <h2 id="done-title">تم تسجيل الحضور بنجاح</h2>
+        <b class="done-time" id="done-time" dir="ltr">--:--</b>
+        <span class="muted" id="done-place"></span>
+        <p class="done-sync" id="done-sync"></p>
+        <button class="btn primary big" type="button" id="done-ok">تم</button>
+    </div>
+</div>
+
+<script>
+(function () {
+    let p = null;
+    try { p = JSON.parse(localStorage.getItem('ltb-att-profile') || 'null'); } catch (e) {}
+    if (!p || !p.id) { document.getElementById('no-net').hidden = false; return; }
+    const app = document.getElementById('att-app');
+    app.dataset.user = String(p.id);
+    app.hidden = false;
+    document.getElementById('who-name').textContent = p.name || '';
+    document.getElementById('who-i').textContent = (p.name || '؟').replace(/^(أ\.|أ\/|م\.|د\.)\s*/, '').charAt(0);
+    document.getElementById('off-date').textContent = new Date().toLocaleDateString('ar', { weekday: 'long', day: 'numeric', month: 'long' });
+    const tick = () => { document.getElementById('clock').textContent = new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }); };
+    tick(); setInterval(tick, 15000);
+    const s = document.createElement('script');
+    s.src = '/js/attendance.js';
+    document.body.appendChild(s);
+})();
+</script>
 </body>
 </html>

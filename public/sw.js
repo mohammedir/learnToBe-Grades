@@ -1,5 +1,5 @@
 /* عامل الخدمة: يحفظ ملفات التصميم، وصفحة تسجيل الحضور فقط لتعمل بدون إنترنت. لا يحفظ صفحات الدرجات (بيانات خاصة) */
-const CACHE = 'learntobe-v8';
+const CACHE = 'learntobe-v9';
 const ASSETS = ['/css/app.css', '/js/sheet.js', '/js/pwa.js', '/js/attendance.js', '/images/logo.png', '/icons/icon-192.png', '/offline.html'];
 const JSQR = 'https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js';
 const OFFLINE_PAGES = ['/attendance']; // صفحات تعمل بدون إنترنت من آخر نسخة محفوظة
@@ -34,22 +34,20 @@ self.addEventListener('fetch', (e) => {
       if (res.ok && !res.redirected) caches.open(CACHE).then((c) => c.put(url.pathname.replace(/\/$/, ''), res.clone()));
       return res;
     }).catch(async (err) => {
-      const page = await caches.match(url.pathname.replace(/\/$/, ''));
-      if (page) return page;
-      const off = await caches.match('/offline.html');
+      // صفحة «بدون إنترنت» تعرض الشاشة لآخر مدرس سجّل الدخول (أحدث من النسخة المحفوظة)
+      const off = await caches.match('/offline.html') || await caches.match(url.pathname.replace(/\/$/, ''));
       if (off) return off;
       throw err;
     }));
     return;
   }
 
-  // باقي الصفحات: من الشبكة دائماً. صفحة "لا يوجد اتصال" فقط إن كان الجهاز فعلاً بدون إنترنت
+  // باقي الصفحات: من الشبكة دائماً. إذا تعذّر الاتصال تظهر صفحة «بدون إنترنت»
+  // وفيها تسجيل الحضور لآخر مدرس سجّل الدخول على الجهاز
   if (req.mode === 'navigate') {
     e.respondWith(fetch(req).catch(async (err) => {
-      if (self.navigator && self.navigator.onLine === false) {
-        const page = await caches.match('/offline.html');
-        if (page) return page;
-      }
+      const page = await caches.match('/offline.html');
+      if (page) return page;
       throw err;
     }));
     return;
@@ -73,6 +71,7 @@ self.addEventListener('fetch', (e) => {
 self.addEventListener('message', (e) => {
   if (!e.data || e.data.type !== 'prime-attendance') return;
   e.waitUntil(Promise.all([
+    caches.open(CACHE).then((c) => c.addAll(['/offline.html', '/js/attendance.js', '/css/app.css'])).catch(() => {}),
     fetch('/attendance', { credentials: 'same-origin', headers: { Accept: 'text/html' } }).then((res) => {
       if (res.ok && !res.redirected) return caches.open(CACHE).then((c) => c.put('/attendance', res));
     }).catch(() => {}),

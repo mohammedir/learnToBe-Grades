@@ -61,11 +61,17 @@
 
   // تجهيز صفحة الحضور للعمل بدون إنترنت (مرة كل 6 ساعات)
   function prime() {
-    if (navigator.onLine === false || !navigator.serviceWorker || !navigator.serviceWorker.controller) return;
+    if (navigator.onLine === false) return;
     const last = +load('ltb-att-primed', 0);
-    if (Date.now() - last < 6 * 3600e3) return;
-    navigator.serviceWorker.controller.postMessage({ type: 'prime-attendance' });
+    if (Date.now() - last < 3 * 3600e3) return;
     save('ltb-att-primed', Date.now());
+    // رموز QR الفعّالة: للتحقق من الرمز عند المسح بدون إنترنت
+    fetch(STATE_URL, { credentials: 'same-origin', headers: { Accept: 'application/json' }, cache: 'no-store' })
+      .then((r) => (r.ok && (r.headers.get('content-type') || '').includes('json') ? r.json() : null))
+      .then((st) => { if (st && st.points) save(PKEY, st.points.map((p) => ({ t: p.token, n: p.name }))); })
+      .catch(() => {});
+    // صفحة الحضور وصفحة «بدون إنترنت» وقارئ الرموز في ذاكرة التطبيق
+    if (navigator.serviceWorker && navigator.serviceWorker.controller) navigator.serviceWorker.controller.postMessage({ type: 'prime-attendance' });
   }
 
   if (!app) { sync(); prime(); return; } // باقي الصفحات: رفع فقط
@@ -225,6 +231,9 @@
 
   // تجهيز القارئ مسبقاً ليُحفظ في الجهاز ويعمل بدون إنترنت لاحقاً
   if (!('BarcodeDetector' in window) && navigator.onLine !== false) loadJsQR();
+  if (navigator.serviceWorker && navigator.serviceWorker.controller && navigator.onLine !== false) {
+    navigator.serviceWorker.controller.postMessage({ type: 'prime-attendance' });
+  }
   render();
   sync();
 })();

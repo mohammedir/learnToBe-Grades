@@ -85,5 +85,5 @@
 </div>
 @endsection
 @push('scripts')
-<script src="{{ asset('js/attendance.js') }}?v=1"></script>
+<script src="{{ asset('js/attendance.js') }}?v=2"></script>
 @endpush

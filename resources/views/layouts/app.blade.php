@@ -69,7 +69,10 @@
     </div>
 </main>
 @auth
-@if(in_array(auth()->user()->role, ['teacher', 'staff']) && ! request()->routeIs('attendance.scan'))<script src="{{ asset('js/attendance.js') }}?v=1" defer></script>@endif
+@if(in_array(auth()->user()->role, ['teacher', 'staff', 'admin']))
+<script>try { localStorage.setItem('ltb-att-profile', JSON.stringify({ id: {{ auth()->id() }}, name: @json(auth()->user()->name), at: Date.now() })); } catch (e) {}</script>
+@unless(request()->routeIs('attendance.scan'))<script src="{{ asset('js/attendance.js') }}?v=2" defer></script>@endunless
+@endif
 @endauth
 <script>document.addEventListener('change', (e) => { const t = e.target.closest && e.target.closest('[data-toggle]'); if (t) { const el = document.querySelector(t.dataset.toggle); if (el) el.hidden = !t.checked; } });</script>
 @stack('scripts')
