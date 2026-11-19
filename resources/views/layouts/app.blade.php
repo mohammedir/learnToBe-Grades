@@ -33,7 +33,7 @@
                 @perm('components')<a href="{{ route('admin.components.index') }}" @class(['active' => request()->routeIs('admin.components.*')])>عناصر الدرجة</a>@endperm
                 @perm('attendance')<a href="{{ route('admin.attendance.index') }}" @class(['active' => request()->routeIs('admin.attendance.*')])>حضور المدرسين</a>@endperm
                 @perm('finance')<a href="{{ route('admin.finance.index') }}" @class(['active' => request()->routeIs('admin.finance.*')])>المالية</a>@endperm
-                @if(auth()->user()->role === 'staff')<a href="{{ route('attendance.scan') }}" @class(['active' => request()->routeIs('attendance.scan')])>📍 حضوري</a>@endif
+                @if(in_array(auth()->user()->role, ['staff', 'admin']))<a href="{{ route('attendance.scan') }}" @class(['active' => request()->routeIs('attendance.scan')])>📍 حضوري</a>@endif
                 @if(auth()->user()->isAdmin())<a href="{{ route('admin.users.index') }}" @class(['active' => request()->routeIs('admin.users.*')])>المستخدمون والصلاحيات</a>@endif
             @elseif(auth()->user()->isSupplier())
                 <a href="{{ route('supplier.home') }}" @class(['active' => request()->routeIs('supplier.home', 'supplier.orders.*')])>الطلبات</a>

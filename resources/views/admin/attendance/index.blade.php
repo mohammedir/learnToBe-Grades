@@ -8,6 +8,7 @@
     <div><h1>حضور {{ $date->isToday() ? 'اليوم' : '' }} {{ $date->locale('ar')->translatedFormat('l j F Y') }}</h1>
         <div class="sub">الدوام {{ $settings['start'] }} – {{ $settings['end'] }} · سماح {{ $settings['grace'] }} دقائق@unless(\App\Services\AttendanceReport::isWorkday($date, $settings)) · <b>يوم عطلة</b>@endunless</div></div>
     <div class="spacer"></div>
+    <a class="btn primary" href="{{ route('attendance.scan') }}" title="الشاشة التي يرى فيها المدرس زرّي تسجيل الحضور والمغادرة">📍 شاشة التسجيل</a>
     <form class="inline" method="get">
         <a class="btn sm" href="{{ route('admin.attendance.index', ['date' => $date->copy()->subDay()->toDateString()]) }}" aria-label="اليوم السابق">→</a>
         <input type="date" name="date" value="{{ $date->toDateString() }}" max="{{ now()->toDateString() }}" onchange="this.form.submit()" aria-label="التاريخ">

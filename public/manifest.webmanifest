@@ -36,5 +36,20 @@
       "platform": "webapp",
       "url": "/manifest.webmanifest"
     }
+  ],
+  "shortcuts": [
+    {
+      "name": "تسجيل الحضور",
+      "short_name": "الحضور",
+      "description": "تسجيل الحضور أو المغادرة بمسح رمز QR",
+      "url": "/attendance",
+      "icons": [
+        {
+          "src": "/icons/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
   ]
 }

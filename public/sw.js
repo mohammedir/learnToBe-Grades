@@ -1,5 +1,5 @@
 /* عامل الخدمة: يحفظ ملفات التصميم، وصفحة تسجيل الحضور فقط لتعمل بدون إنترنت. لا يحفظ صفحات الدرجات (بيانات خاصة) */
-const CACHE = 'learntobe-v7';
+const CACHE = 'learntobe-v8';
 const ASSETS = ['/css/app.css', '/js/sheet.js', '/js/pwa.js', '/js/attendance.js', '/images/logo.png', '/icons/icon-192.png', '/offline.html'];
 const JSQR = 'https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js';
 const OFFLINE_PAGES = ['/attendance']; // صفحات تعمل بدون إنترنت من آخر نسخة محفوظة
@@ -57,12 +57,14 @@ self.addEventListener('fetch', (e) => {
 
   // ملفات التصميم والصور: من الذاكرة ثم تحديثها في الخلفية
   if (/\.(css|js|png|svg|woff2?)$/.test(url.pathname)) {
-    e.respondWith(caches.match(req).then((hit) => hit || caches.match(req, { ignoreSearch: true })).then((hit) => {
+    // إصدار مطابق محفوظ → فوراً. إصدار جديد (?v=) → من الشبكة أولاً، والقديم فقط بدون إنترنت
+    e.respondWith(caches.match(req).then((hit) => {
       const net = fetch(req).then((res) => {
         if (res.ok) caches.open(CACHE).then((c) => c.put(req, res.clone()));
         return res;
-      }).catch(() => hit);
-      return hit || net;
+      });
+      if (hit) { net.catch(() => {}); return hit; }
+      return net.catch(() => caches.match(req, { ignoreSearch: true }));
     }));
   }
 });
