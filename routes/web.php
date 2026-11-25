@@ -131,6 +131,7 @@ Route::middleware('auth')->group(function () {
         });
         Route::middleware('perm:teachers,view')->group(function () {
             Route::get('teachers', [Admin\TeacherController::class, 'index'])->name('teachers.index');
+            Route::get('teachers/export', [Admin\TeacherController::class, 'export'])->name('teachers.export');
             Route::get('teachers/{teacher}/assignments', [Admin\AssignmentController::class, 'index'])->name('teachers.assignments');
         });
 
@@ -161,6 +162,7 @@ Route::middleware('auth')->group(function () {
 
         // الطلاب
         Route::get('students', [Admin\StudentController::class, 'index'])->middleware('perm:students,view')->name('students.index');
+        Route::get('students/{student}/grades', [Admin\StudentController::class, 'grades'])->middleware('perm:marks,view')->name('students.grades');
         Route::middleware('perm:students,edit')->group(function () {
             Route::post('students', [Admin\StudentController::class, 'store'])->name('students.store');
             Route::post('students/move', [Admin\StudentController::class, 'move'])->name('students.move');

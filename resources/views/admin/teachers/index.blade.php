@@ -5,6 +5,7 @@
 <div class="page-head">
     <div><h1>المدرسون</h1><div class="sub">لكل مدرس اسم مستخدم وكلمة مرور خاصة به، ولا يرى إلا الشعب والمواد المكلّف بها.</div></div>
     <div class="spacer"></div>
+    <a class="btn" href="{{ route('admin.teachers.export') }}">⬇ تصدير Excel</a>
     @perm('teachers', 'edit')<a class="btn primary" href="{{ route('admin.teachers.create') }}">إضافة مدرس</a>@endperm
 </div>
 <div class="scroll">

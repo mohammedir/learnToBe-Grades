@@ -17,6 +17,12 @@ class TeacherController extends Controller
         return view('admin.teachers.index', compact('teachers'));
     }
 
+    /** تصدير بيانات المدرسين وتكليفاتهم إلى Excel */
+    public function export()
+    {
+        return \App\Services\TeachersExporter::download();
+    }
+
     public function create()
     {
         return view('admin.teachers.form', ['teacher' => new User(['is_active' => true])]);

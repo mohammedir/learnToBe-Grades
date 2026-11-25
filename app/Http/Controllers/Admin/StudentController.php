@@ -57,6 +57,17 @@ class StudentController extends Controller
         return back()->with('status', 'تم حفظ بيانات الطالب.');
     }
 
+    /** كل درجات طالب واحد للإدارة (بغض النظر عن نشر الدرجات للطلاب) */
+    public function grades(Student $student)
+    {
+        $student->load(['section.gradeLevel', 'statusChanger']);
+        $report = new \App\Services\StudentReport($student, true);
+        $quizzes = \App\Models\QuizAttempt::with('quiz.assignment.subject')->where('student_id', $student->id)
+            ->whereNotNull('submitted_at')->latest('submitted_at')->get();
+
+        return view('admin.students.grades', compact('student', 'report', 'quizzes'));
+    }
+
     public function destroy(Request $request, Student $student)
     {
         // لا نحذف الطالب نهائياً حتى لا تضيع درجاته

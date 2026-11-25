@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        // .حساب الإدارة الأول: غيّر كلمة المرور بعد أول دخول
+        // حساب الإدارة الأول: غيّر كلمة المرور بعد أول دخول
         User::updateOrCreate(['username' => env('ADMIN_USERNAME', 'admin')], [
             'name' => 'إدارة المدرسة',
             'role' => 'admin',

@@ -16,16 +16,27 @@ class StudentReport
     /** @var array<int, array{subject:string, scores:array, total:?float, max:float, complete:bool, percent:?float, rating:?string}> */
     public array $subjects = [];
 
-    public function __construct(public Student $student)
+    /**
+     * @param bool $detailed للإدارة: يضيف المدرس ومن رصد آخر درجة ووقتها، ومواد لها درجات من شعبة سابقة
+     */
+    public function __construct(public Student $student, bool $detailed = false)
     {
         $this->components = AssessmentComponent::active()->get();
         $max = (float) $this->components->sum('max_score');
 
-        $assignments = TeachingAssignment::with('subject')->where('section_id', $student->section_id)->get()
+        $assignments = TeachingAssignment::with(['subject', 'teacher'])->where('section_id', $student->section_id)->get()
             ->sortBy(fn ($a) => [$a->subject->sort_order, $a->subject->name]);
 
-        $marks = Mark::where('student_id', $student->id)->get()
-            ->groupBy('subject_id')->map(fn ($g) => $g->pluck('score', 'assessment_component_id'));
+        $rawMarks = Mark::with($detailed ? ['enteredBy'] : [])->where('student_id', $student->id)->get();
+        $marks = $rawMarks->groupBy('subject_id')->map(fn ($g) => $g->pluck('score', 'assessment_component_id'));
+
+        if ($detailed) {
+            // مواد لها درجات محفوظة لكنها ليست في شعبة الطالب الحالية (نُقل من شعبة أخرى)
+            $missing = $rawMarks->pluck('subject_id')->unique()->diff($assignments->pluck('subject_id'));
+            foreach (\App\Models\Subject::whereIn('id', $missing)->get() as $sub) {
+                $assignments->push((new TeachingAssignment(['subject_id' => $sub->id]))->setRelation('subject', $sub)->setRelation('teacher', null));
+            }
+        }
 
         foreach ($assignments as $a) {
             $row = $marks[$a->subject_id] ?? collect();
@@ -43,7 +54,13 @@ class StudentReport
                 'complete' => $complete,
                 'percent' => $percent,
                 'rating' => $percent === null ? null : self::rating($percent),
-            ];
+            ] + ($detailed ? [
+                'subject_id' => $a->subject_id,
+                'teacher' => $a->teacher?->name,
+                'current' => (bool) $a->exists,
+                'last' => ($l = $rawMarks->where('subject_id', $a->subject_id)->sortByDesc('updated_at')->first())
+                    ? ['at' => $l->updated_at, 'by' => $l->enteredBy?->name] : null,
+            ] : []);
         }
     }
 

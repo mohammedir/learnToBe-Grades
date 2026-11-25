@@ -865,3 +865,22 @@ body.quiz-away .quiz-protected{filter:blur(12px)}
 .excuse-note{font-size:12.5px;color:var(--accent);background:#EEF3FC;border-radius:6px;padding:2px 8px;margin-top:4px;display:inline-block;max-width:260px;text-align:right}
 .att-month td.exc{color:var(--accent);background:#E6EEFA}
 .att-table td:first-child{min-width:150px}
+/* درجات طالب (الإدارة) */
+.stu-link{text-decoration:none;color:inherit}
+.stu-link:hover b{color:var(--accent);text-decoration:underline}
+.sg-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:16px 18px;margin-bottom:14px}
+.sg-head h1{margin:0;font-family:var(--f-display)}
+.sg-meta{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;margin-top:4px;align-items:center}
+.sg-avg{display:flex;flex-direction:column;align-items:center;min-width:150px;border-radius:14px;padding:10px 16px;background:var(--sunk)}
+.sg-avg b{font-size:30px;font-variant-numeric:tabular-nums;color:var(--navy)}
+.sg-avg span{font-weight:700}
+.sg-avg small{color:var(--muted);font-size:12px}
+.sg-avg.tone-excellent,.sg-avg.tone-vgood{background:var(--ok-bg)}
+.sg-avg.tone-good,.sg-avg.tone-pass{background:var(--warn-bg)}
+.sg-avg.tone-weak{background:var(--bad-bg)}
+.sg-table th small{display:block;font-weight:400;font-size:11px;opacity:.8}
+.sg-table td.sg-miss{color:var(--muted);background:var(--sunk)}
+.sg-table tr.sg-old td{background:#FBFBFD}
+.sg-quizzes{margin-top:16px}
+.print-only{display:none}
+@media print{.print-only{display:block}.no-print{display:none!important}.sg-head{border:0;padding:0}.sg-school{font-weight:700;color:var(--navy)}}

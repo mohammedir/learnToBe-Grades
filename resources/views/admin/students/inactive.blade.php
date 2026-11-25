@@ -24,7 +24,7 @@
     <tbody>
     @forelse($inactive as $st)
         <tr>
-            <td><b>{{ $st->name }}</b><div class="muted small" dir="ltr" style="text-align:right">{{ $st->national_id }}</div></td>
+            <td>@perm('marks')<a class="stu-link" href="{{ route('admin.students.grades', $st) }}"><b>{{ $st->name }}</b> <span class="muted small">📊</span></a>@else<b>{{ $st->name }}</b>@endperm<div class="muted small" dir="ltr" style="text-align:right">{{ $st->national_id }}</div></td>
             <td>{{ $st->section?->full_name }}</td>
             <td class="c"><span class="pill {{ $st->enrollment_status === 'withdrawn' ? 'off' : 'part' }}">{{ $st->enrollment_label }}</span></td>
             <td class="muted">{{ $st->status_date?->format('Y/m/d') ?? '—' }}</td>

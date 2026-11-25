@@ -50,7 +50,7 @@
     @forelse($students as $st)
         <tr>
             <td class="c">@if($canEdit)<input type="checkbox" class="pick" name="student_ids[]" value="{{ $st->id }}" form="move-form" aria-label="{{ $st->name }}">@endif</td>
-            <td><b>{{ $st->name }}</b>@unless($st->is_active) <span class="pill off" title="{{ $st->status_reason }}">{{ $st->enrollment_label }}</span>@endunless</td>
+            <td>@perm('marks')<a class="stu-link" href="{{ route('admin.students.grades', $st) }}" title="كل درجات الطالب"><b>{{ $st->name }}</b> <span class="muted small">📊</span></a>@else<b>{{ $st->name }}</b>@endperm @unless($st->is_active) <span class="pill off" title="{{ $st->status_reason }}">{{ $st->enrollment_label }}</span>@endunless</td>
             <td>{{ $st->section->full_name }}</td>
             <td class="c">{{ $st->gender_label }}</td>
             <td dir="ltr" style="text-align:right">{{ $st->national_id }}</td>
