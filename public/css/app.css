@@ -884,3 +884,7 @@ body.quiz-away .quiz-protected{filter:blur(12px)}
 .sg-quizzes{margin-top:16px}
 .print-only{display:none}
 @media print{.print-only{display:block}.no-print{display:none!important}.sg-head{border:0;padding:0}.sg-school{font-weight:700;color:var(--navy)}}
+/* إظهار الدرجات للطالب */
+.vis-box{flex-basis:100%;display:flex;flex-direction:column;gap:6px;background:var(--sunk);border-radius:12px;padding:10px 12px}
+.total-toggle{font-weight:700}
+.subject.no-total .parts{margin-top:4px}

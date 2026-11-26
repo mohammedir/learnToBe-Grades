@@ -105,6 +105,16 @@
         <div class="field"><label for="title">عنوان النتائج كما يراه الطالب</label><input type="text" id="title" name="title" value="{{ $title }}" style="min-width:280px" required></div>
         <label class="check"><input type="radio" name="published" value="1" @checked($published)> نشر الدرجات للطلاب</label>
         <label class="check"><input type="radio" name="published" value="0" @checked(! $published)> إخفاء الدرجات</label>
+        <div class="vis-box">
+            <div class="filter-label">ما يظهر للطالب:</div>
+            <div class="chips">
+                @foreach($allComponents as $c)
+                    <label @class(['on' => $visibleIds === null || in_array($c->id, $visibleIds)])><input type="checkbox" name="components[]" value="{{ $c->id }}" @checked($visibleIds === null || in_array($c->id, $visibleIds)) onchange="this.parentElement.classList.toggle('on', this.checked)"> {{ $c->name }}</label>
+                @endforeach
+            </div>
+            <label class="check total-toggle"><input type="checkbox" name="show_total" value="1" @checked($showTotal)> إظهار المجموع من {{ rtrim(rtrim(number_format($allComponents->sum('max_score'), 2, '.', ''), '0'), '.') }} والنسبة والتقدير والمعدل</label>
+            <span class="hint">أزل العلامة ليرى الطالب العلامات الشهرية فقط دون الدرجة من 100. وأزل علامة أي عنصر لإخفائه (مثلاً الامتحان النهائي).</span>
+        </div>
         <button class="btn primary" type="submit">حفظ</button>
     </form>
     <p style="color:var(--muted);font-size:13px;margin-bottom:0">قبل النشر تأكد من اكتمال الرصد في «متابعة الرصد». بعد النشر يرى الطالب كل درجة يرصدها المدرس فور حفظها.</p>

@@ -34,6 +34,9 @@ class PortalController extends Controller
             'students' => $section ? $section->orderedStudents() : collect(),
             'pickSections' => Section::ordered()->with(['gradeLevel', 'students' => fn ($q) => $q->where('is_active', true)->whereNotNull('national_id')->orderBy('name')])->get(),
             'published' => (bool) Setting::get('grades_published', false),
+            'showTotal' => \App\Support\GradeVisibility::showTotal(),
+            'visibleIds' => \App\Support\GradeVisibility::componentIds(),
+            'allComponents' => \App\Models\AssessmentComponent::active()->get(),
             'lock' => \App\Support\PortalLock::state(),
             'title' => Setting::get('grades_title', 'نتائج الفصل الدراسي الأول'),
             'totals' => [
@@ -50,11 +53,16 @@ class PortalController extends Controller
         $data = $request->validate([
             'title' => ['required', 'string', 'max:120'],
             'published' => ['required', 'boolean'],
-        ], [], ['title' => 'عنوان النتائج']);
+            'components' => ['required', 'array', 'min:1'],
+            'components.*' => ['integer'],
+        ], ['components.required' => 'اختر عنصر درجة واحداً على الأقل ليظهر للطلاب.'], ['title' => 'عنوان النتائج']);
         Setting::put('grades_title', $data['title']);
         Setting::put('grades_published', $data['published'] ? '1' : '0');
+        \App\Support\GradeVisibility::save($request->boolean('show_total'), $data['components']);
 
-        return back()->with('status', $data['published'] ? 'تم نشر الدرجات. يرى الطلاب الآن درجاتهم عند الدخول.' : 'تم إخفاء الدرجات عن الطلاب.');
+        $what = $request->boolean('show_total') ? '' : ' (بدون المجموع من 100 والنسبة والتقدير)';
+
+        return back()->with('status', $data['published'] ? 'تم نشر الدرجات'.$what.'. يرى الطلاب الآن درجاتهم عند الدخول.' : 'تم إخفاء الدرجات عن الطلاب.');
     }
 
     /** تعطيل البوابة كاملة أو مزايا محددة مع السبب، أو إعادة تشغيلها */

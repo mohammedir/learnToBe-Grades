@@ -45,6 +45,8 @@ class HomeController extends Controller
             'published' => $published,
             'title' => Setting::get('grades_title', 'نتائج الفصل الدراسي الأول'),
             'report' => $published ? new StudentReport($student) : null,
+            'showTotal' => \App\Support\GradeVisibility::showTotal(),
+            'visibleIds' => \App\Support\GradeVisibility::componentIds(),
             'notes' => $off('notes') ? collect() : $student->notes()->with(['subject', 'author'])->limit(30)->get(),
             'quizzes' => $off('quizzes') ? collect() : \App\Services\StudentQuizzes::for($student),
             'teachers' => $off('teachers') ? collect() : self::teachersOf($student),

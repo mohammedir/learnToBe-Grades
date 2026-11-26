@@ -3,6 +3,8 @@
 @section('content')
 @php($fmt = fn ($n) => $n === null ? '' : rtrim(rtrim(number_format($n, 2, '.', ''), '0'), '.'))
 @php($R = \App\Services\StudentReport::class)
+{{-- العناصر التي اختارت الإدارة إظهارها فقط (المخفية لا تُرسل للمتصفح أصلاً) --}}
+@php($comps = $report ? ($visibleIds === null ? $report->components : $report->components->whereIn('id', $visibleIds)->values()) : collect())
 
 <section class="report-head">
     <div class="who">
@@ -13,8 +15,8 @@
             @if($student->national_id)<span dir="ltr">{{ $student->national_id }}</span>@endif
         </div>
     </div>
-    @if($published && $report && ! empty($report->subjects))
-        @php($avg = $report->average())
+    @php($avg = $report && $showTotal ? $report->average() : null)
+    @if($published && $report && ! empty($report->subjects) && $showTotal)
         @php($tone = $avg === null ? 'pending' : $R::tone($R::rating($avg)))
         <div class="avg tone-{{ $tone }}">
             <svg viewBox="0 0 120 120" class="ring" aria-hidden="true">
@@ -92,13 +94,15 @@
 @elseif(empty($report->subjects))
     <div class="panel empty-state"><b>لا توجد مواد مسجّلة لشعبتك بعد</b></div>
 @else
-    @php($best = $report->best())
-    @php($attention = $report->needsAttention())
+    @php($best = $showTotal ? $report->best() : null)
+    @php($attention = $showTotal ? $report->needsAttention() : [])
+    @if($showTotal)
     <div class="highlights">
         <div class="hl"><span>المعدل العام</span><b>{{ $avg === null ? '—' : $fmt($avg).'%' }}</b><small>متوسط المواد المكتملة</small></div>
         <div class="hl"><span>المواد المكتملة</span><b>{{ $report->completeCount() }} من {{ count($report->subjects) }}</b><small>{{ $report->completeCount() < count($report->subjects) ? 'بعض المواد قيد الرصد' : 'اكتمل رصد كل المواد' }}</small></div>
         @if($best)<div class="hl"><span>أعلى مادة</span><b>{{ $best['subject'] }}</b><small>{{ $fmt($best['percent']) }}% · {{ $best['rating'] }}</small></div>@endif
     </div>
+    @endif
 
     @if($attention)
         <div class="note">
@@ -111,20 +115,27 @@
     <div class="section-title"><h2>الدرجات حسب المادة</h2><button class="btn sm no-print" type="button" onclick="window.print()">طباعة الكشف</button></div>
     <div class="subjects">
         @foreach($report->subjects as $s)
-            @php($tone = $s['complete'] ? $R::tone($s['rating']) : 'pending')
+            @php($shown = $comps->filter(fn ($c) => $s['scores'][$c->id] !== null)->count())
+            @php($tone = $showTotal ? ($s['complete'] ? $R::tone($s['rating']) : 'pending') : 'pending')
             @php($width = $s['max'] > 0 && $s['total'] !== null ? min(100, $s['total'] / $s['max'] * 100) : 0)
-            <article class="subject tone-{{ $tone }}">
+            <article class="subject tone-{{ $tone }} @unless($showTotal) no-total @endunless">
                 <header>
                     <h3>{{ $s['subject'] }}</h3>
-                    <span class="badge">{{ $s['complete'] ? $s['rating'] : ($s['total'] !== null ? 'قيد الرصد' : 'لم تُرصد') }}</span>
+                    @if($showTotal)
+                        <span class="badge">{{ $s['complete'] ? $s['rating'] : ($s['total'] !== null ? 'قيد الرصد' : 'لم تُرصد') }}</span>
+                    @else
+                        <span class="badge">{{ $shown === 0 ? 'لم تُرصد' : ($shown === $comps->count() ? 'مرصودة' : 'قيد الرصد') }}</span>
+                    @endif
                 </header>
+                @if($showTotal)
                 <div class="score">
                     <b>{{ $s['total'] === null ? '—' : $fmt($s['total']) }}</b><span>/ {{ $fmt($s['max']) }}</span>
                     @if($s['percent'] !== null)<em>{{ $fmt($s['percent']) }}%</em>@endif
                 </div>
                 <div class="meter" role="img" aria-label="{{ $s['subject'] }}: {{ $s['total'] === null ? 'لم تُرصد' : $fmt($s['total']).' من '.$fmt($s['max']) }}"><i style="width:{{ $width }}%"></i></div>
+                @endif
                 <dl class="parts">
-                    @foreach($report->components as $c)
+                    @foreach($comps as $c)
                         @php($v = $s['scores'][$c->id])
                         <div @class(['missing' => $v === null])>
                             <dt>{{ $c->name }}</dt>
@@ -142,17 +153,19 @@
         <table>
             <thead><tr>
                 <th>المادة</th>
-                @foreach($report->components as $c)<th class="c">{{ $c->name }}<small>من {{ $fmt($c->max_score) }}</small></th>@endforeach
-                <th class="c">المجموع</th><th class="c">النسبة</th><th class="c">التقدير</th>
+                @foreach($comps as $c)<th class="c">{{ $c->name }}<small>من {{ $fmt($c->max_score) }}</small></th>@endforeach
+                @if($showTotal)<th class="c">المجموع</th><th class="c">النسبة</th><th class="c">التقدير</th>@endif
             </tr></thead>
             <tbody>
             @foreach($report->subjects as $s)
                 <tr>
                     <td><b>{{ $s['subject'] }}</b></td>
-                    @foreach($report->components as $c)<td class="c">{{ $s['scores'][$c->id] === null ? '—' : $fmt($s['scores'][$c->id]) }}</td>@endforeach
+                    @foreach($comps as $c)<td class="c">{{ $s['scores'][$c->id] === null ? '—' : $fmt($s['scores'][$c->id]) }}</td>@endforeach
+                    @if($showTotal)
                     <td class="c"><b>{{ $s['total'] === null ? '—' : $fmt($s['total']) }}</b></td>
                     <td class="c">{{ $s['percent'] === null ? '—' : $fmt($s['percent']).'%' }}</td>
                     <td class="c">{{ $s['rating'] ?? '—' }}</td>
+                    @endif
                 </tr>
             @endforeach
             </tbody>
@@ -160,6 +173,7 @@
         </div>
     </details>
 
+    @if($showTotal)
     <div class="scale">
         <span class="tone-excellent"><i></i>ممتاز 90+</span>
         <span class="tone-vgood"><i></i>جيد جداً 80–89</span>
@@ -168,6 +182,9 @@
         <span class="tone-weak"><i></i>يحتاج متابعة &lt;50</span>
     </div>
     <p class="fine">«—» تعني أن الدرجة لم تُرصد بعد. المعدل يُحسب من المواد المكتملة فقط. لأي استفسار تواصل مع مدرس المادة أو إدارة المدرسة.</p>
+    @else
+    <p class="fine">«—» تعني أن الدرجة لم تُرصد بعد. لأي استفسار تواصل مع مدرس المادة أو إدارة المدرسة.</p>
+    @endif
 @endif
 @endsection
 @push('scripts')@include('partials.math')@endpush
